@@ -6,17 +6,13 @@ const Brewery = models.Brewery;
 module.exports = router;
 
 router.get('/', (req, res, next) => {
-    Brewery.findAll({
-        include: [{all: true}]
-    })
+    Brewery.findAll()
     .then(breweries => res.json(breweries))
     .catch(next)
 })
 
 router.get('/:breweryId', (req, res, next) => {
-    Brewery.findById(req.params.breweryId,
-        {include: [{all: true}]
-    })
+    Brewery.findById(req.params.breweryId)
     .then(brewery => res.json(brewery))
     .catch(next)
 })

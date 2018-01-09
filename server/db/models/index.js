@@ -29,7 +29,7 @@ Style.hasMany(Product)
  */
 module.exports = {
   Reviews,
-  Order
+  Order,
   User, 
   Product,
   Brewery,

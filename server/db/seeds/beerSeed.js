@@ -97,7 +97,7 @@ function rankListPromiseMaker(list, index) {
 					return Brewery.findOne({ where: { name: brewerydbdata.breweries[0].name }})
 					.then(brewery => {
 						if (brewerydbdata.description) {
-							Beer.findOrCreate({ where: {
+							Product.findOrCreate({ where: {
 							name: brewerydbdata.name,
 							image: img,
 							price: randomPrice,
