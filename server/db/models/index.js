@@ -1,5 +1,5 @@
 const User = require('./user')
-const Beer = require('./beer')
+const Product = require('./product')
 const Brewery = require('./brewery')
 const Style = require('./style')
 
@@ -9,10 +9,10 @@ const Style = require('./style')
  *
  *    BlogPost.belongsTo(User)
  */
-Beer.belongsTo(Brewery)
-Beer.belongsTo(Style)
-Brewery.hasMany(Beer)
-Style.hasMany(Beer)
+Product.belongsTo(Brewery)
+Product.belongsTo(Style)
+Brewery.hasMany(Product)
+Style.hasMany(Product)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -22,7 +22,7 @@ Style.hasMany(Beer)
  */
 module.exports = {
   User, 
-  Beer,
+  Product,
   Brewery,
   Style
 }

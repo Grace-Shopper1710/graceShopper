@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Beer = db.define('beer', {
+const Product = db.define('product', {
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false
@@ -30,4 +30,4 @@ const Beer = db.define('beer', {
 	}
 })
 
-module.exports = Beer
+module.exports = Product

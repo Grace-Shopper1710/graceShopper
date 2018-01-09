@@ -1,7 +1,7 @@
 const request = require('request-promise')// request doesn't return promise, so use 'request-promise'
 const cheerio = require('cheerio')
 const axios = require('axios')
-const { db, Beer, Brewery } = require('../models')
+const { db, Product, Brewery } = require('../models')
 
 let rankLists = ['Top', 'Fame']
 let rankListPromises = [];
@@ -16,7 +16,7 @@ for (let i = 0; i < 20; i++) {
 	stateListPromises.push(delay(100*i).then(() => request(`https://www.beeradvocate.com/lists/state/${stateLists[i]}/`)))
 }
 
-Beer.sync({ force: true })
+Product.sync({ force: true })
 .then(() =>
 	Promise.all(rankListPromises)
 )
