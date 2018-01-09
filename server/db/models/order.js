@@ -1,10 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Order = db.define('orders', {
-  id: {
-    type: Sequelize.INTEGER
-  },
+const Order = db.define('order', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false
@@ -14,7 +11,7 @@ const Order = db.define('orders', {
     allowNull: false
   },
   products: {
-    type: Sequelize.ARRAY
+    type: Sequelize.ARRAY(Sequelize.STRING)
   },
   address: {
     type: Sequelize.STRING,
