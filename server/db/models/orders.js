@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Orders = db.define('orders', {
+const Order = db.define('orders', {
   id: {
     type: Sequelize.INTEGER
   },
@@ -57,7 +57,7 @@ const Orders = db.define('orders', {
   }
 })
 
-Orders.prototype.total = function(){
+Order.prototype.total = function(order){
   let total = 0
   for(var i = 0; i < this.products.length; i++){
     total += this.products[i].price
@@ -65,4 +65,4 @@ Orders.prototype.total = function(){
   return total
 }
 
-module.exports = Orders
+module.exports = Order
