@@ -24,5 +24,5 @@ User.hasMany(Orders)
 module.exports = {
   User,
   Reviews,
-  Orders
+  Order
 }
