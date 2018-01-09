@@ -12,3 +12,24 @@ router.get('/', (req, res, next) => {
     .then(users => res.json(users))
     .catch(next)
 })
+
+router.get('/:userId', (req, res, next) => {
+  User.findById(req.params.userId,
+  {attributes: ['id', 'email']
+  })
+  .then(user => res.json(user))
+  .catch(next)
+})
+
+router.post('/', (req, res, next) => {
+  User.create(req.body)
+    .then(user => res.status(201).json(user))
+    .catch(next);
+});
+
+router.put('/:userId', (req, res, next) => {
+  User.findById(req.params.userId, {
+    attributes: ['id', 'email']
+  })
+  .then(user => res.json(user))
+});
