@@ -7,6 +7,8 @@ const Style = require('./style')
 
 
 Reviews.belongsTo(User)
+Product.hasMany(Reviews)
+Reviews.belongsTo(Product)
 User.hasMany(Reviews)
 Order.belongsTo(User)
 User.hasMany(Order)
