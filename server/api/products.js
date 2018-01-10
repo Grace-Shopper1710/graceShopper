@@ -5,6 +5,16 @@ const Product = models.Product
 
 module.exports = router;
 
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.isAdmin) {
+        next()
+    } else {
+        const err = new Error('Not Authorized')
+        err.status = 403
+        next(err)
+    }
+}
+
 router.get('/', (req, res, next) => {
     Product.findAll({
         include: [{all: true}]
@@ -21,13 +31,13 @@ router.get('/:productId', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', isAdmin, (req, res, next) => {
     Product.create(req.body)
     .then(product => res.json(product))
     .catch(next)
 })
 
-router.put('/:productId', (req, res, next) => {
+router.put('/:productId', isAdmin, (req, res, next) => {
     Product.findOne({
         where: {id: req.params.productId}
     })
@@ -36,7 +46,7 @@ router.put('/:productId', (req, res, next) => {
     .catch(next)
 })
 
-router.delete('/:productId', (req, res, next) => {
+router.delete('/:productId', isAdmin, (req, res, next) => {
     Product.destroy({
         where: {id: req.params.productId}
     })

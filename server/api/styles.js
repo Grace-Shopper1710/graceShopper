@@ -5,6 +5,16 @@ const Style = models.Style
 
 module.exports = router;
 
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.isAdmin) {
+        next()
+    } else {
+        const err = new Error('Not Authorized')
+        err.status = 403
+        next(err)
+    }
+}
+
 router.get('/', (req, res, next) => {
     Style.findAll({
         include: [{all: true}]
@@ -21,13 +31,13 @@ router.get('/:styleId', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', isAdmin, (req, res, next) => {
     Style.create(req.body)
     .then(style => res.json(style))
     .catch(next)
 })
 
-router.put('/:styleId', (req, res, next) => {
+router.put('/:styleId', isAdmin, (req, res, next) => {
     Style.findOne({
         where: {id: req.params.styleId}
     })
@@ -36,7 +46,7 @@ router.put('/:styleId', (req, res, next) => {
     .catch(next)
 })
 
-router.delete('/:styleId', (req, res, next) => {
+router.delete('/:styleId', isAdmin, (req, res, next) => {
     Style.destroy({
         where: {id: req.params.styleId}
     })
