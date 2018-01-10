@@ -40,6 +40,6 @@ router.delete('/:orderId', (req, res, next) => {
     Order.destroy({
         where: {id: req.params.orderId}
     })
-    .then(() => res.send("Successful deletion"))
+    .then(() => res.send('Successful deletion'))
     .catch(next)
 })

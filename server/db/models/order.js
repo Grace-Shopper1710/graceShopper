@@ -56,7 +56,7 @@ const Order = db.define('order', {
 
 Order.prototype.total = function(){
   let total = 0
-  for (var i = 0; i < this.products.length; i++){
+  for (let i = 0; i < this.products.length; i++){
     total += (this.products[i].price * this.products[i].quantity)
   }
   return total

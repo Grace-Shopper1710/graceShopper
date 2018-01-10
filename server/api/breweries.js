@@ -36,6 +36,6 @@ router.delete('/:breweryId', (req, res, next) => {
     Brewery.destroy({
         where: {id: req.params.breweryId}
     })
-    .then(() => res.send("Successful deletion"))
+    .then(() => res.send('Successful deletion'))
     .catch(next)
 })
