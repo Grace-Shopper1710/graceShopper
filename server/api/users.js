@@ -2,6 +2,16 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+      next()
+  } else {
+      const err = new Error('Not Authorized')
+      err.status = 403
+      next(err)
+  }
+}
+
 router.get('/', (req, res, next) => {
   User.findAll({
     // explicitly select only the id and email fields - even though
@@ -27,9 +37,10 @@ router.post('/', (req, res, next) => {
     .catch(next);
 })
 
-router.put('/:userId', (req, res, next) => {
+router.put('/:userId', isAdmin, (req, res, next) => {
   User.findById(req.params.userId, {
     attributes: ['id', 'email']
   })
   .then(user => res.json(user))
 })
+

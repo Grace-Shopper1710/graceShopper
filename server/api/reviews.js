@@ -5,6 +5,16 @@ const Review = models.Review
 
 module.exports = router;
 
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.isAdmin) {
+        next()
+    } else {
+        const err = new Error('Not Authorized')
+        err.status = 403
+        next(err)
+    }
+}
+
 router.get('/', (req, res, next) => {
     Review.findAll({
         include: [{all: true}]
@@ -27,7 +37,7 @@ router.post('/', (req, res, next) => {
     .catch(next)
 })
 
-router.put('/:reviewId', (req, res, next) => {
+router.put('/:reviewId', isAdmin, (req, res, next) => {
     Review.findOne({
         where: {id: req.params.reviewId}
     })
@@ -36,7 +46,7 @@ router.put('/:reviewId', (req, res, next) => {
     .catch(next)
 })
 
-router.delete('/:reviewId', (req, res, next) => {
+router.delete('/:reviewId', isAdmin, (req, res, next) => {
     Review.destroy({
         where: {id: req.params.reviewId}
     })
