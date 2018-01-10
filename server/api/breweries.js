@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const models = require('../db/models');
-const Brewery = models.Brewery;
+const express = require('express')
+const router = express.Router()
+const models = require('../db/models')
+const Brewery = models.Brewery
 
 module.exports = router;
 
@@ -36,6 +36,6 @@ router.delete('/:breweryId', (req, res, next) => {
     Brewery.destroy({
         where: {id: req.params.breweryId}
     })
-    .then(() => res.send("Successful deletion"))
+    .then(() => res.send('Successful deletion'))
     .catch(next)
 })

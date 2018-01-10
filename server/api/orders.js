@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const models = require('../db/models');
-const Order = models.Order;
+const express = require('express')
+const router = express.Router()
+const models = require('../db/models')
+const Order = models.Order
 
 module.exports = router;
 
@@ -40,6 +40,6 @@ router.delete('/:orderId', (req, res, next) => {
     Order.destroy({
         where: {id: req.params.orderId}
     })
-    .then(() => res.send("Successful deletion"))
+    .then(() => res.send('Successful deletion'))
     .catch(next)
 })

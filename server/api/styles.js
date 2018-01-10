@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const models = require('../db/models');
-const Style = models.Style;
+const express = require('express')
+const router = express.Router()
+const models = require('../db/models')
+const Style = models.Style
 
 module.exports = router;
 
@@ -40,6 +40,6 @@ router.delete('/:styleId', (req, res, next) => {
     Style.destroy({
         where: {id: req.params.styleId}
     })
-    .then(() => res.send("Successful deletion"))
+    .then(() => res.send('Successful deletion'))
     .catch(next)
 })
