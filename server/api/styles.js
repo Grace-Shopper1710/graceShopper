@@ -6,6 +6,7 @@ const Style = models.Style;
 module.exports = router;
 
 router.get('/', (req, res, next) => {
+    console.log(req.session)
     Style.findAll({
         include: [{all: true}]
     })
