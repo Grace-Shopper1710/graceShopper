@@ -9,12 +9,12 @@ export default class OurTest extends React.Component {
         store.dispatch(fetchAllProducts())
     }
 
-    render(){
+    render (){
     return (
       <div>
-          <h1> Beer Stuff</h1>
-
+          <h1>Images for home page</h1>
       </div>
     )
     }
   }
+  
