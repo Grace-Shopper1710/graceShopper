@@ -11,7 +11,7 @@ const Order = db.define('order', {
     allowNull: false
   },
   products: {
-    type: Sequelize.ARRAY(Sequelize.STRING)
+    type: Sequelize.ARRAY(Sequelize.JSON)
   },
   address: {
     type: Sequelize.STRING,
@@ -54,10 +54,10 @@ const Order = db.define('order', {
   }
 })
 
-Order.prototype.total = function(order){
+Order.prototype.total = function(){
   let total = 0
-  for(var i = 0; i < this.products.length; i++){
-    total += this.products[i].price
+  for (var i = 0; i < this.products.length; i++){
+    total += (this.products[i].price * this.products[i].quantity)
   }
   return total
 }

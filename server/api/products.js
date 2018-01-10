@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const models = require('../db/models');
-const Product = models.Product;
+const express = require('express')
+const router = express.Router()
+const models = require('../db/models')
+const Product = models.Product
 
 module.exports = router;
 
