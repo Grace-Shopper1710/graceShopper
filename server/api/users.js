@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
+
 module.exports = router
 
 const isAdmin = (req, res, next) => {
@@ -41,6 +42,7 @@ router.put('/:userId', isAdmin, (req, res, next) => {
   User.findById(req.params.userId, {
     attributes: ['id', 'email']
   })
+  .then(user => user.update(req.body))
   .then(user => res.json(user))
 })
 
