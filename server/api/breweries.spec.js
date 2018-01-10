@@ -3,7 +3,7 @@ const {expect} = require('chai')
 const request = require('supertest')
 const db = require('../db')
 const app = require('../index')
-const Breweries = db.model('Breweries')
+const Brewery = db.model('brewery')
 
 describe('Breweries routes', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('Breweries routes', () => {
 describe('api/breweries', () => {
 
   beforeEach(() => {
-    return Breweries.create({
+    return Brewery.create({
       name: 'sampleBrew'
     })
   })
