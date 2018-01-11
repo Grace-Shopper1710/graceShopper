@@ -10,9 +10,8 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  total: {
-    type: Sequelize.DOUBLE,
-    allowNull: false
+  products: {
+    type: Sequelize.ARRAY(Sequelize.JSON)
   },
   address: {
     type: Sequelize.STRING,
@@ -27,6 +26,14 @@ const Order = db.define('order', {
     allowNull: false
   },
   state: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  creditCard: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  creditCardExpDate: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -47,6 +54,12 @@ const Order = db.define('order', {
   }
 })
 
-//CLASS METHODS
+Order.prototype.total = function(){
+  let total = 0
+  for (let i = 0; i < this.products.length; i++){
+    total += (this.products[i].price * this.products[i].quantity)
+  }
+  return total
+}
 
 module.exports = Order

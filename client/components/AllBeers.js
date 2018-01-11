@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
 import store, { fetchAllProducts } from '../store'
 
-
 const mapStateToProps = state => ({ beers: state.product })
 
 
