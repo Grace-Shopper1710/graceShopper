@@ -6,11 +6,7 @@ import store, { fetchAllProducts } from '../store'
 
 
 const mapStateToProps = state => ({ beers: state.product })
-const mapDispatchToProps = () => ({
-	getAllBeers() {
-		store.dispatch(fetchAllProducts())
-	}
-})
+
 
 
 const allBeers =  (props) => {
