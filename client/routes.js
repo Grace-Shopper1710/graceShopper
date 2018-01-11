@@ -28,8 +28,8 @@ class Routes extends Component {
             {/* <Route path="/beers/:id" component={SingleBeer} /> */}
             <Route exact path="/breweries" component={AllBreweries} />
             <Route path="/breweries/:id" component={SingleBrewery} />
-            {/* <Route exact path="/styles" component={AllStyles} /> */}
-            {/* <Route path="/styles/:id" component={SingleStyle} /> */}
+            <Route exact path="/styles" component={AllStyles} />
+            <Route path="/styles/:id" component={SingleStyle} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
 

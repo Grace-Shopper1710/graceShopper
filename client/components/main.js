@@ -20,6 +20,7 @@ const Main = (props) => {
       <nav>
         <Link to="/breweries">Breweries</Link>
         <Link to="/beers">Beers</Link>
+        <Link to="/styles">Styles</Link>
         {
           isLoggedIn
             ? <div>
