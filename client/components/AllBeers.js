@@ -2,10 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
+import store, { fetchAllProducts } from '../store'
 
 const mapStateToProps = state => ({ beers: state.product })
 
+
+
 const allBeers =  (props) => {
+	
 	return (
 		<div>
 			<ul>

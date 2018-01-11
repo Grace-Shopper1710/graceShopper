@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const mapStateToProps = state => ({ breweries: state.brewery })
 
+
 export class AllBreweries extends React.Component {
 
     render() {
