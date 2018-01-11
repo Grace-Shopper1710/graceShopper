@@ -5,6 +5,8 @@ const BeerItem = (props) => {
 	const { beer } = props
 	return (
 		<li>
+			{beer.map(beer => 
+			<div key={beer.id}>
 			<img src={beer.image} />
 			<ul>
 				<li><NavLink to={`/beers/${beer.id}`}>{beer.name}</NavLink></li>
@@ -12,6 +14,8 @@ const BeerItem = (props) => {
 				<li><NavLink to={`/breweries/${beer.breweryId}`}>{beer.brewery ? beer.brewery.name : null} / ABV: {beer.abv}</NavLink></li>
 				<li><p>${beer.price}</p></li>	
 			</ul>
+			</div>
+			)}
 		</li>
 	)
 }

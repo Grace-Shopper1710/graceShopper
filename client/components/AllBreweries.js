@@ -4,17 +4,8 @@ import { NavLink } from 'react-router-dom'
 import store, {fetchAllBreweries} from '../store'
 
 const mapStateToProps = state => ({ breweries: state.brewery })
-const mapDispatchToProps = dispatch => ({
-    getAllBreweries() {
-        store.dispatch(fetchAllBreweries())
-    }
-})
 
 export class AllBreweries extends React.Component {
-
-    componentDidMount() {
-        store.dispatch(fetchAllBreweries())
-    }
 
     render() {
 	return (
@@ -39,5 +30,5 @@ export class AllBreweries extends React.Component {
     }
 }
 
-const allBreweriesContainer = connect(mapStateToProps, mapDispatchToProps)(AllBreweries)
+const allBreweriesContainer = connect(mapStateToProps)(AllBreweries)
 export default allBreweriesContainer
