@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
+import Footer from './Footer'
 
 /**
  * COMPONENT
@@ -11,8 +12,7 @@ import {logout} from '../store'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  console.log(props)
-  const {children, handleClick, isLoggedIn} = props
+  const {children, handleClick, isLoggedIn, isAdmin} = props
 
   return (
     <div>
@@ -21,6 +21,21 @@ const Main = (props) => {
         <Link to="/breweries">Breweries</Link>
         <Link to="/beers">Beers</Link>
         <Link to="/styles">Styles</Link>
+        {
+          isAdmin
+            ? <div>
+              {/* The navbar will show these links if you're an Admin */}
+              <Link to="/editStyle">Edit Style</Link>
+              <Link to="/editProduct">Edit User</Link>
+              <Link to="/editProduct">Edit Order</Link>
+              <Link to="/editProduct">Edit Brewery</Link>
+              <Link to="/orders">All Orders</Link>
+              <Link to="/users">All Users</Link>
+
+            </div>
+            :
+            null
+        }
         {
           isLoggedIn
             ? <div>
@@ -36,6 +51,7 @@ const Main = (props) => {
       </nav>
       <hr />
       {children}
+      <Footer />
     </div>
   )
 }
@@ -46,6 +62,7 @@ const Main = (props) => {
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
+    isAdmin: !!state.user.isAdmin && !!state.user.id,
     beers: state.products
   }
 }
@@ -68,5 +85,6 @@ export default withRouter(connect(mapState, mapDispatch)(Main))
 Main.propTypes = {
   children: PropTypes.object,
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  isAdmin: PropTypes.bool.isRequired
 }

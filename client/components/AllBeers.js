@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
 
-
 const mapStateToProps = state => ({ beers: state.product })
 
 const allBeers =  (props) => {
