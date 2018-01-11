@@ -18,7 +18,7 @@ const Main = (props) => {
     <div>
       <h1>BEER</h1>
       <nav>
-        <Link to="/products">Beers</Link>
+        <Link to="/beers">Beers</Link>
         {
           isLoggedIn
             ? <div>
