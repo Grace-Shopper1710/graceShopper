@@ -5,6 +5,16 @@ const Order = models.Order
 
 module.exports = router;
 
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.isAdmin) {
+        next()
+    } else {
+        const err = new Error('Not Authorized')
+        err.status = 403
+        next(err)
+    }
+}
+
 router.get('/', (req, res, next) => {
     Order.findAll({
         include: [{all: true}]
@@ -21,13 +31,13 @@ router.get('/:orderId', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', isAdmin, (req, res, next) => {
     Order.create(req.body)
     .then(order => res.json(order))
     .catch(next)
 })
 
-router.put('/:orderId', (req, res, next) => {
+router.put('/:orderId', isAdmin, (req, res, next) => {
     Order.findOne({
         where: {id: req.params.orderId}
     })
@@ -36,7 +46,7 @@ router.put('/:orderId', (req, res, next) => {
     .catch(next)
 })
 
-router.delete('/:orderId', (req, res, next) => {
+router.delete('/:orderId', isAdmin, (req, res, next) => {
     Order.destroy({
         where: {id: req.params.orderId}
     })
