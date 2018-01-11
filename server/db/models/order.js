@@ -4,31 +4,31 @@ const db = require('../db')
 const Order = db.define('order', {
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   total: {
     type: Sequelize.DOUBLE,
-    allowNull: false
+    //allowNull: false
   },
   address: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   zipCode: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   city: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   state: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
 
   //VIRTUALS
