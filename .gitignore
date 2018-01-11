@@ -5,8 +5,4 @@ secrets.js
 .DS_Store
 npm-debug.log
 yarn-error.log
-<<<<<<< HEAD
 package-lock.json
-=======
-package-lock.json
->>>>>>> d7cfc69420b798813f1237689afe4f364dc5ceb1
