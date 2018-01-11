@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import store, {fetchAllBreweries} from '../store'
 
 const mapStateToProps = state => ({ breweries: state.brewery })
 
@@ -10,7 +9,6 @@ export class AllBreweries extends React.Component {
     render() {
 	return (
 		<div>
-            Hello!!!!!!
 			<ul>
 				{
 					this.props.breweries.map(brewery => (
