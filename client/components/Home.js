@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import store, {fetchAllProducts, fetchAllBreweries, fetchAllStyles} from '../store'
 
-export default class OurTest extends React.Component {
+export default class Home extends React.Component {
 
     componentDidMount() {
         store.dispatch(fetchAllProducts())

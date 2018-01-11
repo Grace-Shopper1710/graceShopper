@@ -25,11 +25,11 @@ class Routes extends Component {
             {/* Routes placed here are available to all visitors */}
             <Route exact path="/" component={Home} />
             <Route exact path="/beers" component={AllBeers} />
-            <Route path="/beers/:id" component={SingleBeer} />
+            {/* <Route path="/beers/:id" component={SingleBeer} /> */}
             <Route exact path="/breweries" component={AllBreweries} />
             <Route path="/breweries/:id" component={SingleBrewery} />
-            <Route exact path="/styles" component={AllStyles} />
-            <Route path="/styles/:id" component={SingleStyle} />
+            {/* <Route exact path="/styles" component={AllStyles} /> */}
+            {/* <Route path="/styles/:id" component={SingleStyle} /> */}
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
 
