@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, UserHome} from './components'
+import {Main, Login, Signup, UserHome, AllBeers, AllBreweries, SingleBrewery} from './components'
 import {me} from './store'
+import Home from './components/Home'
 
 /**
  * COMPONENT
@@ -22,8 +23,13 @@ class Routes extends Component {
         <Main>
           <Switch>
             {/* Routes placed here are available to all visitors */}
+            <Route exact path="/" component={Home} />
+            <Route exact path="/products" component={AllBeers} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route exact path="/breweries" component={AllBreweries} />
+            <Route path="/breweries/:breweriesId" component={SingleBrewery} /> 
+
             {
               isLoggedIn &&
                 <Switch>

@@ -15,13 +15,14 @@ const Main = (props) => {
 
   return (
     <div>
-      <h1>BOILERMAKER</h1>
+      <h1>BEER</h1>
       <nav>
+        <Link to="/products">Beers</Link>
+        <Link to="/breweries">Breweries</Link>
         {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to="/home">Home</Link>
               <a href="#" onClick={handleClick}>Logout</a>
             </div>
             : <div>
@@ -42,7 +43,8 @@ const Main = (props) => {
  */
 const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    beers: state.products
   }
 }
 

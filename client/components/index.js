@@ -6,3 +6,6 @@
 export {default as Main} from './main'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
+export {Home} from './Home'
+export {default as AllBeers} from './AllBeers'
+export {default as AllBreweries} from './AllBreweries'
