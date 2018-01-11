@@ -11,14 +11,15 @@ import {logout} from '../store'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
+  console.log(props)
   const {children, handleClick, isLoggedIn} = props
 
   return (
     <div>
       <h1>BEER</h1>
       <nav>
-        <Link to="/products">Beers</Link>
         <Link to="/breweries">Breweries</Link>
+        <Link to="/beers">Beers</Link>
         {
           isLoggedIn
             ? <div>
