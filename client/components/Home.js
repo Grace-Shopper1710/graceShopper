@@ -8,7 +8,6 @@ export default class OurTest extends React.Component {
 
     componentDidMount() {
         store.dispatch(fetchAllProducts())
-        store.dispatch(fetchAllBreweries())
         store.dispatch(fetchAllStyles())
     }
 
