@@ -5,28 +5,23 @@ import { NavLink } from 'react-router-dom'
 const mapStateToProps = state => ({ breweries: state.brewery })
 
 
-export class AllBreweries extends React.Component {
-
-    render() {
+const AllBreweries = (props) => {
 	return (
-		<div>
-			<ul>
+		<div className="allBreweries">
 				{
-					this.props.breweries.map(brewery => (
-						<li key={brewery.id}>
+					props.breweries.map(brewery => (
+						<div key={brewery.id}>
 							<img src={brewery.image} />
 							<div>
-								<NavLink to={`/breweries/${brewery.id}`}>{brewery.name}</NavLink>
+								<NavLink to={`/breweries/${brewery.id}`}><h2>{brewery.name}</h2></NavLink>
 								<p>{brewery.style ? brewery.style.name : null}</p>
 								<p>{brewery.description}</p>
 							</div>
-						</li>
+						</div>
 					))
 				}
-			</ul>
 		</div>
     )
-    }
 }
 
 const allBreweriesContainer = connect(mapStateToProps)(AllBreweries)

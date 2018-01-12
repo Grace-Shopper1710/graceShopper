@@ -25,17 +25,17 @@ export class SingleBeer extends React.Component {
 	}
 
 	render () {
-		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0]
+		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0] || {}
 		return (
-			<div>
+			<div className="singleBeer">
 				<img src={targetBeer.image} />
-				<ul>
-					<li>{targetBeer.name}</li>
-					<li><NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink></li>
-					<li><NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink></li>
-					<li>Description: {targetBeer.description}</li>
-					<li>{targetBeer.packaging}</li>
-					<li>${targetBeer.price}</li>
+				<div>
+					<h1>{targetBeer.name}</h1>
+					<NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink><br />
+					<NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink><br />
+					Description: {targetBeer.description}<br />
+					{targetBeer.packaging}<br />
+					${targetBeer.price}<br />
 					<form onSubmit={this.props.handleSubmit(targetBeer.id, this.state.quantity, targetBeer.price)}>
 						<label>
 							Quantity:
@@ -46,10 +46,10 @@ export class SingleBeer extends React.Component {
 								))
 							}
 							</select>
-						</label>
+						</label><br />
 						<input type="submit" value="Add to Cart" />
 					</form>
-				</ul>
+				</div>
 			</div>
 		)
 	}

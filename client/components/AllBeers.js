@@ -6,19 +6,14 @@ import store, { fetchAllProducts } from '../store'
 
 const mapStateToProps = state => ({ beers: state.product })
 
-
-
-const allBeers =  (props) => {
-	
+const allBeers =  (props) => {	
 	return (
-		<div>
-			<ul>
+		<div className="allBeers">
 				{
 					props.beers.map(beer => (
 						<BeerItem key={beer.id} beer={beer} />
 					))
 				}
-			</ul>
 		</div>
 	)
 }

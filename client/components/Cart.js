@@ -56,7 +56,7 @@ export const Cart = (props) => {
 			<p>Subtotal:</p>
 			<p>Tax</p>
 			<p>Total: ${props.cart ? props.cart.total : 0}</p>
-			<NavLink to={'/checkout'}><button>Checkout</button></NavLink>
+			<button><NavLink to={'/checkout'}>Checkout</NavLink></button>
 		</div>
 	
 	)

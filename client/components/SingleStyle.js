@@ -15,13 +15,15 @@ const SingleStyle = (props) => {
 
   return (
     <div>
-      <h2>{selectedStyle.name}</h2>
+      <h1>{selectedStyle.name}</h1>
       <p>{selectedStyle.description}</p>
+      <div className="allBeers">
       {
         matchingBeers.map(beer => (
           <BeerItem key={beer.id} beer={beer} isStyle={true}/>
         ))
       }
+      </div>
     </div>
   )
 }
