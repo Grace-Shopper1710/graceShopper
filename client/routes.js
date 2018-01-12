@@ -35,24 +35,26 @@ class Routes extends Component {
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
 
+
+
             {
               isLoggedIn &&
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
                   <Route path="/home" component={UserHome} />
+                  {
+                    isAdmin &&
+                      <Switch>
+                        <Route path="/users" component={AllUsers} />
+                        <Route path="/orders" component={AllOrders} />
+                        <Route path="/beers/:id/edit" component={EditSingleBeer} />
+
+                      </Switch>
+                  }
                 </Switch>
+
             }
-            {
-              isAdmin &&
-                <Switch>
-                  <Route path="/users" component={AllUsers} />
-                  <Route path="/orders" component={AllOrders} />
-                  <Route path="/beers/:id/edit" component={EditSingleBeer} />
-                  {/*
-                  <Route exact path="/breweries/:id/edit" component={EditSingleBrewery} />
-                  <Route exact path="/styles/:id/edit" component={EditSingleStyle} />*/}
-                </Switch>
-                }
+
 
             {/* Displays our Login component as a fallback */}
             <Route component={Login} />
