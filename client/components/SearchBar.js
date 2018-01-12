@@ -10,7 +10,7 @@ export class SearchBar extends React.Component {
 
   render(){
     const {handleChange} = this.props
-    // const beerSearch = this.props.beers.filter(beer => beer.name.match(inputValue))
+    const beerSearch = this.props.beers.filter(beer => beer.name.match(this.props.searchInput))
 
     return (
       <div>
@@ -18,7 +18,7 @@ export class SearchBar extends React.Component {
             <input
               name = "searchBeer"
               onChange={handleChange}
-              value={inputValue}
+              value={this.props.searchInput}
               className='form-control'
               placeholder="Search our selection"
             />
@@ -28,7 +28,10 @@ export class SearchBar extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({beers: state.product})
+const mapStateToProps = state => ({
+  beers: state.product,
+  searchInput: state.searchInput
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
