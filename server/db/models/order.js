@@ -10,9 +10,6 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  products: {
-    type: Sequelize.ARRAY(Sequelize.JSON)
-  },
   address: {
     type: Sequelize.STRING,
     allowNull: false
@@ -29,13 +26,13 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  creditCard: {
-    type: Sequelize.STRING,
-    allowNull: false
+  total: {
+    type: Sequelize.DOUBLE,
+    defaultValue: 0
   },
-  creditCardExpDate: {
-    type: Sequelize.STRING,
-    allowNull: false
+  status: {
+    type:   Sequelize.ENUM,
+    values: ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED']
   },
 
   //VIRTUALS
