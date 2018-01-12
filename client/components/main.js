@@ -13,8 +13,8 @@ import SearchBar from './SearchBar'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  const {children, handleClick, isLoggedIn, isAdmin} = props
-
+  const {children, handleClick, isLoggedIn, isAdmin, cart} = props
+  console.log(cart)
   return (
     <div>
       <h1>BEER</h1>
@@ -50,6 +50,7 @@ const Main = (props) => {
               <Link to="/signup">Sign Up</Link>
             </div>
         }
+        <Link to="/cart">Cart: {cart.products ? cart.products.reduce((a, b) => a + b.qty, 0) : 0} items</Link>
       </nav>
       <hr />
       {children}
@@ -65,7 +66,7 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin && !!state.user.id,
-    beers: state.products
+    cart: state.cart
   }
 }
 

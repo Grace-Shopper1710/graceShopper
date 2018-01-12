@@ -8,16 +8,20 @@ const SingleStyle = (props) => {
 
   const styleId = props.match.params.id
   const styles = props.styles
-  const selectedStyle = styles.filter(style => {
-    return style.id === +styleId})[0]
 
+  const selectedStyle = styles.find(style => { return style.id === +styleId})
   const matchingBeers = props.beers.filter(beer =>  beer.styleId === +styleId)
-
+  //if it's an invalid style or it hasn't loaded the data yet
+  if (!selectedStyle) return <div />
   return (
     <div>
       <h2>{selectedStyle.name}</h2>
       <p>{selectedStyle.description}</p>
-      <BeerItem beer={matchingBeers} />
+      {
+        matchingBeers.map(beer => (
+          <BeerItem key={beer.id} beer={beer} isStyle={true}/>
+        ))
+      }
     </div>
   )
 }

@@ -10,9 +10,6 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  products: {
-    type: Sequelize.ARRAY(Sequelize.JSON)
-  },
   address: {
     type: Sequelize.STRING,
     allowNull: false
@@ -29,13 +26,13 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  creditCard: {
-    type: Sequelize.STRING,
-    allowNull: false
+  total: {
+    type: Sequelize.DOUBLE,
+    defaultValue: 0
   },
-  creditCardExpDate: {
-    type: Sequelize.STRING,
-    allowNull: false
+  status: {
+    type:   Sequelize.ENUM,
+    values: ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED']
   },
 
   //VIRTUALS
@@ -54,12 +51,12 @@ const Order = db.define('order', {
   }
 })
 
-Order.prototype.total = function(){
-  let total = 0
-  for (let i = 0; i < this.products.length; i++){
-    total += (this.products[i].price * this.products[i].quantity)
-  }
-  return total
-}
+// Order.prototype.total = function(){
+//   let total = 0
+//   for (let i = 0; i < this.products.length; i++){
+//     total += (this.products[i].price * this.products[i].quantity)
+//   }
+//   return total
+// }
 
 module.exports = Order

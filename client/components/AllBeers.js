@@ -5,6 +5,7 @@ import BeerItem from './BeerItem'
 import store from '../store'
 
 
+
 const mapStateToProps = state => ({
   beers: state.product,
   searchInput: state.searchInput
