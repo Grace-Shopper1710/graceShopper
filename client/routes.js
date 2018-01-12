@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer } from './components'
-import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries } from './store'
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout } from './components'
+import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart } from './store'
 import Home from './components/Home'
 
 /**
@@ -20,7 +20,7 @@ class Routes extends Component {
 
     return (
       <Router history={history}>
-        <Main>
+        <Main cart={this.props.cart}>
           <Switch>
             {/* Routes placed here are available to all visitors */}
             <Route exact path="/" component={Home} />
@@ -32,6 +32,8 @@ class Routes extends Component {
             <Route path="/styles/:id" component={SingleStyle} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={Checkout} />
 
             {
               isLoggedIn &&
@@ -67,6 +69,7 @@ const mapDispatch = (dispatch) => {
       dispatch(fetchAllProducts())
       dispatch(fetchAllStyles())
       dispatch(fetchAllBreweries())
+      dispatch(fetchCart())
     }
   }
 }
