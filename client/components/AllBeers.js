@@ -8,21 +8,28 @@ import store from '../store'
 
 const mapStateToProps = state => ({
   beers: state.product,
-  searchInput: state.searchInput
+	searchInput: state.searchInput,
+	user: state.user
 })
 
 const allBeers =  (props) => {
 
-  const {beers, searchInput} = props
+
+	const {beers, searchInput, user} = props
+	const isAdmin = user ? user.isAdmin : false
+
+	console.log("do I capture the user well???", user)
   const filteredBeers = beers ? beers.filter( beer => {
-    return beer.name.toLowerCase().startsWith(searchInput)}) : []
+		return beer.name.toLowerCase().startsWith(searchInput)}) : []
+		
+//here if admin instead of BeerItem render EditProduct component
 
 	return (
 		<div>
 			<ul>
 				{
 					filteredBeers.map(beer => (
-						<BeerItem key={beer.id} beer={beer} />
+						<BeerItem key={beer.id} beer={beer} isAdmin={isAdmin}/>
 					))
 				}
 			</ul>

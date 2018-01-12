@@ -25,7 +25,10 @@ export class SingleBeer extends React.Component {
 	}
 
 	render () {
-		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0]
+		//console.log(this.props.match.params.id)
+		const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
+		//console.log("Im super broken", targetBeer)
+		if (!targetBeer) return <div />
 		return (
 			<div>
 				<img src={targetBeer.image} />
