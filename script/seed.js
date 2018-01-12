@@ -10,6 +10,49 @@ const {
 //didn't do reviews yet
 
 var data = {
+    //user (email, password, isAdmin)
+    user: [
+        {
+            email: "sara@sara.sara",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "tadpole@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "julia@julia.julia",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "lily@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "lyssa@lyssa.lyssa",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "alex@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "kohsin@kohsin.kohsin",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "charlie@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+    ],
     style: [
         {
             name: "IPA",
@@ -141,49 +184,6 @@ var data = {
             country: "USA"
 
         }
-    ],
-    //user (email, password, isAdmin)
-    user: [
-        {
-            email: "sara@sara.sara",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "tadpole@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "julia@julia.julia",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "lily@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "lyssa@lyssa.lyssa",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "alex@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "kohsin@kohsin.kohsin",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "charlie@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
     ],
     //products: name, image, inventory, price, packaging, description, abv, breweryId, styleId
     product: [
@@ -318,10 +318,10 @@ var data = {
             abv: 6.6,
             breweryId: 1,
             styleId: 4
-        },
+        }
 
-    ],
-    reviews:[
+     ]}
+     var data2 = {reviews:[
         {
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
             rating: 2,
@@ -433,14 +433,26 @@ var data = {
         }
 
 
-    ]
-}
+    ]}
+ 
 
 db.sync({ force: true })
     .then(function () {
         console.log("Dropped old data, now inserting data")
         return Promise.map(Object.keys(data), function (name) {
+            console.log("name", name)
             return Promise.map(data[name], function (item) {
+                console.log("another time name", name)
+                return db.model(name).create(item)
+            })
+        })
+    })
+    .then(function () {
+        console.log("Dropped old data, now inserting data")
+        return Promise.map(Object.keys(data2), function (name) {
+            console.log("name", name)
+            return Promise.map(data2[name], function (item) {
+                console.log("another time name", name)
                 return db.model(name).create(item)
             })
         })
