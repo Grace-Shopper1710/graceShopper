@@ -20,7 +20,12 @@ router.get('/', (req, res, next) => {
 })
 
 router.put('/:productId', (req, res, next) => {
-	removeFromCart(req.params.productId, req)
+	removeFromCart(+req.params.productId, req)
+	res.send(req.session.cart)
+})
+
+router.put('/:productId/:qty', (req, res, next) => {
+	updateQuantity(+req.params.productId, +req.params.qty, req)
 	res.send(req.session.cart)
 })
 
@@ -61,8 +66,9 @@ router.post('/checkout', (req, res, next) => {
 			})
 		))
 	))
-	.then(orderlineItems => {
+	.then(orderlineItems => {	
 		res.json(orderlineItems)
+		
 	})
 
 })
@@ -74,6 +80,15 @@ function inCart(productId, req) {
 	return req.session.cart.products.reduce((accu, curr) => {
 		return curr.id === productId || accu
 	}, false)
+}
+
+function updateQuantity(productId, qty, req) {
+	req.session.cart.products.forEach(el => {
+		if (el.id === productId) {
+			el.qty  = qty
+		}
+	})
+	calculateTotals(req)
 }
 
 function updateCart(productId, qty, req) {
@@ -102,5 +117,5 @@ function removeFromCart(productId, req) {
 function calculateTotals(req) {
 	req.session.cart.total = req.session.cart.products.reduce((accu, curr) => {
 		return accu + curr.qty * curr.price
-	}, 0)
+	}, 0).toFixed(2)
 }

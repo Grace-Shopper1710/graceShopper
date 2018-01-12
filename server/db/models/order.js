@@ -31,11 +31,11 @@ const Order = db.define('order', {
   },
   creditCard: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
   creditCardExpDate: {
     type: Sequelize.STRING,
-    allowNull: false
+    //allowNull: false
   },
 
   //VIRTUALS

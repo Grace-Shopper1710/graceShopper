@@ -1,17 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { addItemToCart } from '../store'
 
 const mapStateToProps = state => ({ beers: state.product })
+
+const mapDispatchToProps = dispatch => ({
+	handleSubmit: (productId, qty, price) => event => {
+		event.preventDefault()
+		const newItem = { productId, qty, price }
+		dispatch(addItemToCart(newItem))
+	}
+})
 
 export class SingleBeer extends React.Component {
 	constructor (props) {
 		super(props)
+		this.state = { quantity: 0 }
+		this.handleChange = this.handleChange.bind(this)
+	}
+
+	handleChange (event) {
+		this.setState({ quantity: +event.target.value })
 	}
 
 	render () {
 		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0]
-		console.log(targetBeer)
 		return (
 			<div>
 				<img src={targetBeer.image} />
@@ -22,17 +36,18 @@ export class SingleBeer extends React.Component {
 					<li>Description: {targetBeer.description}</li>
 					<li>{targetBeer.packaging}</li>
 					<li>${targetBeer.price}</li>
-					<form>
+					<form onSubmit={this.props.handleSubmit(targetBeer.id, this.state.quantity, targetBeer.price)}>
 						<label>
 							Quantity:
-							<select>
+							<select value={this.state.quantity} onChange={this.handleChange}>
 							{
-								stupid(targetBeer.inventory).map(num => (
+								Array.from(Array(targetBeer.inventory).keys()).map(num => (
 									<option key={num} value={num}>{num}</option>
 								))
 							}
 							</select>
 						</label>
+						<input type="submit" value="Add to Cart" />
 					</form>
 				</ul>
 			</div>
@@ -40,13 +55,6 @@ export class SingleBeer extends React.Component {
 	}
 }
 
-const singleBeerContainer = connect(mapStateToProps)(SingleBeer)
+const singleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(SingleBeer)
 export default singleBeerContainer
 
-function stupid(num){
-	let arr = []
-	for (let i = 1; i < num + 1; i++) {
-		arr.push(i)
-	}
-	return arr
-}
