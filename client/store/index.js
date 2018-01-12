@@ -7,8 +7,10 @@ import product from './product'
 import brewery from './brewery'
 import style from './style'
 import cart from './cart'
+import searchInput from './searchBar'
 
-const reducer = combineReducers({ user, product, brewery, style, cart })
+const reducer = combineReducers({user, product, brewery, style, cart, searchInput})
+
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
   createLogger({collapsed: true})
@@ -21,3 +23,5 @@ export * from './product'
 export * from './brewery'
 export * from './style'
 export * from './cart'
+export * from './searchBar'
+

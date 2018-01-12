@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../store'
 import Footer from './Footer'
+import SearchBar from './SearchBar'
 
 /**
  * COMPONENT
@@ -21,6 +22,7 @@ const Main = (props) => {
         <Link to="/breweries">Breweries</Link>
         <Link to="/beers">Beers</Link>
         <Link to="/styles">Styles</Link>
+        <SearchBar />
         {
           isAdmin
             ? <div>
