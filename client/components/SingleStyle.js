@@ -17,7 +17,11 @@ const SingleStyle = (props) => {
     <div>
       <h2>{selectedStyle.name}</h2>
       <p>{selectedStyle.description}</p>
-      <BeerItem beer={matchingBeers} />
+      {
+        matchingBeers.map(beer => (
+          <BeerItem key={beer.id} beer={beer} isStyle={true}/>
+        ))
+      }
     </div>
   )
 }
