@@ -6,8 +6,6 @@ import store, { fetchAllProducts } from '../store'
 
 const mapStateToProps = state => ({ beers: state.product })
 
-
-
 const allBeers =  (props) => {
 	
 	return (
