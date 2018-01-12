@@ -7,15 +7,19 @@ import BeerItem from './BeerItem'
 const SingleBrewery = (props) => {
     const id = props.match.params.id
     const breweries = props.breweries
-    const selectedBrewery = breweries.filter(brewery => { return brewery.id === +id})[0] || {}
+    const selectedBrewery = breweries.filter(brewery => { return brewery.id === +id })[0] || {}
     const matchingBeers = props.beers.filter(beer => beer.breweryId === +id)
     return (
         <div>
-            <img src= {selectedBrewery.image} />
+            <img src={selectedBrewery.image} />
             <h2>{selectedBrewery.name}</h2>
             <p>{selectedBrewery.city}, {selectedBrewery.country}</p>
             <p>{selectedBrewery.description}</p>
-            <BeerItem beer={matchingBeers} />
+            {
+                matchingBeers.map(beer => (
+                    <BeerItem key={beer.id} beer={beer} isBrewery={true} />
+                ))
+            }
         </div>
     )
 }
