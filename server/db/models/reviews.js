@@ -5,7 +5,7 @@ const Reviews = db.define('reviews', {
   content: {
     type: Sequelize.TEXT,
     validate: {
-      isLength: function(value, next) {
+      isLength: function (value, next) {
         if (value.length >= 100) {
           return next()
         } else {
@@ -21,6 +21,20 @@ const Reviews = db.define('reviews', {
       max: 5
     }
   }
-})
+},
+  {
+    scopes: {
+      withUser: () => ({
+        include: [{
+          model: db.model('user')
+        }]
+      }),
+      withProduct: () => ({
+        include: [{
+          model: db.model('product')
+        }]
+      })
+    }
+  })
 
 module.exports = Reviews
