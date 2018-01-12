@@ -10,6 +10,49 @@ const {
 //didn't do reviews yet
 
 var data = {
+    //user (email, password, isAdmin)
+    user: [
+        {
+            email: "sara@sara.sara",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "tadpole@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "julia@julia.julia",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "lily@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "lyssa@lyssa.lyssa",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "alex@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "kohsin@kohsin.kohsin",
+            password: "123",
+            isAdmin: true
+        },
+        {
+            email: "charlie@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+    ],
     style: [
         {
             name: "IPA",
@@ -141,49 +184,6 @@ var data = {
             country: "USA"
 
         }
-    ],
-    //user (email, password, isAdmin)      
-    user: [
-        {
-            email: "sara@sara.sara",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "tadpole@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "julia@julia.julia",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "lily@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "lyssa@lyssa.lyssa",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "alex@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
-        {
-            email: "kohsin@kohsin.kohsin",
-            password: "123",
-            isAdmin: true
-        },
-        {
-            email: "charlie@gmail.com",
-            password: "123",
-            isAdmin: false
-        },
     ],
     //products: name, image, inventory, price, packaging, description, abv, breweryId, styleId
     product: [
@@ -318,16 +318,141 @@ var data = {
             abv: 6.6,
             breweryId: 1,
             styleId: 4
-        },
+        }
 
-    ]
-}
+     ]}
+     var data2 = {reviews:[
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 2,
+            userId: 3,
+            productId: 8
+
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 3,
+            productId: 6
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 1,
+            productId: 4
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 1,
+            productId: 1
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 2,
+            productId: 7
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 3,
+            userId: 4,
+            productId: 6
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 3,
+            productId: 10
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 5,
+            productId: 7
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 2,
+            productId: 7
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 3,
+            productId: 10
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 3,
+            productId: 7
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 1,
+            productId: 8
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 1,
+            productId: 3
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 2,
+            productId: 10
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 6,
+            productId: 9
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 4,
+            userId: 4,
+            productId: 10
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 5,
+            userId: 6,
+            productId: 8
+        },
+        {
+            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            rating: 2,
+            userId: 7,
+            productId: 6
+        }
+
+
+    ]}
+ 
 
 db.sync({ force: true })
     .then(function () {
         console.log("Dropped old data, now inserting data")
         return Promise.map(Object.keys(data), function (name) {
+            console.log("name", name)
             return Promise.map(data[name], function (item) {
+                console.log("another time name", name)
+                return db.model(name).create(item)
+            })
+        })
+    })
+    .then(function () {
+        console.log("Dropped old data, now inserting data")
+        return Promise.map(Object.keys(data2), function (name) {
+            console.log("name", name)
+            return Promise.map(data2[name], function (item) {
+                console.log("another time name", name)
                 return db.model(name).create(item)
             })
         })

@@ -7,8 +7,11 @@ import BeerItem from './BeerItem'
 const SingleBrewery = (props) => {
     const id = props.match.params.id
     const breweries = props.breweries
-    const selectedBrewery = breweries.filter(brewery => { return brewery.id === +id })[0] || {}
+    const selectedBrewery = breweries.find(brewery => { return brewery.id === +id })
     const matchingBeers = props.beers.filter(beer => beer.breweryId === +id)
+
+      //if it's an invalid brewery or it hasn't loaded the data yet
+  if (!selectedBrewery) return <div />
     return (
         <div>
             <img src={selectedBrewery.image} />

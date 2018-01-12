@@ -8,25 +8,26 @@ const LineItem = require('./lineItem')
 
 
 Reviews.belongsTo(User)
-Product.hasMany(Reviews)
-Reviews.belongsTo(Product)
 User.hasMany(Reviews)
+
+Reviews.belongsTo(Product)
+Product.hasMany(Reviews)
+
 Order.belongsTo(User)
 User.hasMany(Order)
-/**
- * If we had any associations to make, this would be a great place to put them!
- * ex. if we had another model called BlogPost, we might say:
- *
- *    BlogPost.belongsTo(User)
- */
+
 Product.belongsTo(Brewery)
-Product.belongsTo(Style)
 Brewery.hasMany(Product)
+
+Product.belongsTo(Style)
 Style.hasMany(Product)
+
 LineItem.belongsTo(Order)
+Order.hasMany(LineItem)
+
 LineItem.belongsTo(Product)
 Product.hasMany(LineItem)
-Order.hasMany(LineItem)
+
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
