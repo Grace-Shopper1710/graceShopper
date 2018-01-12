@@ -2,19 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
-import store, { fetchAllProducts } from '../store'
-
-const mapStateToProps = state => ({ beers: state.product })
+import store from '../store'
 
 
+const mapStateToProps = state => ({
+  beers: state.product,
+  searchInput: state.searchInput
+})
 
 const allBeers =  (props) => {
-	
+
+  const {beers, searchInput} = props
+  const filteredBeers = beers ? beers.filter( beer => {
+    return beer.name.toLowerCase().startsWith(searchInput)}) : []
+
 	return (
 		<div>
 			<ul>
 				{
-					props.beers.map(beer => (
+					filteredBeers.map(beer => (
 						<BeerItem key={beer.id} beer={beer} />
 					))
 				}

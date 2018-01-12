@@ -9,8 +9,7 @@ export class SearchBar extends React.Component {
   }
 
   render(){
-    const {handleChange} = this.props
-    const beerSearch = this.props.beers.filter(beer => beer.name.match(this.props.searchInput))
+    const { handleChange } = this.props
 
     return (
       <div>
@@ -41,9 +40,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-
- const searchBarContainer = connect(mapStateToProps)(mapDispatchToProps)(SearchBar)
+ const searchBarContainer = connect(mapStateToProps, mapDispatchToProps)(SearchBar)
 
  export default searchBarContainer
-//make a search inventory action and reducer
-//review how filtered content is used with reducers
