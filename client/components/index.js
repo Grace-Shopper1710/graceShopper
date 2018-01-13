@@ -20,5 +20,5 @@ export {Footer} from './Footer'
 export {default as SearchBar} from './SearchBar'
 
 export {default as AllUsers} from './AdminOnly/AllUsers'
-export {EditSingleBeer} from './EditSingleBeer'
+export {default as EditSingleBeer} from './AdminOnly/EditSingleBeer'
 export {default as AllOrders} from './AdminOnly/AllOrders'
