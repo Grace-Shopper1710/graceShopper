@@ -34,9 +34,6 @@ class Routes extends Component {
             <Route path="/signup" component={Signup} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
-
-
-
             {
               isLoggedIn &&
                 <Switch>
@@ -45,17 +42,14 @@ class Routes extends Component {
                   {
                     isAdmin &&
                       <Switch>
+                         {/* Routes placed here are only available to admin users */}
                         <Route path="/users" component={AllUsers} />
                         <Route path="/orders" component={AllOrders} />
                         <Route path="/beers/:id/edit" component={EditSingleBeer} />
-
                       </Switch>
                   }
                 </Switch>
-
             }
-
-
             {/* Displays our Login component as a fallback */}
             <Route component={Login} />
           </Switch>

@@ -18,7 +18,6 @@ export {default as Cart} from './Cart'
 export {default as Checkout} from './Checkout'
 export {Footer} from './Footer'
 export {default as SearchBar} from './SearchBar'
-
 export {default as AllUsers} from './AdminOnly/AllUsers'
 export {default as EditSingleBeer} from './AdminOnly/EditSingleBeer'
 export {default as AllOrders} from './AdminOnly/AllOrders'
