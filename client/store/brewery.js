@@ -42,6 +42,7 @@ export const updateBrewery = (id, brewery, history) =>
       .catch(err => console.error(`Updating brewery: ${brewery} unsuccessful`, err))
 
 export const removeBrewery = (id, history) => dispatch => {
+  console.log("Im also in here")
   axios.delete(`/api/breweries/${id}`)
     .then(() => {
       dispatch(deleteBrewery(id))

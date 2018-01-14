@@ -24,7 +24,10 @@ class EditBrewery extends React.Component {
             <div>
                 <NavLink to={'/admin/newbrewery'}><button>Create a New Brewery</button></NavLink>
                 <button 
-                onClick={this.onBreweryDelete}>
+                onClick={(e)=>{
+                    console.log(this.onBreweryDelete)
+                    this.onBreweryDelete(e)
+                }}>
                    Delete This Brewery!</button>
                 <form onSubmit={
                     this.onBrewerySubmit
@@ -87,9 +90,9 @@ class EditBrewery extends React.Component {
         )
     }
     onBreweryDelete(event){
-        console.log("I'm in here")
         event.preventDefault() 
-        //this.props.removeBrewery(+this.props.match.params.id, this.props.history)
+        //console.log("I'm in here")
+        this.props.removeBrewery(+this.props.match.params.id, this.props.history)
     }
 
     onBrewerySubmit(event) {
@@ -100,8 +103,8 @@ class EditBrewery extends React.Component {
             established: +event.target.established.value,
             description: event.target.description.value,
             city: event.target.city.value,
-            state: +event.target.state.value,
-            country: +event.target.country.value
+            state: event.target.state.value,
+            country: event.target.country.value
         }
         console.log(Brewery)
         this.props.updateBrewery(+this.props.match.params.id, Brewery, this.props.history)

@@ -24,8 +24,7 @@ class EditSingleBeer extends React.Component {
         const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id)
 
         const myStyle = styles.find(style => targetBeer.styleId === style.id)
-        console.log(myBrewery, myStyle)
-
+        //console.log(myBrewery, myStyle)
 
         return (
             <div>
@@ -36,7 +35,7 @@ class EditSingleBeer extends React.Component {
                 <form onSubmit={
                     this.onBeerSubmit
                 }>
-                    <h1>THIS NEEDS TO BE BUILT TO EDIT SINGLE BEER</h1>
+                    <h1>EDIT A BEER</h1>
                     <ul>
                         <li>
                             Name: 
@@ -98,7 +97,6 @@ class EditSingleBeer extends React.Component {
                                 name="styleId"
                                 defaultValue={myStyle.id}
                             >
-
                                 {
                                     styles.map(style => (
                                         <option key={style.id} value={style.id}>{style.name}</option>
@@ -130,7 +128,7 @@ class EditSingleBeer extends React.Component {
             packaging: event.target.packaging.value,
             price: +event.target.price.value
         }
-        console.log(beer)
+        //console.log(beer)
         this.props.updateBeer(+this.props.match.params.id, beer, this.props.history)
     }
 }
