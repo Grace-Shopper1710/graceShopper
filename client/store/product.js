@@ -55,9 +55,9 @@ export default function (products = [], action) {
                 action.beer.id === beer.id ? action.beer : beer
             ))
         case DELETE:
-            return products.filter(beer => (
-                action.id != beer.id
-            ))
+            return products.filter(beer => 
+                action.beerId !== beer.id
+            )
         default:
             return products
     }

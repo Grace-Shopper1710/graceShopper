@@ -18,7 +18,9 @@ class EditSingleBeer extends React.Component {
         const checkMe = (!styles.length || !breweries.length || !beers.length)
 
         if (checkMe) return <div />
+
         const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
+        if (!targetBeer) return <div />
 
         const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id)
 
