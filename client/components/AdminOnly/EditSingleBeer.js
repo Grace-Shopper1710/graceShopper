@@ -20,12 +20,12 @@ class EditSingleBeer extends React.Component {
 
         const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
         if (!targetBeer) return <div />
-
+        console.log("%%%%%%%%%%%%%",targetBeer)
         const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id)
-
+        if (!myBrewery) return <div />
         const myStyle = styles.find(style => targetBeer.styleId === style.id)
         //console.log(myBrewery, myStyle)
-
+        if (!myStyle) return <div />
         return (
             <div>
                 <NavLink to={'/admin/newbeer'}><button>Create a New Beer</button></NavLink>
