@@ -13,7 +13,6 @@ import Footer from './Footer'
  */
 const Main = (props) => {
   const {children, handleClick, isLoggedIn, isAdmin, cart} = props
-  console.log(cart)
   return (
     <div>
       <h1>BEER</h1>

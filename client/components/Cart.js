@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { removeFromCart, updateItemQuantity } from '../store'
+import StripeCheckout from 'react-stripe-checkout'
+import { checkout } from '../store'
+
 
 const mapStateToProps = state => ({ cart: state.cart, beers: state.product })
 
@@ -14,6 +17,12 @@ const mapDispatchToProps = dispatch => ({
 		else {
 			dispatch(updateItemQuantity(productId, +event.target.value))
 		}
+	},
+	onToken: () => token => {
+		dispatch(checkout(token))
+	},
+	handlePromoCode: event => {
+		console.log('clicked')
 	}
 })
 
@@ -56,9 +65,21 @@ export const Cart = (props) => {
 			<p>Subtotal:</p>
 			<p>Tax</p>
 			<p>Total: ${props.cart ? props.cart.total : 0}</p>
-			<NavLink to={'/checkout'}><button>Checkout</button></NavLink>
+			<form onSubmit={props.handlePromoCode}>
+				<label>Promo Code:
+					<input type="text" name="promoCode" />
+					<button type="submit" value="Submit">Submit</button>
+				</label>
+			</form>
+			<StripeCheckout
+				shippingAddress = {true}
+				billingAddress = {true}
+				amount={props.cart.total * 100}
+				token={props.onToken(props.cart.total * 100)}
+				currency={'USD'}
+				stripeKey={'pk_test_GknBAWoOhGnIpyYlADnXg10z'}>
+			</StripeCheckout>
 		</div>
-	
 	)
 }
 

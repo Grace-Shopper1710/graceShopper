@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { checkout } from '../store'
+import StripeCheckout from 'react-stripe-checkout'
 
 const mapStateToProps = state => ({ cart: state.cart, beers: state.product })
 
@@ -17,6 +18,9 @@ const mapDispatchToProps = dispatch => ({
 			zipCode: event.target.zipCode.value
 		}
 		dispatch(checkout(orderDetails))
+	},
+	onToken: () => token => {
+		console.log('hello')
 	}
 })
 
@@ -73,8 +77,13 @@ export const Checkout = (props) => {
 				        </label>
 					</li>
 				</ul>
-				<p>!!!!!!!Your don't need to pay at this time!!!!!!</p>
-		        <button type="submit">Place Order</button>
+				<p>Your money will go to my account :) </p>
+		        <StripeCheckout
+		        	shippingAddress = {true}
+					token={props.onToken}
+					currency={'USD'}
+					stripeKey={'pk_live_3diRHOuRsooJvsCmuhV4sgZP'}
+				/>
 			</form>
 		</div>
 	)

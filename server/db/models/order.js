@@ -2,13 +2,15 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Order = db.define('order', {
-  firstName: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  lastName: {
+  email: {
     type: Sequelize.STRING,
-    allowNull: false
+    validate: {
+      isEmail: true
+    }
   },
   address: {
     type: Sequelize.STRING,
@@ -31,8 +33,12 @@ const Order = db.define('order', {
     defaultValue: 0
   },
   status: {
-    type:   Sequelize.ENUM,
+    type: Sequelize.ENUM,
     values: ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED']
+  },
+  stripeTokenId: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
 
   //VIRTUALS
