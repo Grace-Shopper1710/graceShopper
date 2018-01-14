@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 const mapStateToProps = state => ({ breweries: state.brewery, user: state.user })
 
-
 export class AllBreweries extends React.Component {
 
 	render() {
@@ -12,7 +11,7 @@ export class AllBreweries extends React.Component {
 		const isAdmin = user ? user.isAdmin : false
 
 		return (
-			<div>
+			<div className="allBreweries">
 				{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Create a New Brewery</button></NavLink>}
 				<ul>
 					{

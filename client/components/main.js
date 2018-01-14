@@ -21,7 +21,7 @@ const Main = (props) => {
       <nav>
       {
         !isAdmin
-          ? <div>
+          ? <div className="header">
               <Link to="/beers">Beers</Link>
               <Link to="/breweries">Breweries</Link>
               <Link to="/styles">Styles</Link>
@@ -61,7 +61,7 @@ const Main = (props) => {
       </nav>
         <hr />
         {children}
-        <Footer />
+         <Footer />
     </div>
       )
 }

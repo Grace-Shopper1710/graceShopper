@@ -15,14 +15,16 @@ const SingleBrewery = (props) => {
     return (
         <div>
             <img src={selectedBrewery.image} />
-            <h2>{selectedBrewery.name}</h2>
+            <h1>{selectedBrewery.name}</h1>
             <p>{selectedBrewery.city}, {selectedBrewery.country}</p>
             <p>{selectedBrewery.description}</p>
+            <div className="allBeers">
             {
                 matchingBeers.map(beer => (
                     <BeerItem key={beer.id} beer={beer} isBrewery={true} />
                 ))
             }
+            </div>
         </div>
     )
 }

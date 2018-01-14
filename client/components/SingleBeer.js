@@ -2,8 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { addItemToCart } from '../store'
+import {default as Review} from './Reviews'
+import {default as ReviewForm} from './ReviewForm'
 
-const mapStateToProps = state => ({ beers: state.product })
+const mapStateToProps = state => ({
+	beers: state.product,
+	isLoggedIn: !!state.user.id
+})
 
 const mapDispatchToProps = dispatch => ({
 	handleSubmit: (productId, qty, price) => event => {
@@ -25,20 +30,19 @@ export class SingleBeer extends React.Component {
 	}
 
 	render () {
-		//console.log(this.props.match.params.id)
 		const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
-		//console.log("Im super broken", targetBeer)
 		if (!targetBeer) return <div />
 		return (
 			<div>
+			<div className="singleBeer">
 				<img src={targetBeer.image} />
-				<ul>
-					<li>{targetBeer.name}</li>
-					<li><NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink></li>
-					<li><NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink></li>
-					<li>Description: {targetBeer.description}</li>
-					<li>{targetBeer.packaging}</li>
-					<li>${targetBeer.price}</li>
+				<div>
+					<h1>{targetBeer.name}</h1>
+					<NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink><br />
+					<NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink><br />
+					Description: {targetBeer.description}<br />
+					{targetBeer.packaging}<br />
+					${targetBeer.price}<br />
 					<form onSubmit={this.props.handleSubmit(targetBeer.id, this.state.quantity, targetBeer.price)}>
 						<label>
 							Quantity:
@@ -49,10 +53,18 @@ export class SingleBeer extends React.Component {
 								))
 							}
 							</select>
-						</label>
+						</label><br />
 						<input type="submit" value="Add to Cart" />
 					</form>
-				</ul>
+				</div>
+				</div>
+				<div className="reviewBlock">
+				<Review beer={targetBeer} />
+				{ this.props.isLoggedIn ?
+					<ReviewForm beer={targetBeer} /> :
+					null
+				}
+				</div>
 			</div>
 		)
 	}

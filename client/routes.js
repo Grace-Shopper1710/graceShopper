@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import history from './history'
 import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart } from './store'
+
 import Home from './components/Home'
 
 /**
@@ -84,6 +85,7 @@ const mapDispatch = (dispatch) => {
       dispatch(fetchAllStyles())
       dispatch(fetchAllBreweries())
       dispatch(fetchCart())
+      dispatch(fetchAllReviews())
     }
   }
 }

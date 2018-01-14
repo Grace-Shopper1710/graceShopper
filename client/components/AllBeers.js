@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
 import store from '../store'
 
-
-
 const mapStateToProps = state => ({
 	beers: state.product,
 	searchInput: state.searchInput,
@@ -23,7 +21,7 @@ const allBeers = (props) => {
 	}) : []
 
 	return (
-		<div>
+		<div className="allBeers">
 			{isAdmin && <NavLink to={'/admin/newbeer'}><button>Create a New Beer</button></NavLink>}
 			<ul>
 				{
@@ -31,7 +29,6 @@ const allBeers = (props) => {
 						<BeerItem key={beer.id} beer={beer} isAdmin={isAdmin} />
 					))
 				}
-			</ul>
 		</div>
 	)
 }

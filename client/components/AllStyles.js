@@ -13,7 +13,7 @@ export class AllStyles extends React.Component {
     const isAdmin = user ? user.isAdmin : false
 
     return(
-      <div>
+      <div className="allStyles">
         {isAdmin && <NavLink to={'/admin/newstyle'}><button>Create a New Style</button></NavLink>}
         <ul>
           {
@@ -29,7 +29,6 @@ export class AllStyles extends React.Component {
                   <NavLink to={`/styles/${style.id}`}>{style.name}</NavLink>
                   <p>{style.description}</p>
                 </div>
-              </li>
             ))
           }
         </ul>

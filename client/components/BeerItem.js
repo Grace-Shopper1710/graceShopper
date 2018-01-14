@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 const BeerItem = (props) => {
 	const { beer, isStyle, isBrewery, isAdmin } = props
-	//console.log("@@@@@@@@@@", isAdmin)
 	return (
 		<li>
 			{
