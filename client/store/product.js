@@ -21,10 +21,14 @@ export const fetchAllProducts = () =>
             .then(products => dispatch(getAllProducts(products)))
             .catch(err => console.error(err))
 
-export const updateBeer = (id, beer) =>
+export const updateBeer = (id, beer, history) =>
     dispatch =>
         axios.put(`/api/products/${id}`, beer)
-            .then(res => dispatch(update(res.data)))
+            .then(res => {
+                dispatch(update(res.data))
+                history.push('/beers')
+            
+            })
             .catch(err => console.error(`Updating beer: ${beer} unsuccessful`, err))
 
 //Reducer

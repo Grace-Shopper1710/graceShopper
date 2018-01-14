@@ -128,7 +128,7 @@ class EditSingleBeer extends React.Component {
             price: +event.target.price.value
         }
         console.log(beer)
-        this.props.updateBeer(+this.props.match.params.id, beer)
+        this.props.updateBeer(+this.props.match.params.id, beer, this.props.history)
     }
 }
 
