@@ -29,6 +29,7 @@ const allBeers = (props) => {
 						<BeerItem key={beer.id} beer={beer} isAdmin={isAdmin} />
 					))
 				}
+			</ul>	
 		</div>
 	)
 }
