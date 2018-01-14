@@ -2,10 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const BeerItem = (props) => {
-	const { beer, isStyle, isBrewery } = props
-	console.log(isStyle, isBrewery)
+	const { beer, isStyle, isBrewery, isAdmin } = props
+	//console.log("@@@@@@@@@@", isAdmin)
 	return (
 		<li>
+			{
+            isAdmin &&
+          <div>
+			<NavLink to={`/beers/${beer.id}/edit`}><button>Edit!</button></NavLink>
+          </div>
+          }
 			<NavLink to={`/beers/${beer.id}`}><img src={beer.image} /></NavLink>
 			<ul>
 				<li><NavLink to={`/beers/${beer.id}`}>{beer.name}</NavLink></li>
