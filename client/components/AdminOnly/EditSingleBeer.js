@@ -43,7 +43,6 @@ class EditSingleBeer extends React.Component {
                             <input
                                 name="name"
                                 defaultValue={targetBeer.name}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
@@ -51,7 +50,6 @@ class EditSingleBeer extends React.Component {
                             <textarea
                                 name="description"
                                 defaultValue={targetBeer.description}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
@@ -59,7 +57,6 @@ class EditSingleBeer extends React.Component {
                             <textarea
                                 name="image"
                                 defaultValue={targetBeer.image}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
@@ -67,7 +64,6 @@ class EditSingleBeer extends React.Component {
                             <input
                                 name="inventory"
                                 defaultValue={targetBeer.inventory}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
@@ -75,7 +71,6 @@ class EditSingleBeer extends React.Component {
                             <input
                                 name="packaging"
                                 defaultValue={targetBeer.packaging}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
@@ -83,14 +78,12 @@ class EditSingleBeer extends React.Component {
                             <input
                                 name="price"
                                 defaultValue={targetBeer.price}
-                                onChange={evt => { }}
                             />
                         </li>
                         <li>
                             Brewery:
                             <select
                                 name="breweryId"
-                                onChange={evt => { }}
                                 defaultValue={myBrewery.id}>
                                 {
                                     breweries.map(brewery => (
@@ -103,7 +96,6 @@ class EditSingleBeer extends React.Component {
                             Style:
                             <select
                                 name="styleId"
-                                onChange={evt => { }}
                                 defaultValue={myStyle.id}
                             >
 
