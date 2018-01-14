@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const FETCH_ALL_PRODUCTS = 'FETCH_ALL_PRODUCTS'
-const UPDATE = 'UPDATE_STORY'
+const UPDATE = 'UPDATE_BEER'
+const DELETE = 'DELETE_BEER'
 
 //Action Creators
 export const getAllProducts = (products) => ({
@@ -11,6 +12,10 @@ export const getAllProducts = (products) => ({
 const update = beer => ({
     type: UPDATE,
     beer
+})
+const deleteBeer = beerId => ({
+    type: DELETE,
+    beerId
 })
 
 //Thunk Functions
@@ -27,9 +32,18 @@ export const updateBeer = (id, beer, history) =>
             .then(res => {
                 dispatch(update(res.data))
                 history.push('/beers')
-            
+
             })
             .catch(err => console.error(`Updating beer: ${beer} unsuccessful`, err))
+
+export const removeBeer = (id, history) => dispatch => {
+    axios.delete(`/api/products/${id}`)
+        .then(() => {
+            dispatch(deleteBeer(id))
+            history.push('/beers')
+        })
+        .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err));
+}
 
 //Reducer
 export default function (products = [], action) {
@@ -39,6 +53,10 @@ export default function (products = [], action) {
         case UPDATE:
             return products.map(beer => (
                 action.beer.id === beer.id ? action.beer : beer
+            ))
+        case DELETE:
+            return products.filter(beer => (
+                action.id != beer.id
             ))
         default:
             return products

@@ -21,8 +21,6 @@ const allBeers =  (props) => {
 	console.log("do I capture the user well???", user)
   const filteredBeers = beers ? beers.filter( beer => {
 		return beer.name.toLowerCase().startsWith(searchInput)}) : []
-		
-//here if admin instead of BeerItem render EditProduct component
 
 	return (
 		<div>

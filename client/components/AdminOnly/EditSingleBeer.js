@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import {updateBeer} from '../../store/product'
+import {updateBeer, removeBeer} from '../../store/product'
 
 
 class EditSingleBeer extends React.Component {
     constructor(props) {
         super(props)
         this.onBeerSubmit = this.onBeerSubmit.bind(this)
+        this.onBeerDelete = this.onBeerDelete.bind(this)
     }
 
     render() {
@@ -27,6 +28,9 @@ class EditSingleBeer extends React.Component {
 
         return (
             <div>
+                <button 
+                onClick={this.onBeerDelete}>
+                   Delete This Beer!</button>
                 <form onSubmit={
                     this.onBeerSubmit
                 }>
@@ -114,6 +118,11 @@ class EditSingleBeer extends React.Component {
             </div>
         )
     }
+    onBeerDelete(event){
+        console.log("I'm in here")
+        event.preventDefault() 
+        this.props.removeBeer(+this.props.match.params.id, this.props.history)
+    }
 
     onBeerSubmit(event) {
         event.preventDefault()
@@ -136,7 +145,7 @@ class EditSingleBeer extends React.Component {
 
 const mapStateToProps = state => ({ beers: state.product, breweries: state.brewery, styles: state.style })
 
-const mapDispatchToProps = {updateBeer}
+const mapDispatchToProps = {updateBeer, removeBeer}
 
 const editSingleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(EditSingleBeer)
 
