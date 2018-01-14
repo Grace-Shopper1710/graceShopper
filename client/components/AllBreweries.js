@@ -13,7 +13,7 @@ export class AllBreweries extends React.Component {
 
 		return (
 			<div>
-				{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Create a New Beer</button></NavLink>}
+				{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Create a New Brewery</button></NavLink>}
 				<ul>
 					{
 						this.props.breweries.map(brewery => (

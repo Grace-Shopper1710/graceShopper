@@ -113,10 +113,10 @@ class EditBrewery extends React.Component {
 
 
 
-const mapStateToProps = state => ({ Brewerys: state.product, breweries: state.brewery, styles: state.style })
+const mapStateToProps = state => ({ breweries: state.brewery })
 
 const mapDispatchToProps = {updateBrewery, removeBrewery}
 
-const editSingleBreweryContainer = connect(mapStateToProps, mapDispatchToProps)(EditBrewery)
+const editBreweryContainer = connect(mapStateToProps, mapDispatchToProps)(EditBrewery)
 
-export default editSingleBreweryContainer
+export default editBreweryContainer
