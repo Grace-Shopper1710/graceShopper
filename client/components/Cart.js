@@ -19,15 +19,15 @@ const mapDispatchToProps = dispatch => ({
 
 export const Cart = (props) => {
 	return (
-		<div>
+		<div className="cart">
 			{
 				props.cart && props.cart.products.length
-				? <ul>
+				? <div>
 					{
 						props.cart.products.map(product => {
 							const item = props.beers.filter(beer => beer.id === product.id)[0]
 							return (
-								<li key={product.id}>
+								<div key={product.id}>
 								<NavLink to={`/beers/${item.id}`}>Item: {item.name}</NavLink>
 								<span>Item Price: ${product.price}</span>
 								<span>
@@ -46,17 +46,17 @@ export const Cart = (props) => {
 								</span>
 								<span>Total Price: ${product.price * product.qty}</span>
 								<button onClick={props.handleClick(product.id)}>X</button>
-								</li>
+								</div>
 							)
 						})
 					}
-				</ul>
+				</div>
 				: <p>Nothing in the Cart! Go get some beers!</p>
 			}
 			<p>Subtotal:</p>
 			<p>Tax</p>
 			<p>Total: ${props.cart ? props.cart.total : 0}</p>
-			<NavLink to={'/checkout'}><button>Checkout</button></NavLink>
+			<button><NavLink to={'/checkout'}>Checkout</NavLink></button>
 		</div>
 	
 	)

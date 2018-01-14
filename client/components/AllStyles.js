@@ -12,17 +12,14 @@ export class AllStyles extends React.Component {
     const styles = this.props.styles
 
     return(
-      <div>
-        what about now
+      <div className="allStyles">
         <ul>
           {
             styles.map(style => (
-              <li key={style.id}>
-                <div>
-                  <NavLink to={`/styles/${style.id}`}>{style.name}</NavLink>
-                  <p>{style.description}</p>
+                <div key={style.id}>
+                  <NavLink to={`/styles/${style.id}`} className="styleName">{style.name}</NavLink><br />
+                  <div className="styleDetail">{style.description}</div>
                 </div>
-              </li>
             ))
           }
         </ul>

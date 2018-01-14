@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
 import store from '../store'
 
-
-
 const mapStateToProps = state => ({
   beers: state.product,
   searchInput: state.searchInput
@@ -18,14 +16,12 @@ const allBeers =  (props) => {
     return beer.name.toLowerCase().startsWith(searchInput)}) : []
 
 	return (
-		<div>
-			<ul>
+		<div className="allBeers">
 				{
 					filteredBeers.map(beer => (
 						<BeerItem key={beer.id} beer={beer} />
 					))
 				}
-			</ul>
 		</div>
 	)
 }

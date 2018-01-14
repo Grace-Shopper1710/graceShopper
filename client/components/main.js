@@ -18,7 +18,7 @@ const Main = (props) => {
   return (
     <div>
       <h1>BEER</h1>
-      <nav>
+      <nav className="header">
         <Link to="/breweries">Breweries</Link>
         <Link to="/beers">Beers</Link>
         <Link to="/styles">Styles</Link>
@@ -52,9 +52,8 @@ const Main = (props) => {
         }
         <Link to="/cart">Cart: {cart.products ? cart.products.reduce((a, b) => a + b.qty, 0) : 0} items</Link>
       </nav>
-      <hr />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

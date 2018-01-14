@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const models = require('../db/models')
-const Review = models.Review
+const Reviews = models.Reviews
 
 module.exports = router;
 
@@ -16,7 +16,7 @@ const isAdmin = (req, res, next) => {
 }
 
 router.get('/', (req, res, next) => {
-    Review.findAll({
+    Reviews.findAll({
         include: [{all: true}]
     })
     .then(reviews => res.json(reviews))
@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:reviewId', (req, res, next) => {
-    Review.findById(req.params.reviewId,
+    Reviews.findById(req.params.reviewId,
         {include: [{all: true}]
     })
     .then(review => res.json(review))
@@ -32,13 +32,13 @@ router.get('/:reviewId', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    Review.create(req.body)
+    Reviews.create(req.body)
     .then(review => res.json(review))
     .catch(next)
 })
 
 router.put('/:reviewId', isAdmin, (req, res, next) => {
-    Review.findOne({
+    Reviews.findOne({
         where: {id: req.params.reviewId}
     })
     .then(review => review.update(req.body))
@@ -47,7 +47,7 @@ router.put('/:reviewId', isAdmin, (req, res, next) => {
 })
 
 router.delete('/:reviewId', isAdmin, (req, res, next) => {
-    Review.destroy({
+    Reviews.destroy({
         where: {id: req.params.reviewId}
     })
     .then(() => res.send('Successful deletion'))
