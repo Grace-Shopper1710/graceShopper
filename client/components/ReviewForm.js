@@ -1,8 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { writeReview, postReview, clearReview } from '../store'
+import { writeReview, postNewReview, clearReview } from '../store'
 
-const mapStateToProps = state => ({ breweries: state.brewery })
+const mapStateToProps = (state) => ({
+    breweries: state.brewery,
+    reviewForm: state.reviewForm,
+    user: state.user})
 const mapDispatchToProps = dispatch => ({
     handleChange: name => event => {
         const newReview = {
@@ -10,36 +13,41 @@ const mapDispatchToProps = dispatch => ({
         }
         dispatch(writeReview(newReview))
     },
-    handleSubmit: event => {
+    handleSubmit: props => event => {
         event.preventDefault()
         const review = {
-            rating: event.target.rating.value || null,
-            content: event.target.content.value || null
+            // rating: event.target.rating.value || null,
+            content: event.target.content.value || null,
+            productId: props.beer.id,
+            userId: props.user.id
         }
-        dispatch(postReview(review))
-        dispatch(clearReview())
+        console.log(review)
+        dispatch(postNewReview(review))
     }
 })
 
 const ReviewForm = (props) => {
+    console.log('REVIEWFORM PROPS', props)
 	return (
-        <form onSubmit={props.handlSubmit}>
+        <form onSubmit={props.handleSubmit(props)} className="reviewForm">
+            <h2> Add a Review</h2>
             <div>
-                <h2> Add a Review</h2>
-                <label> Rating:
+                {/* <label> Rating:
                     <input
                         type="text"
                         name="rating"
-                        value={props.newReview.rating}
+                        value={props.reviewForm.rating}
                         onChange={props.handleChange('rating')}
                     />
-                </label><br />
+                </label><br /> */}
                 <label> Review:
-                    <input
+                    <textarea
+                        rows="15"
+                        cols="100"
                         type="text"
                         name="content"
                         placeholder="Reviews must be at least 100 characters long"
-                        value={props.newReview.content}
+                        value={props.reviewForm.content}
                         onChange={props.handleChange('content')}
                         />
                 </label><br />

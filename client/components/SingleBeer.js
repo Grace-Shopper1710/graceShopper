@@ -2,8 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { addItemToCart } from '../store'
+import {default as Review} from './Reviews'
+import {default as ReviewForm} from './ReviewForm'
 
-const mapStateToProps = state => ({ beers: state.product })
+const mapStateToProps = state => ({
+	beers: state.product,
+	isLoggedIn: !!state.user.id
+})
 
 const mapDispatchToProps = dispatch => ({
 	handleSubmit: (productId, qty, price) => event => {
@@ -27,6 +32,7 @@ export class SingleBeer extends React.Component {
 	render () {
 		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0] || {}
 		return (
+			<div>
 			<div className="singleBeer">
 				<img src={targetBeer.image} />
 				<div>
@@ -49,6 +55,14 @@ export class SingleBeer extends React.Component {
 						</label><br />
 						<input type="submit" value="Add to Cart" />
 					</form>
+				</div>
+				</div>
+				<div className="reviewBlock">
+				<Review beer={targetBeer} />
+				{ this.props.isLoggedIn ?
+					<ReviewForm beer={targetBeer} /> :
+					null
+				}
 				</div>
 			</div>
 		)

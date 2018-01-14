@@ -1,6 +1,14 @@
 body {
   font-family: sans-serif;
+  height: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 
 hr {
   color: none;
@@ -49,21 +57,22 @@ form div {
   display: inline-block;
 }
 
-.heroImage {
-  width: 100%;
-}
-
 .allBeers {
   width: 100%;
+  margin: 5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+.header {
+  background-color: #A9CCE3 ;
+}
 
 .allStyles {
   width: 100%;
+  margin: 5%;
   margin-top: 1%;
   display: flex;
   flex-direction: column;
@@ -83,10 +92,39 @@ form div {
   margin: .5%
 }
 
+.reviewBlock {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+  align-content: space-between;
+  background-color: #2980B9
+}
+
+.reviewForm {
+  flex: 1;
+  margin: 1%;
+  padding: 2%;
+  background-color: white;
+}
+
+.allReviews {
+  flex: 1;
+  margin: 1%;
+  padding: 2%;
+  height: 50vh;
+  overflow-y: scroll;
+  background-color: white;
+}
+
 .singleBeer {
   display: flex;
+  background-color: #1F618D;
   align-content: center;
   justify-content: space-between;
+}
+
+.reviewContent {
+  font-size: 80%
 }
 
 .footer {
