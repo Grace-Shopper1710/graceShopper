@@ -44,6 +44,16 @@ export const removeBeer = (id, history) => dispatch => {
         })
         .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err));
 }
+export const addBeer = (beer, history) => dispatch => {
+    axios.post('/api/products/', beer)
+        .then(() => {
+            fetchAllProducts()
+        })
+        .then(() => {
+            history.push('/beers')
+        })
+        .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err));
+}
 
 //Reducer
 export default function (products = [], action) {
@@ -55,9 +65,10 @@ export default function (products = [], action) {
                 action.beer.id === beer.id ? action.beer : beer
             ))
         case DELETE:
-            return products.filter(beer => 
+            return products.filter(beer =>
                 action.beerId !== beer.id
             )
+
         default:
             return products
     }

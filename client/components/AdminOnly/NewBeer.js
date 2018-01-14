@@ -1,97 +1,73 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import {updateBeer, removeBeer} from '../../store/product'
+import {connect} from 'react-redux'
+import {addBeer} from '../../store/product'
 
-
-class EditSingleBeer extends React.Component {
+class NewBeer extends React.Component {
     constructor(props) {
         super(props)
         this.onBeerSubmit = this.onBeerSubmit.bind(this)
-        this.onBeerDelete = this.onBeerDelete.bind(this)
     }
 
     render() {
-        const { styles, beers, breweries } = this.props
+        const { styles, breweries } = this.props
 
-        const checkMe = (!styles.length || !breweries.length || !beers.length)
+        const checkMe = (!styles.length || !breweries.length)
 
         if (checkMe) return <div />
 
-        const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
-        if (!targetBeer) return <div />
-
-        const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id)
-
-        const myStyle = styles.find(style => targetBeer.styleId === style.id)
-        console.log(myBrewery, myStyle)
-
-
         return (
             <div>
-                <NavLink to={'/admin/newbeer'}><button>Create a New Beer</button></NavLink>
-                <button 
-                onClick={this.onBeerDelete}>
-                   Delete This Beer!</button>
                 <form onSubmit={
                     this.onBeerSubmit
                 }>
-                    <h1>THIS NEEDS TO BE BUILT TO EDIT SINGLE BEER</h1>
+                    <h1>ADD A NEW BEER</h1>
                     <ul>
                         <li>
                             Name: 
                             <input
                                 name="name"
-                                defaultValue={targetBeer.name}
-                                onChange={evt => { }}
+                                defaultValue="add a name"
                             />
                         </li>
                         <li>
                             Description: 
                             <textarea
                                 name="description"
-                                defaultValue={targetBeer.description}
-                                onChange={evt => { }}
+                                defaultValue="add a description"
                             />
                         </li>
                         <li>
                             Image URL: 
                             <textarea
                                 name="image"
-                                defaultValue={targetBeer.image}
-                                onChange={evt => { }}
+                                defaultValue="add the image url"
                             />
                         </li>
                         <li>
                             Inventory:
                             <input
                                 name="inventory"
-                                defaultValue={targetBeer.inventory}
-                                onChange={evt => { }}
+                                defaultValue="the # in inventory"
                             />
                         </li>
                         <li>
                             Packaging:
                             <input
                                 name="packaging"
-                                defaultValue={targetBeer.packaging}
-                                onChange={evt => { }}
+                                defaultValue="how is it packaged?"
                             />
                         </li>
                         <li>
                             Price:
                             <input
                                 name="price"
-                                defaultValue={targetBeer.price}
-                                onChange={evt => { }}
+                                defaultValue="add the price"
                             />
                         </li>
                         <li>
                             Brewery:
                             <select
-                                name="breweryId"
-                                onChange={evt => { }}
-                                defaultValue={myBrewery.id}>
+                                name="breweryId">
                                 {
                                     breweries.map(brewery => (
                                         <option key={brewery.id} value={brewery.id}>{brewery.name}</option>
@@ -103,8 +79,6 @@ class EditSingleBeer extends React.Component {
                             Style:
                             <select
                                 name="styleId"
-                                onChange={evt => { }}
-                                defaultValue={myStyle.id}
                             >
 
                                 {
@@ -115,15 +89,10 @@ class EditSingleBeer extends React.Component {
                             </select>
                         </li>
                     </ul>
-                    <button type="submit">Submit your changes</button>
+                    <button type="submit">Add this Beer</button>
                 </form>
             </div>
         )
-    }
-    onBeerDelete(event){
-        console.log("I'm in here")
-        event.preventDefault() 
-        this.props.removeBeer(+this.props.match.params.id, this.props.history)
     }
 
     onBeerSubmit(event) {
@@ -139,16 +108,16 @@ class EditSingleBeer extends React.Component {
             price: +event.target.price.value
         }
         console.log(beer)
-        this.props.updateBeer(+this.props.match.params.id, beer, this.props.history)
+        this.props.addBeer(beer, this.props.history)
     }
 }
 
 
 
-const mapStateToProps = state => ({ beers: state.product, breweries: state.brewery, styles: state.style })
+const mapStateToProps = state => ({ breweries: state.brewery, styles: state.style })
 
-const mapDispatchToProps = {updateBeer, removeBeer}
+const mapDispatchToProps = {addBeer}
 
-const editSingleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(EditSingleBeer)
+const NewBeerContainer = connect(mapStateToProps, mapDispatchToProps)(NewBeer)
 
-export default editSingleBeerContainer
+export default NewBeerContainer

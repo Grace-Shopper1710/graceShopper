@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders} from './components'
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart } from './store'
 import Home from './components/Home'
 
@@ -45,7 +45,8 @@ class Routes extends Component {
                          {/* Routes placed here are only available to admin users */}
                         <Route path="/users" component={AllUsers} />
                         <Route path="/orders" component={AllOrders} />
-                        <Route path="/beers/:id/edit" component={EditSingleBeer} />
+                        <Route exact path="/beers/:id/edit" component={EditSingleBeer} />
+                        <Route path="/admin/newbeer" component={NewBeer} />
                       </Switch>
                   }
                 </Switch>
