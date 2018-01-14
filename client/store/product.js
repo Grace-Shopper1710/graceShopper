@@ -47,12 +47,14 @@ export const removeBeer = (id, history) => dispatch => {
 export const addBeer = (beer, history) => dispatch => {
     axios.post('/api/products/', beer)
         .then(() => {
-            fetchAllProducts()
+            axios.get('/api/products')
+            .then(res => res.data)
+            .then(products => dispatch(getAllProducts(products)))
+            .then(() => {
+                history.push('/beers')
+            })
         })
-        .then(() => {
-            history.push('/beers')
-        })
-        .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err));
+        .catch(err => console.error(`Adding beer was unsuccessful`, err));
 }
 
 //Reducer
