@@ -2,16 +2,24 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const BeerItem = (props) => {
-	const { beer, isStyle, isBrewery } = props
+	const { beer, isStyle, isBrewery, isAdmin } = props
 	return (
-		<div className="beerItem">
-			<NavLink to={`/beers/${beer.id}`}><img src={beer.image} /></NavLink><br />
-				<NavLink to={`/beers/${beer.id}`} className="beerName">{beer.name}</NavLink><br />
-				{!isStyle && <NavLink to={`/styles/${beer.styleId}`}>{beer.style ? beer.style.name : null}</NavLink>}<br />
-				{!isBrewery && <NavLink to={`/breweries/${beer.breweryId}`}>{beer.brewery ? beer.brewery.name : null} / ABV: {beer.abv}</NavLink>} <br />
-				{beer.packaging} <br />
-				${beer.price} <br />
-		</div>
+		<li>
+			{
+            isAdmin &&
+          <div>
+			<NavLink to={`/beers/${beer.id}/edit`}><button>Edit!</button></NavLink>
+          </div>
+          }
+			<NavLink to={`/beers/${beer.id}`}><img src={beer.image} /></NavLink>
+			<ul>
+				<li><NavLink to={`/beers/${beer.id}`}>{beer.name}</NavLink></li>
+				{!isStyle && <li><NavLink to={`/styles/${beer.styleId}`}>{beer.style ? beer.style.name : null}</NavLink></li>}
+				{!isBrewery && <li><NavLink to={`/breweries/${beer.breweryId}`}>{beer.brewery ? beer.brewery.name : null} / ABV: {beer.abv}</NavLink></li>}
+				<li>{beer.packaging}</li>
+				<li>${beer.price}</li>
+			</ul>
+		</li>
 	)
 }
 

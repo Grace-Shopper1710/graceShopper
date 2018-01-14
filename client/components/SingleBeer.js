@@ -30,7 +30,8 @@ export class SingleBeer extends React.Component {
 	}
 
 	render () {
-		const targetBeer = this.props.beers.filter(beer => beer.id === +this.props.match.params.id)[0] || {}
+		const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
+		if (!targetBeer) return <div />
 		return (
 			<div>
 			<div className="singleBeer">

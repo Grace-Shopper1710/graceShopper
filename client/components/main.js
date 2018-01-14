@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
-import {logout} from '../store'
+import { connect } from 'react-redux'
+import { withRouter, Link } from 'react-router-dom'
+import { logout } from '../store'
 import Footer from './Footer'
 import SearchBar from './SearchBar'
 
@@ -13,49 +13,57 @@ import SearchBar from './SearchBar'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  const {children, handleClick, isLoggedIn, isAdmin, cart} = props
-  console.log(cart)
+  const { children, handleClick, isLoggedIn, isAdmin, cart } = props
+  //console.log(cart)
   return (
     <div>
       <h1>BEER</h1>
-      <nav className="header">
-        <Link to="/breweries">Breweries</Link>
-        <Link to="/beers">Beers</Link>
-        <Link to="/styles">Styles</Link>
-        <SearchBar />
+      <nav>
+      {
+        !isAdmin
+          ? <div className="header">
+              <Link to="/beers">Beers</Link>
+              <Link to="/breweries">Breweries</Link>
+              <Link to="/styles">Styles</Link>
+          </div>
+          :
+          null
+      }
+      <SearchBar />
         {
-          isAdmin
-            ? <div>
-              {/* The navbar will show these links if you're an Admin */}
-              <Link to="/editStyle">Edit Style</Link>
-              <Link to="/editProduct">Edit User</Link>
-              <Link to="/editProduct">Edit Order</Link>
-              <Link to="/editProduct">Edit Brewery</Link>
-              <Link to="/orders">All Orders</Link>
-              <Link to="/users">All Users</Link>
+            isAdmin
+              ? <div>
+                {/* The navbar will show these links if you're an Admin */}
+                <Link to="/beers">Beers</Link>
+                <Link to="/breweries">Breweries</Link>
+                <Link to="/styles">Styles</Link>
+                <Link to="/users">Users</Link>
+                <Link to="/orders">Orders</Link>
 
-            </div>
-            :
-            null
-        }
-        {
-          isLoggedIn
-            ? <div>
-              {/* The navbar will show these links after you log in */}
-              <a href="#" onClick={handleClick}>Logout</a>
-            </div>
-            : <div>
-              {/* The navbar will show these links before you log in */}
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-        }
-        <Link to="/cart">Cart: {cart.products ? cart.products.reduce((a, b) => a + b.qty, 0) : 0} items</Link>
+
+              </div>
+              :
+              null
+          }
+          {
+            isLoggedIn
+              ? <div>
+                {/* The navbar will show these links after you log in */}
+                <a href="#" onClick={handleClick}>Logout</a>
+              </div>
+              : <div>
+                {/* The navbar will show these links before you log in */}
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Sign Up</Link>
+              </div>
+          }
+          <Link to="/cart">Cart: {cart.products ? cart.products.reduce((a, b) => a + b.qty, 0) : 0} items</Link>
       </nav>
-      {children}
-      {/* <Footer /> */}
+        <hr />
+        {children}
+         <Footer />
     </div>
-  )
+      )
 }
 
 /**
@@ -63,7 +71,7 @@ const Main = (props) => {
  */
 const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.id,
+        isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin && !!state.user.id,
     cart: state.cart
   }
@@ -71,7 +79,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleClick () {
+        handleClick() {
       dispatch(logout())
     }
   }
@@ -85,8 +93,9 @@ export default withRouter(connect(mapState, mapDispatch)(Main))
  * PROP TYPES
  */
 Main.propTypes = {
-  children: PropTypes.object,
+        children: PropTypes.object,
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired
 }
+
