@@ -45,7 +45,7 @@ export const checkout = (orderDetails) =>
         .then(res => {
             dispatch(gotCartFromServer(res.data))
             dispatch(fetchAllOrders())
-            history.push('/beers')
+            history.push('/orderconfirm')
         })
         .catch(err => console.log(err))
 
