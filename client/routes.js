@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle} from './components'
-import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchPromoCode} from './store'
+
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Footer, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders} from './components'
+import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders} from './store'
 
 import Home from './components/Home'
 
@@ -40,6 +41,8 @@ class Routes extends Component {
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
                   <Route path="/home" component={UserHome} />
+                  <Route path="/myorders" component=
+                  {PastOrders} />
                   {
                     isAdmin &&
                       <Switch>
@@ -86,7 +89,11 @@ const mapDispatch = (dispatch) => {
       dispatch(fetchAllBreweries())
       dispatch(fetchCart())
       dispatch(fetchAllReviews())
+<<<<<<< HEAD
       dispatch(fetchPromoCode())
+=======
+      dispatch(fetchAllOrders())
+>>>>>>> 8f3746855a714a155a27e56c5ee32b2c79cfd5c8
     }
   }
 }

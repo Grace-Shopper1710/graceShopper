@@ -23,7 +23,10 @@ router.get('/', (req, res, next) => {
 
 router.get('/:breweryId', (req, res, next) => {
     Brewery.findById(req.params.breweryId)
-    .then(brewery => res.json(brewery))
+    .then(brewery => {
+      if (!brewery) res.sendStatus(404)
+      else res.json(brewery)
+    })
     .catch(next)
 })
 

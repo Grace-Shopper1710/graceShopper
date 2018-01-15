@@ -6,6 +6,7 @@ const {
     Product,
     User,
     Reviews,
+    Order
 } = require('../server/db/models')
 //didn't do reviews yet
 
@@ -52,6 +53,46 @@ var data = {
             password: "123",
             isAdmin: false
         },
+        {
+            email: "janeDoe@janedoe.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "johnwayne@johnwayne.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "bettedavis@bettedavis.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "audreyhepburn@gmail.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "elizabethtaylor@etaylor.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "jenniferjones@jjones.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "johndoe@jDoe.com",
+            password: "123",
+            isAdmin: false
+        },
+        {
+            email: "janedoe@jdoe.com",
+            password: "123",
+            isAdmin: false
+        }
     ],
     style: [
         {
@@ -321,7 +362,7 @@ var data = {
         }
 
      ]}
-     var data2 = {reviews:[
+     var data2 = {reviews: [
         {
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
             rating: 2,
@@ -434,7 +475,97 @@ var data = {
 
 
     ]}
- 
+    var data3 = { order: [
+        {
+            firstName: 'Jane',
+            lastName: 'Doe',
+            address: '123 Server Lane',
+            zipCode: '10000',
+            city: 'New York',
+            state: 'NY',
+            total:  150.00,
+            status: 'PROCESSING',
+            userId: 9
+        },
+        {
+            firstName: 'John',
+            lastName: 'Wayne',
+            address: '123 Express Boulevard',
+            zipCode: '10000',
+            city: 'New York',
+            state: 'NY',
+            total: 38.00,
+            status: 'COMPLETED',
+            userId: 10
+        },
+        {
+            firstName: 'Bette',
+            lastName: 'Davis',
+            address: '123 Node Street',
+            zipCode: '10000',
+            city: 'New York',
+            state: 'NY',
+            total:  48.00,
+            status: 'CANCELLED',
+            userId: 11
+        },
+        {
+            firstName: 'Audrey',
+            lastName: 'Hepburn',
+            address: '123 Compiler Avenue',
+            zipCode: '10000',
+            city: 'Queens',
+            state: 'NY',
+            total: 100.00,
+            status: 'PROCESSING',
+            userId: 12
+        },
+        {
+            firstName: 'Elizabeth',
+            lastName: 'Taylor',
+            address: '123 React Lane',
+            zipCode: '10000',
+            city: 'Long Island',
+            state: 'NY',
+            total: 500.00,
+            status: 'COMPLETED',
+            userId: 13
+        },
+        {
+            firstName: 'Jennifer',
+            lastName: 'Jones',
+            address: '123 Server Street',
+            zipCode: '10000',
+            city: 'Long Island',
+            state: 'NY',
+            total: 40.00,
+            status: 'CREATED',
+            userId: 14
+        },
+        {
+            firstName: 'John',
+            lastName: 'Doe',
+            address: '123 Server Lane',
+            zipCode: '10000',
+            city: 'New York',
+            state: 'NY',
+            total: '150',
+            status: 'CANCELLED',
+            userId: 15
+        },
+        {
+            firstName: 'Jane',
+            lastName: 'Doe',
+            address: '123 Server Lane',
+            zipCode: '10000',
+            city: 'New York',
+            state: 'NY',
+            total: 68.00,
+            status: 'PROCESSING',
+            userId: 16
+        }
+      ]}
+
 
 db.sync({ force: true })
     .then(function () {
@@ -457,6 +588,15 @@ db.sync({ force: true })
             })
         })
     })
+    .then(function () {
+      console.log("Dropped old data, now inserting order data")
+      return Promise.map(Object.keys(data3), function (name) {
+          return Promise.map(data3[name], function (item) {
+              //console.log("another time name", name)
+              return db.model(name).create(item)
+          })
+      })
+  })
     .then(function () {
         console.log("Finished inserting data")
     })
