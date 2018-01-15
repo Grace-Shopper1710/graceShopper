@@ -1,44 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import store from '../store'
 
 const mapStateToProps = state => ({ styles: state.style, user: state.user })
 
-export class AllStyles extends React.Component {
-
-  render() {
-
-    const { styles, user } = this.props
+const AllStyles = (props) => {
+    const { styles, user } = props
     const isAdmin = user ? user.isAdmin : false
-
     return (
-      <div className="allStyles">
-        {isAdmin && <NavLink to={'/admin/newstyle'}><button>Create a New Style</button></NavLink>}
-        <ul>
+      <div>
+        {isAdmin && <NavLink to={'/admin/newstyle'} className="btn btn-primary">Add New Style</NavLink>}
           {
             styles.map(style => (
-              <li key={style.id}>
-                {
-                  isAdmin &&
-                  <div>
-                    <NavLink to={`/style/${style.id}/edit`}><button>Edit!</button></NavLink>
-                  </div>
-                }
+              <div key={style.id}>
                 <div>
-                  <NavLink to={`/styles/${style.id}`}>{style.name}</NavLink>
+                  <NavLink to={`/styles/${style.id}`}><h2>{style.name}</h2></NavLink>
                   <p>{style.description}</p>
+                  {
+                  isAdmin &&
+                  <NavLink to={`/style/${style.id}/edit`} className="btn btn-primary btn-sm">Edit</NavLink>
+                  }
                 </div>
-              </li>
+              </div>
             ))
           }
-        </ul>
       </div>
     )
-  }
 }
 
 const AllStylesContainer = connect(mapStateToProps)(AllStyles)
 export default AllStylesContainer
-
-//state => style: [{id, name, description }, {...}]

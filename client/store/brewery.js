@@ -1,29 +1,24 @@
 import axios from 'axios'
 
-
 export const FETCH_ALL_BREWERIES = 'FETCH ALL BREWERIES'
 const UPDATE = 'UPDATE_BREWERY'
 const DELETE = 'DELETE_BREWERY'
 
-
-
-//ACTION CREATOR
-export const getAllBreweries = (breweries) => {
-  return {
+export const getAllBreweries = breweries => ({
     type: FETCH_ALL_BREWERIES,
     breweries
-  }
-}
-const update = brewery => ({
+})
+
+export const update = brewery => ({
   type: UPDATE,
   brewery
 })
-const deleteBrewery = breweryId => ({
+
+export const deleteBrewery = breweryId => ({
   type: DELETE,
   breweryId
 })
 
-//THUNK FUNCTION
 export const fetchAllBreweries = () =>
   dispatch =>
     axios.get('/api/breweries')
@@ -42,7 +37,6 @@ export const updateBrewery = (id, brewery, history) =>
       .catch(err => console.error(`Updating brewery: ${brewery} unsuccessful`, err))
 
 export const removeBrewery = (id, history) => dispatch => {
-  console.log("Im also in here")
   axios.delete(`/api/breweries/${id}`)
     .then(() => {
       dispatch(deleteBrewery(id))
@@ -50,10 +44,11 @@ export const removeBrewery = (id, history) => dispatch => {
     })
     .catch(err => console.error(`Removing brewery: ${id} unsuccessful`, err));
 }
-export const addBrewery = (brewery, history) => dispatch => {
-  axios.post('/api/breweries/', brewery)
-    .then(() => {
-      axios.get('/api/breweries')
+export const addBrewery = (brewery, history) => 
+  dispatch => {
+    axios.post('/api/breweries/', brewery)
+      .then(() => {
+        axios.get('/api/breweries')
         .then(res => res.data)
         .then(breweries => dispatch(getAllBreweries(breweries)))
         .then(() => {
@@ -63,8 +58,6 @@ export const addBrewery = (brewery, history) => dispatch => {
     .catch(err => console.error(`Adding brewery was unsuccessful`, err));
 }
 
-
-//REDUCER
 export default function (breweries = [], action) {
   switch (action.type) {
     case FETCH_ALL_BREWERIES:

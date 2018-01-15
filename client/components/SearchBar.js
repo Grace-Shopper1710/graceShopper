@@ -1,45 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import BeerItem from './BeerItem'
-import store, {searchInventory} from '../store'
-
-export class SearchBar extends React.Component {
-  constructor(props){
-    super(props)
-  }
-
-  render(){
-    const { handleChange } = this.props
-
-    return (
-      <div>
-          <form className='form-group' style={{marginTop: '20px'}}>
-            <input
-              name = "searchBeer"
-              onChange={handleChange}
-              value={this.props.searchInput}
-              className='form-control'
-              placeholder="Search our selection"
-            />
-          </form>
-      </div>
-    )
-  }
-}
+import {searchInventory} from '../store'
 
 const mapStateToProps = state => ({
   beers: state.product,
   searchInput: state.searchInput
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-      handleChange (evt) {
-        dispatch(searchInventory(evt.target.value))
-      }
-    }
+const mapDispatchToProps = dispatch => ({
+  handleChange (e) {
+    e.preventDefault()
+    dispatch(searchInventory(e.target.value))
+  }
+})
+
+const SearchBar = props => {
+  return (
+    <div>
+        <form>
+          <input
+            name="searchBeer"
+            onChange={props.handleChange}
+            value={props.searchInput}
+            placeholder="Search our selection"
+          />
+        </form>
+    </div>
+  )
 }
 
- const searchBarContainer = connect(mapStateToProps, mapDispatchToProps)(SearchBar)
-
- export default searchBarContainer
+const searchBarContainer = connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default searchBarContainer

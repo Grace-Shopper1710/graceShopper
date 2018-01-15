@@ -11,27 +11,25 @@ class NewStyle extends React.Component {
 render() {
     return (
         <div>
-            <form onSubmit={
-                this.onStyleSubmit
-            }>
-                <h1>Create A New Style</h1>
+            <form onSubmit={this.onStyleSubmit}>
+                <h1>New Style</h1>
                 <ul>
                     <li>
-                        Name: 
+                        Name:
                         <input
                             name="name"
                             defaultValue="enter the name"
                         />
                     </li>
                     <li>
-                        Description: 
+                        Description:
                         <textarea
                             name="description"
                             defaultValue="enter the description"
                         />
                     </li>
                 </ul>
-                <button type="submit">Submit your changes</button>
+                <button className="btn btn-info" type="submit">Submit</button>
             </form>
         </div>
     )
@@ -43,9 +41,8 @@ onStyleSubmit(event) {
         name: event.target.name.value,
         description: event.target.description.value,
     }
-    //console.log(style)
     this.props.addStyle(style, this.props.history)
-}
+    }
 }
 
 const mapDispatchToProps = {addStyle}

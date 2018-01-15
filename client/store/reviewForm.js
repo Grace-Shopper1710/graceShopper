@@ -1,7 +1,7 @@
 export const WRITE_REVIEW = 'WRITE_REVIEW'
 export const CLEAR_REVIEW = 'CLEAR_REVIEW'
 
-export const writeReview = (review) => ({
+export const writeReview = review => ({
     type: WRITE_REVIEW,
     review
 })

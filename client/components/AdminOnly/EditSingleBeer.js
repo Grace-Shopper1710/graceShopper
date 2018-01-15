@@ -13,73 +13,62 @@ class EditSingleBeer extends React.Component {
 
     render() {
         const { styles, beers, breweries } = this.props
-
         const checkMe = (!styles.length || !breweries.length || !beers.length)
 
         if (checkMe) return <div />
-
-        const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
-        if (!targetBeer) return <div />
-        console.log("%%%%%%%%%%%%%",targetBeer)
-        const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id)
-        if (!myBrewery) return <div />
-        const myStyle = styles.find(style => targetBeer.styleId === style.id)
-        //console.log(myBrewery, myStyle)
-        if (!myStyle) return <div />
+        const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id) || {}
+        const myBrewery = breweries.find(brewery => targetBeer.breweryId === brewery.id) || {}
+        const myStyle = styles.find(style => targetBeer.styleId === style.id) || {}
+        
         return (
             <div>
-                <NavLink to={'/admin/newbeer'}><button>Create a New Beer</button></NavLink>
-                <button 
-                onClick={this.onBeerDelete}>
-                   Delete This Beer!</button>
-                <form onSubmit={
-                    this.onBeerSubmit
-                }>
+                <NavLink to={'/admin/newbeer'} className="btn btn-primary">New Beer</NavLink>
+                <button onClick={this.onBeerDelete} className="btn btn-danger">Delete Beer</button>
+                <form onSubmit={this.onBeerSubmit}>
                     <h1>EDIT A BEER</h1>
-                    <ul>
-                        <li>
-                            Name: 
+                        <div>
+                            Name:
                             <input
                                 name="name"
                                 defaultValue={targetBeer.name}
                             />
-                        </li>
-                        <li>
-                            Description: 
+                        </div><br />
+                        <div>
+                            Description:
                             <textarea
                                 name="description"
                                 defaultValue={targetBeer.description}
                             />
-                        </li>
-                        <li>
+                        </div><br />
+                        <div>
                             Image URL: 
                             <textarea
                                 name="image"
                                 defaultValue={targetBeer.image}
                             />
-                        </li>
-                        <li>
+                        </div><br />
+                        <div>
                             Inventory:
                             <input
                                 name="inventory"
                                 defaultValue={targetBeer.inventory}
                             />
-                        </li>
-                        <li>
+                        </div>
+                        <div>
                             Packaging:
                             <input
                                 name="packaging"
                                 defaultValue={targetBeer.packaging}
                             />
-                        </li>
-                        <li>
+                        </div><br />
+                        <div>
                             Price:
                             <input
                                 name="price"
                                 defaultValue={targetBeer.price}
                             />
-                        </li>
-                        <li>
+                        </div><br />
+                        <div>
                             Brewery:
                             <select
                                 name="breweryId"
@@ -90,29 +79,26 @@ class EditSingleBeer extends React.Component {
                                     ))
                                 }
                             </select>
-                        </li>
-                        <li>
+                        </div><br />
+                        <div>
                             Style:
                             <select
                                 name="styleId"
-                                defaultValue={myStyle.id}
-                            >
+                                defaultValue={myStyle.id}>
                                 {
                                     styles.map(style => (
                                         <option key={style.id} value={style.id}>{style.name}</option>
                                     ))
                                 }
                             </select>
-                        </li>
-                    </ul>
-                    <button type="submit">Submit your changes</button>
+                        </div><br />
+                    <button className="btn btn-success" type="submit">Submit</button>
                 </form>
             </div>
         )
     }
     onBeerDelete(event){
-        console.log("I'm in here")
-        event.preventDefault() 
+        event.preventDefault()
         this.props.removeBeer(+this.props.match.params.id, this.props.history)
     }
 
@@ -128,12 +114,9 @@ class EditSingleBeer extends React.Component {
             packaging: event.target.packaging.value,
             price: +event.target.price.value
         }
-        //console.log(beer)
         this.props.updateBeer(+this.props.match.params.id, beer, this.props.history)
     }
 }
-
-
 
 const mapStateToProps = state => ({ beers: state.product, breweries: state.brewery, styles: state.style })
 
