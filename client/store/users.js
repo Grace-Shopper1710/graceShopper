@@ -26,7 +26,6 @@ export const fetchUsers = () => dispatch => {
     axios.get('/api/users/')
         .then(res => res.data)
         .then(users => {
-            console.log(users)
             dispatch(getUsers(users))
         })
         .catch(err => console.error(err))
@@ -34,7 +33,6 @@ export const fetchUsers = () => dispatch => {
 export const deleteAUser = userId => dispatch => {
     axios.delete(`/api/users/${userId}`)
         .then(() => {
-            console.log("I delete a guy")
             dispatch(deleteUser(userId))
         })
         .catch(err => console.error(`Removing user: ${userId} unsuccessful`, err))
@@ -57,13 +55,10 @@ export default function (state = users, action) {
         case GET_USERS:
             return action.users
         case DELETE_USER:
-        console.log("state: ", state, "action.userId: ", action.userId)
-            return state.filter(user =>{
-                console.log("inside filter user.id", user.id)
-                return +action.userId !== +user.id})
+            return state.filter(user => +action.userId !== +user.id)
         case UPDATE_USER:
             return state.map(user =>
-                (action.user.id === user.id ? action.user : user))
+                (+action.user.id === +user.id ? action.user : user))
         default:
             return state
     }
