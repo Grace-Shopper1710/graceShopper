@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import {updateStyle, removeStyle} from '../../store/style'
+import {updateStyle, removeStyle} from '../../store'
 
 class EditStyle extends React.Component {
   constructor(props) {

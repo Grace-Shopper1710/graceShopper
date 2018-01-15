@@ -14,6 +14,7 @@ import reviewForm from './reviewForm'
 import promoCode from './promoCode'
 import discount from './discount'
 import order from './order'
+import users from './users'
 import styleFilter from './styleFilter'
 import breweryFilter from './breweryFilter'
 import sortFilter from './sortFilter'
@@ -31,6 +32,7 @@ const reducer = combineReducers({
   promoCode,
   discount,
   order,
+  users,
   styleFilter,
   breweryFilter,
   sortFilter
@@ -55,6 +57,7 @@ export * from './loading'
 export * from './promoCode'
 export * from './discount'
 export * from './order'
+export * from './users'
 export * from './styleFilter'
 export * from './breweryFilter'
 export * from './sortFilter'

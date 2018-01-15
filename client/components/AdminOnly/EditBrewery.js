@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import {updateBrewery, removeBrewery} from '../../store/brewery'
+import {updateBrewery, removeBrewery} from '../../store'
 
 class EditBrewery extends React.Component {
     constructor(props) {

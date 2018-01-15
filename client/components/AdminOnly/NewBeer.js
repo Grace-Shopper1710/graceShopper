@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addBeer} from '../../store/product'
+import {addBeer} from '../../store'
 
 class NewBeer extends React.Component {
     constructor(props) {
