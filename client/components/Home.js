@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 export default class Home extends React.Component {
