@@ -46,3 +46,11 @@ router.put('/:userId', isAdmin, (req, res, next) => {
   .then(user => res.json(user))
 })
 
+router.delete('/:userId', isAdmin, (req, res, next) => {
+  User.destroy({
+      where: {id: req.params.userId}
+  })
+  .then(() => res.send('Successful deletion'))
+  .catch(next)
+})
+

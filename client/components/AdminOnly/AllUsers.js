@@ -1,53 +1,59 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
+import {deleteAUser, changeUser} from '../../store'
 
-export default class AllUsers extends React.Component {
+class AllUsers extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      users: []
-    }
+    this.onAdminChange = this.onAdminChange.bind(this)
+    this.onUserDelete = this.onUserDelete.bind(this)
   }
-  componentDidMount() {
-    axios.get('/api/users/')
-      .then(res => res.data)
-      .then(users => {
-        this.setState({ users })
-      })
-  }
+
   render() {
-    let val
-    let { users } = this.state
-    console.log(users, val)
-    if (users.length > 0) (console.log("$#$#$#$#$#$#$#", typeof users[0].isAdmin))
-    const currentAdmins = users.filter(user => user.isAdmin)
-    console.log(currentAdmins)
+    const {users} = this.props
+    if (!users.length) return <div />
     return (
       <div>
         <h1>Site Users</h1>
         <ul>
-          {this.state.users.map(user => (
+          {users.map(user => (
             <li key={user.id}>
               <p> {user.email}</p>
                 <div>
                 <label>User Is Admin</label>
-                <form onSubmit={(e) => {
-                  e.preventDefault()
-                  console.log("submit button clicked", "value of it:", e.target.isAdmin.value)
-                }} action="" onChange={e => { }}>
+                <form onSubmit={e=>this.onAdminChange(e, user.id)} action="" onChange={e => { }}>
                   <select name="isAdmin" defaultValue={user.isAdmin}>
                     <option key={`true${user.id}`} value="true"> True</option>
                     <option key={`false${user.id}`} value="false"> False</option>
                   </select>
                   <button type="submit">Submit Admin Status Change</button>
                 </form>
-                <button>Delete This User</button>
+                <button onClick={e=>this.onUserDelete(e, user.id)}>Delete This User</button>
                 <button>Prompt Password Reset</button>
+                <p></p>
                 </div>
             </li>))}
         </ul>
       </div>
     )
   }
+  onUserDelete(event, userId){
+    event.preventDefault()
+    //console.log(userId)
+    this.props.deleteAUser(userId)
+  }
+  onAdminChange(event, userId){
+    event.preventDefault()
+    const changeVal = event.target.isAdmin.value
+    const changeHow = (changeVal === "true")? true : false
+    this.props.changeUser(userId, {isAdmin: changeHow})
+  }
 }
+
+const mapStateToProps = state => ({ users: state.users })
+
+const mapDispatchToProps = {deleteAUser, changeUser}
+
+const allUsersContainer = connect(mapStateToProps, mapDispatchToProps)(AllUsers)
+
+export default allUsersContainer
