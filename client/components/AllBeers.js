@@ -12,11 +12,20 @@ const mapStateToProps = state => ({
 })
 
 const allBeers = (props) => {
-	const { beers, searchInput, user } = props
+	const { beers, searchInput, user, styleFilter } = props
 	const isAdmin = user ? user.isAdmin : false
-	const filteredBeers = beers ? beers.filter(beer => {
-		return beer.name.toLowerCase().startsWith(searchInput)
-	}) : []
+	// const filteredBeers = beers ? beers.filter(beer => {
+	// 	return beer.name.toLowerCase().startsWith(searchInput)
+	// }) : []
+
+	const filterFunc = (arr, sF, sI) => {
+		if(sI) arr = arr.filter(beer => { return beer.name.toLowerCase().startsWith(searchInput)})
+		if(sF) arr = arr.filter(beer => { return beer.styleId === +styleFilter})
+
+		return arr;
+	}
+
+	const filteredBeers = filterFunc(beers, styleFilter, searchInput)
 
 	return (
 		<div>
