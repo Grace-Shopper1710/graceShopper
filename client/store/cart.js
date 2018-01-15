@@ -20,9 +20,7 @@ const gotCartFromServer = cart => ({ type: GOT_CART_FROM_SERVER, cart })
 // const deleteCart = () => ({ type: DELETE_CART })
 // const checkout = () => ({ type: CHECKOUT })
 
-/**
- * THUNK CREATORS
- */
+//THUNK CREATORS
 export const fetchCart = () =>
     dispatch =>
         axios.get('/api/cart/')
