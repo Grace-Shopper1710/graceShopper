@@ -1,28 +1,26 @@
 import axios from 'axios'
 
-
 export const FETCH_ALL_STYLES = 'FETCH ALL STYLES'
 const UPDATE = 'UPDATE_STYLE'
 const DELETE = 'DELETE_STYLE'
 
-
-//ACTION CREATOR
 export const getAllStyles = (styles) => {
   return {
     type: FETCH_ALL_STYLES,
     styles
   }
 }
+
 const update = style => ({
   type: UPDATE,
   style
 })
-const deleteStyle = styleId => ({
+
+export const deleteStyle = styleId => ({
   type: DELETE,
   styleId
 })
 
-//THUNK FUNCTION
 export const fetchAllStyles = () =>
   dispatch =>
     axios.get('/api/styles')
@@ -61,7 +59,6 @@ export const addStyle = (style, history) => dispatch => {
     .catch(err => console.error(`Adding style was unsuccessful`, err));
 }
 
-//REDUCER
 export default function (styles = [], action) {
   switch (action.type) {
     case FETCH_ALL_STYLES:

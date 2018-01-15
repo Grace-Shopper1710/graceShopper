@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { checkout } from '../store'
 
-const mapStateToProps = state => ({ cart: state.cart, beers: state.product })
+const mapStateToProps = state => ({
+	cart: state.cart,
+	beers: state.product
+})
 
 const mapDispatchToProps = dispatch => ({
 	handleSubmit: () => event => {
@@ -23,7 +26,6 @@ const mapDispatchToProps = dispatch => ({
 export const Checkout = (props) => {
 	return (
 		<div>
-			<ul>
 				{
 					props.cart.products.map(product => {
 						const item = props.beers.filter(beer => beer.id === product.id)[0]
@@ -37,8 +39,7 @@ export const Checkout = (props) => {
 						)
 					})
 				}
-				<p>Total: ${props.cart.total}</p>
-			</ul>
+			<p>Total: ${props.cart.total}</p>
 			<form onSubmit={props.handleSubmit()}>
 				<h3>Customer Information</h3>
 				<ul>

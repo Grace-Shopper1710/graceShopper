@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { writeReview, postNewReview, clearReview } from '../store'
+import { writeReview, postNewReview } from '../store'
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     breweries: state.brewery,
     reviewForm: state.reviewForm,
-    user: state.user})
+    user: state.user
+})
+
 const mapDispatchToProps = dispatch => ({
     handleChange: name => event => {
         const newReview = {
@@ -16,34 +18,66 @@ const mapDispatchToProps = dispatch => ({
     handleSubmit: props => event => {
         event.preventDefault()
         const review = {
-            // rating: event.target.rating.value || null,
+            rating: event.target.rating.value || null,
             content: event.target.content.value || null,
             productId: props.beer.id,
             userId: props.user.id
         }
-        console.log(review)
         dispatch(postNewReview(review))
     }
 })
 
-const ReviewForm = (props) => {
-    console.log('REVIEWFORM PROPS', props)
+const ReviewForm = props => {
 	return (
-        <form onSubmit={props.handleSubmit(props)} className="reviewForm">
+        <form onSubmit={props.handleSubmit(props)}>
             <h2> Add a Review</h2>
             <div>
-                {/* <label> Rating:
-                    <input
-                        type="text"
-                        name="rating"
-                        value={props.reviewForm.rating}
-                        onChange={props.handleChange('rating')}
-                    />
-                </label><br /> */}
+                Rating:
+                <div className="row">
+                    <label className="col-md-1">
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="1"
+                            onChange={props.handleChange('rating')}
+                        /> 1
+                    </label>
+                    <label className="col-md-1">
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="2"
+                            onChange={props.handleChange('rating')}
+                        /> 2
+                    </label>
+                    <label className="col-md-1">
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="3"
+                            onChange={props.handleChange('rating')}
+                        /> 3
+                    </label>
+                    <label className="col-md-1">
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="4"
+                            onChange={props.handleChange('rating')}
+                        /> 4
+                    </label>
+                    <label className="col-md-1">
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="5"
+                            onChange={props.handleChange('rating')}
+                        /> 5
+                    </label>
+                    <br />
+                </div>
                 <label> Review:
                     <textarea
-                        rows="15"
-                        cols="100"
                         type="text"
                         name="content"
                         placeholder="Reviews must be at least 100 characters long"
