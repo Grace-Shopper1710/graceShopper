@@ -1,6 +1,3 @@
-import axios from 'axios'
-
-
 export const LOADING_CHANGE = 'LOADING_CHANGE'
 
 //ACTION CREATOR

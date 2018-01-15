@@ -1,9 +1,7 @@
-import axios from 'axios'
-
 export const SEARCH_INVENTORY = 'SEARCH_INVENTORY'
 
 //Action Creators
-export const searchInventory = (searchInput) => ({
+export const searchInventory = searchInput => ({
     type: SEARCH_INVENTORY,
     searchInput
 })

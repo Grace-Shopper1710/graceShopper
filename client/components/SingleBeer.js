@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	handleSubmit: (productId, qty, price) => event => {
-		event.preventDefault()
+	handleSubmit: (productId, qty, price) => e => {
+		e.preventDefault()
 		const newItem = { productId, qty, price }
 		dispatch(addItemToCart(newItem))
 	}
@@ -34,9 +34,11 @@ export class SingleBeer extends React.Component {
 		if (!targetBeer) return <div />
 		return (
 			<div>
-			<div className="singleBeer">
+			<div className="row">
+				<div className="col-md-5">
 				<img src={targetBeer.image} />
-				<div>
+				</div>
+				<div className="col-md-5">
 					<h1>{targetBeer.name}</h1>
 					<NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink><br />
 					<NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink><br />
@@ -54,14 +56,19 @@ export class SingleBeer extends React.Component {
 							}
 							</select>
 						</label><br />
-						<input type="submit" value="Add to Cart" />
+						<button type="submit" value="Add to Cart" className="btn btn-default"> Add to Cart </button>
 					</form>
 				</div>
-				</div>
-				<div className="reviewBlock">
+			</div>
+			<hr />
+				<div className="row">
+				<div className="col-md-6">
 				<Review beer={targetBeer} />
+				</div>
 				{ this.props.isLoggedIn ?
-					<ReviewForm beer={targetBeer} /> :
+					<div className="col-md-6">
+					<ReviewForm beer={targetBeer} />
+					</div> :
 					null
 				}
 				</div>

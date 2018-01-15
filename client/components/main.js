@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import { logout } from '../store'
-import Footer from './Footer'
 import SearchBar from './SearchBar'
 
 /**
@@ -12,16 +11,17 @@ import SearchBar from './SearchBar'
  *  else common to our entire app. The 'picture' inside the frame is the space
  *  rendered out by the component's `children`.
  */
-const Main = (props) => {
+const Main = props => {
   const { children, handleClick, isLoggedIn, isAdmin, cart } = props
-  //console.log(cart)
+
   return (
-    <div>
+    <div className="container-fluid">
       <h1>BEER</h1>
+      <SearchBar />
       <nav>
       {
         !isAdmin
-          ? <div className="header">
+          ? <div>
               <Link to="/beers">Beers</Link>
               <Link to="/breweries">Breweries</Link>
               <Link to="/styles">Styles</Link>
@@ -29,7 +29,6 @@ const Main = (props) => {
           :
           null
       }
-      <SearchBar />
         {
             isAdmin
               ? <div>
@@ -61,7 +60,6 @@ const Main = (props) => {
       </nav>
         <hr />
         {children}
-         <Footer />
     </div>
       )
 }
@@ -71,7 +69,7 @@ const Main = (props) => {
  */
 const mapState = (state) => {
   return {
-        isLoggedIn: !!state.user.id,
+    isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin && !!state.user.id,
     cart: state.cart
   }
@@ -93,7 +91,7 @@ export default withRouter(connect(mapState, mapDispatch)(Main))
  * PROP TYPES
  */
 Main.propTypes = {
-        children: PropTypes.object,
+  children: PropTypes.object,
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   isAdmin: PropTypes.bool.isRequired

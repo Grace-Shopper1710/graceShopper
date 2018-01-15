@@ -15,7 +15,7 @@ render() {
                 <h1>Make A New Brewery</h1>
                 <ul>
                     <li>
-                        Name: 
+                        Name:
                         <input
                             name="name"
                             defaultValue="enter the name"
@@ -81,7 +81,6 @@ onBrewerySubmit(event) {
         state: event.target.state.value,
         country: event.target.country.value
     }
-    console.log(Brewery)
     this.props.addBrewery(Brewery, this.props.history)
 }
 }

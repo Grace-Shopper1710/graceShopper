@@ -91,7 +91,6 @@ class EditBrewery extends React.Component {
     }
     onBreweryDelete(event){
         event.preventDefault() 
-        //console.log("I'm in here")
         this.props.removeBrewery(+this.props.match.params.id, this.props.history)
     }
 
@@ -106,12 +105,9 @@ class EditBrewery extends React.Component {
             state: event.target.state.value,
             country: event.target.country.value
         }
-        console.log(Brewery)
         this.props.updateBrewery(+this.props.match.params.id, Brewery, this.props.history)
     }
 }
-
-
 
 const mapStateToProps = state => ({ breweries: state.brewery })
 

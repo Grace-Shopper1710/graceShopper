@@ -18,47 +18,52 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export const Cart = (props) => {
+	const products = props.cart.products || []
 	return (
-		<div className="cart">
+		<div className="container">
 			{
-				props.cart && props.cart.products.length
-				? <div>
+				props.cart && products.length
+				? <div className="row">
 					{
 						props.cart.products.map(product => {
-							const item = props.beers.filter(beer => beer.id === product.id)[0]
+							const item = props.beers.filter(beer => beer.id === product.id)[0] || {}
 							return (
 								<div key={product.id}>
-								<NavLink to={`/beers/${item.id}`}>Item: {item.name}</NavLink>
-								<span>Item Price: ${product.price}</span>
-								<span>
-									<form>
-										<label>
-											Quantity:
-											<select defaultValue={product.qty} onChange={props.handleChange(product.id)}>
-												{
-													Array.from(Array(item.inventory).keys()).map(num => (
-														<option key={num} value={num}>{num}</option>
-													))
-												}
-											</select>
-										</label>
-									</form>
-								</span>
-								<span>Total Price: ${product.price * product.qty}</span>
-								<button onClick={props.handleClick(product.id)}>X</button>
+								<div>
+									<div className="col-md-2">Item: <NavLink to={`/beers/${item.id}`}>{item.name}</NavLink></div>
+									<div className="col-md-2">Item Price: ${product.price}</div>
+									<div className="col-md-2">
+										<form>
+											<label>
+												Quantity:
+												<select defaultValue={product.qty} onChange={props.handleChange(product.id)}>
+													{
+														Array.from(Array(item.inventory).keys()).map(num => (
+															<option key={num} value={num}>{num}</option>
+														))
+													}
+												</select>
+											</label>
+										</form>
+									</div>
+									</div>
+									<div className="col-md-2">${product.price * product.qty}</div>
+									<button className="btn-danger btn-sm col-md-3" onClick={props.handleClick(product.id)}>Remove from Cart</button>
 								</div>
 							)
 						})
 					}
 				</div>
-				: <p>Nothing in the Cart! Go get some beers!</p>
+				: <h2>Nothing in the Cart! Go get some beers!</h2>
 			}
-			<p>Subtotal:</p>
-			<p>Tax</p>
-			<p>Total: ${props.cart ? props.cart.total : 0}</p>
-			<button><NavLink to={'/checkout'}>Checkout</NavLink></button>
+			<br /><br /><br />
+			<div className="text-md-left">
+				<p>Subtotal:</p>
+				<p>Tax</p>
+				<p>Total: ${props.cart ? props.cart.total : 0}</p>
+				<NavLink to={'/checkout'} className="btn btn-success">Checkout</NavLink>
+			</div>
 		</div>
-	
 	)
 }
 
