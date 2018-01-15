@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addBreweryFilter, addStyleFilter, addSortFilter} from '../store'
+import {addBreweryFilter, addStyleFilter, addSortFilter, clearBreweryFilter, clearStyleFilter, clearSortFilter, clearSearchInput} from '../store'
+import SearchBar from './SearchBar'
 
 const mapStateToProps = state => ({
     product: state.product,
     brewery: state.brewery,
-    style: state.style,
-    styleFilter: state.styleFilter
+    style: state.style
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -18,12 +18,19 @@ const mapDispatchToProps = dispatch => ({
     },
     handleSortChange(e){
         dispatch(addSortFilter(e.target.value))
+    },
+    clearAllFilters() {
+        dispatch(clearStyleFilter())
+        dispatch(clearBreweryFilter())
+        dispatch(clearSortFilter())
+        dispatch(clearSearchInput())
     }
 })
 
 export const FilterBar = (props) => {
     return (
         <div>
+            <SearchBar />
             Brewery:
             <select name="breweryId" onChange={props.handleBreweryFilter}>
                 {props.brewery.map(b => {
@@ -45,6 +52,7 @@ export const FilterBar = (props) => {
                 <option value="highToLow"> Price High to Low </option>
                 <option value="lowToHigh"> Price Low to High </option>
             </select>
+            <button onClick={props.clearAllFilter}> Clear Filters </button>
         </div>
     )
 }

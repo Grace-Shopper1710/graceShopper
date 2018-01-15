@@ -15,6 +15,8 @@ import promoCode from './promoCode'
 import discount from './discount'
 import order from './order'
 import styleFilter from './styleFilter'
+import breweryFilter from './breweryFilter'
+import sortFilter from './sortFilter'
 
 const reducer = combineReducers({
   user,
@@ -29,7 +31,10 @@ const reducer = combineReducers({
   promoCode,
   discount,
   order,
-  styleFilter})
+  styleFilter,
+  breweryFilter,
+  sortFilter
+})
 
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
@@ -51,3 +56,5 @@ export * from './promoCode'
 export * from './discount'
 export * from './order'
 export * from './styleFilter'
+export * from './breweryFilter'
+export * from './sortFilter'
