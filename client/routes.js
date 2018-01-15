@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation} from './components'
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation, OrderDetail} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders, fetchPromoCode, fetchUsers} from './store'
+
 
 import Home from './components/Home'
 
@@ -41,8 +42,10 @@ class Routes extends Component {
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
                   <Route path="/home" component={UserHome} />
-                  <Route path="/myorders" component=
+                  <Route exact path="/myorders" component=
                   {PastOrders} />
+                  <Route path="/myorders/:id" component=
+                  {OrderDetail} />
                   {
                     isAdmin &&
                       <Switch>

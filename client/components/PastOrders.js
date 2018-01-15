@@ -16,7 +16,7 @@ export const PastOrders = (props) => {
       <ul>
         {userOrders.map(order => {return (
           <li key={order.id}>
-          <NavLink to= {`/orders/${order.id}`}>{order.id}</NavLink>
+          <NavLink to= {`/myorders/${order.id}`}>{order.id}</NavLink>
           <p>{order.fullName}</p>
           <p>{order.shippingAddress}</p>
           <p>Order Status: {order.status}</p>
