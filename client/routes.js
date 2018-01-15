@@ -6,7 +6,6 @@ import history from './history'
 import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders, fetchPromoCode, fetchUsers} from './store'
 
-
 import Home from './components/Home'
 
 /**
