@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addStyle} from '../../store/style'
+import {addStyle} from '../../store'
 
 class NewStyle extends React.Component {
   constructor(props) {
