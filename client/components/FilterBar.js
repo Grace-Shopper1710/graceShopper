@@ -52,7 +52,7 @@ export const FilterBar = (props) => {
                 <option value="highToLow"> Price High to Low </option>
                 <option value="lowToHigh"> Price Low to High </option>
             </select>
-            <button onClick={props.clearAllFilter}> Clear Filters </button>
+            <button onClick={props.clearAllFilters}> Clear Filters </button>
         </div>
     )
 }
