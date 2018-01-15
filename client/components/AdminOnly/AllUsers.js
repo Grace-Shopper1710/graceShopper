@@ -7,6 +7,7 @@ class AllUsers extends React.Component {
     super(props)
     this.onAdminChange = this.onAdminChange.bind(this)
     this.onUserDelete = this.onUserDelete.bind(this)
+    this.onPasswordResetTrigger = this.onPasswordResetTrigger.bind(this)
   }
 
   render() {
@@ -29,7 +30,7 @@ class AllUsers extends React.Component {
                   <button type="submit">Submit Admin Status Change</button>
                 </form>
                 <button onClick={e=>this.onUserDelete(e, user.id)}>Delete This User</button>
-                <button>Prompt Password Reset</button>
+                <button onClick={e=>this.onPasswordResetTrigger(e, user.id)}>Prompt Password Reset</button>
                 <p></p>
                 </div>
             </li>))}
@@ -48,7 +49,12 @@ class AllUsers extends React.Component {
     const changeHow = (changeVal === "true")? true : false
     this.props.changeUser(userId, {isAdmin: changeHow})
   }
+  onPasswordResetTrigger(event, userId){
+    event.preventDefault()
+    this.props.changeUser(userId, {passwordReset: true})
+  }
 }
+
 
 const mapStateToProps = state => ({ users: state.users })
 
