@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import store from '../store'
 
 const mapStateToProps = state => ({
   orders: state.order,

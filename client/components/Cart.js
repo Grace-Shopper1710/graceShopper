@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { removeFromCart, updateItemQuantity, checkout, gotCorrectPromocodeFromUser } from '../store'
+import { removeFromCart, updateItemQuantity, checkout, gotCorrectPromocodeFromUser, removePromoCode } from '../store'
 import StripeCheckout from 'react-stripe-checkout'
 
 
@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	onToken: () => (token) => {
 		dispatch(checkout(token))
 	},
+	removePromoCode: () => (dispatch(removePromoCode())),
 	handlePromoCode: (promoCodes, total) => (event) => {
 		event.preventDefault()
 		promoCodes.forEach(promoCode => {
@@ -78,7 +79,14 @@ export const Cart = (props) => {
 			<div className="text-md-left">
 				<p>Subtotal: ${props.cart ? props.cart.total : 0}</p>
 				<p>Tax: 0</p>
-				{ !!props.discount && props.cart.total !== 0 && <p>Discount: - ${props.discount}</p>}
+				{ 
+					!!props.discount && props.cart.total !== 0 
+					&& 
+					<div>
+					<p>Discount: - ${props.discount.toFixed(2)}</p>
+					<button onClick={props.removePromoCode}>Remove Promo Code</button>
+					</div>
+				}
 				<p>Total: ${props.cart && (props.cart.total - props.discount) > 0 ? (props.cart.total - props.discount).toFixed(2) : 0}</p>
 			</div>
 			<form onSubmit={props.handlePromoCode(props.promoCode, props.cart.total)}>
@@ -90,6 +98,10 @@ export const Cart = (props) => {
 			<StripeCheckout
 				shippingAddress = {true}
 				billingAddress = {true}
+				name="Beer Co."
+				description="Wish you were beer!"
+				allowRememberMe={false}
+				image="https://i.pinimg.com/236x/60/fd/e8/60fde811b6be57094e0abc69d9c2622a--beer-icon-beer-logo-design.jpg"
 				amount={props.cart.total * 100}
 				token={props.onToken(props.cart.total * 100)}
 				currency={'USD'}

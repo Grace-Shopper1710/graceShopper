@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import {updateBeer, removeBeer} from '../../store/product'
+import {updateBeer, removeBeer} from '../../store'
 
 
 class EditSingleBeer extends React.Component {

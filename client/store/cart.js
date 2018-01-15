@@ -1,5 +1,6 @@
 import axios from 'axios'
 import history from '../history'
+import { fetchAllOrders } from './index'
 
 //ACTION TYPES
 const GOT_CART_FROM_SERVER = 'GOT_CART_FROM_SERVER'
@@ -43,7 +44,8 @@ export const checkout = (orderDetails) =>
         axios.post('/api/cart/checkout', orderDetails)
         .then(res => {
             dispatch(gotCartFromServer(res.data))
-            history.push('/beers')
+            dispatch(fetchAllOrders())
+            history.push('/orderconfirm')
         })
         .catch(err => console.log(err))
 
