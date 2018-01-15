@@ -1,8 +1,20 @@
+@font-face {
+  font-family: "Cheque";
+  src: url("./fonts/Cheque-Regular.otf");
+}
+
 body {
   font-family: sans-serif;
   height: 100%;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.header {
+  font-family: "Cheque";
+  color: white;
+  font-size: 400%;
+  background-color:#002939;
 }
 
 * {
@@ -59,10 +71,6 @@ form div {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-
-.header {
-  background-color: #A9CCE3 ;
 }
 
 .allStyles {
@@ -128,4 +136,10 @@ form div {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.img-thumbnail {
+  height:250px;
+  width: 100%;
+  object-fit: scale-down;
 }

@@ -36,7 +36,7 @@ export class SingleBeer extends React.Component {
 			<div>
 			<div className="row">
 				<div className="col-md-5">
-				<img src={targetBeer.image} />
+				<img src={targetBeer.image} className="img-thumbnail" />
 				</div>
 				<div className="col-md-5">
 					<h1>{targetBeer.name}</h1>
