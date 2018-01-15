@@ -28,7 +28,10 @@ router.get('/:styleId', (req, res, next) => {
     Style.findById(req.params.styleId,
         {include: [{all: true}]
     })
-    .then(style => res.json(style))
+    .then(style => {
+      if (!style) res.sendStatus(404)
+      else res.json(style)
+    })
     .catch(next)
 })
 

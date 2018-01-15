@@ -46,11 +46,11 @@ describe('GET api/products', () => {
 
 
     it('returns another beer if there in another one in the DB', () => {
-      let beerII = Product.build({
+      let beer = Product.build({
         name: `Sample beer 2`
       })
 
-      return beerII.save().then(() => {
+      return beer.save().then(() => {
         return request(app)
         .get('/api/products')
         .expect(res => {
@@ -83,35 +83,61 @@ describe('GET api/products', () => {
         expect(res.body).to.be.an('object')
       })
     })
+
+    it('returns a 404 if the id does not exist in the db', () => {
+      return request(app)
+      .get('/api/products/156254')
+      .expect(404);
+    })
   })
 
-// it('should retrieve a single product with route GET /api/products/:productId', () => {
-//   return request(app)
-//   .get('/api/product/:productId')
-//   .expect(200)
-//   .then(res => {
-//     expect(res.body).to.be.an('object')
+//   describe('POST /products', () => {
+
+//     it('creates a new product', () => {
+//       return request(app)
+//       .post('api/products')
+//       .send({
+//         name: 'beerTastic'
+//       })
+//       .expect(201)
+//       .expect(function (res){
+//         expect(res.body.name).to.be.equal('beertastic')
+//       })
+
+//     })
+
+//     it(`can't create a beer with an empty string for a name`, () => {
+//       return request(app)
+//       .post('api/products')
+//       .send({
+//         name: ''
+//       })
+//       .expect(500)
+//     })
+
+// })
+
+//test post,delete and put routes from inside the user model
+//     it('should create a product with route POST /', () => {
+//       return request(app)
+//       .post('/api/products/')
+//       .send({name: `Oprah2020: the beer of the future`})
+//       .expect(201)
+//       .then(res => {
+//         expect('Content-Type', /json/)
+//         expect(res.body).to.have.property('name')
+//         expect(res.body).to.have.property('image')
+//         expect(res.body).to.have.property('inventory')
+//         expect(res.body).to.have.property('price')
+//         expect(res.body).to.have.property('packaging')
+//         expect(res.body).to.have.property('description')
+//         expect(res.body).to.have.property('abv')
+//         expect(res.body).to.have.property('breweryId')
+//         expect(res.body).to.have.property('styleId')
+//       })
 //   })
 // })
 
-// it('should create a product with route POST /', () => {
-//   return request(app)
-//   .post('/api/products/')
-//   .send({name: `Oprah2020: the beer of the future`})
-//   .expect(201)
-//   .then(res => {
-//     expect('Content-Type', /json/)
-//     expect(res.body).to.have.property('name')
-//     expect(res.body).to.have.property('image')
-//     expect(res.body).to.have.property('inventory')
-//     expect(res.body).to.have.property('price')
-//     expect(res.body).to.have.property('packaging')
-//     expect(res.body).to.have.property('description')
-//     expect(res.body).to.have.property('abv')
-//     expect(res.body).to.have.property('breweryId')
-//     expect(res.body).to.have.property('styleId')
-//   })
-// })
 
 
 // it('should update a brewery with route PUT /:productId', () => {
