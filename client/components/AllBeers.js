@@ -2,11 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import BeerItem from './BeerItem'
+import FilterBar from './FilterBar'
 
 const mapStateToProps = state => ({
 	beers: state.product,
 	searchInput: state.searchInput,
-	user: state.user
+	user: state.user,
+	styleFilter: state.styleFilter
 })
 
 const allBeers = (props) => {
@@ -15,8 +17,10 @@ const allBeers = (props) => {
 	const filteredBeers = beers ? beers.filter(beer => {
 		return beer.name.toLowerCase().startsWith(searchInput)
 	}) : []
+
 	return (
 		<div>
+			<FilterBar />
 			{isAdmin && <NavLink to={'/admin/newbeer'} className="btn btn-default">Create a New Beer</NavLink>}
 			<div className="row">
 				{
