@@ -5,7 +5,7 @@ const BeerItem = (props) => {
 	const { beer, isStyle, isBrewery, isAdmin } = props
 	return (
 		<div className="col-md-4 padding-bottom">
-			<NavLink to={`/beers/${beer.id}`}><img src={beer.image} className="img-thumbnail"/></NavLink>
+			<NavLink to={`/beers/${beer.id}`}><img src={beer.image} className="img-thumbnail" /></NavLink>
 				<h4><NavLink to={`/beers/${beer.id}`}>{beer.name}</NavLink></h4>
 				{!isStyle && <NavLink to={`/styles/${beer.styleId}`}>{beer.style ? beer.style.name : null}</NavLink>}<br />
 				{!isBrewery && <NavLink to={`/breweries/${beer.breweryId}`}>{beer.brewery ? beer.brewery.name : null} / ABV: {beer.abv}</NavLink>}<br />

@@ -16,7 +16,7 @@ const Main = props => {
 
   return (
     <div className="container-fluid">
-      <h1>BEER</h1>
+      <div className="header">BEER</div>
       <nav>
       {
         !isAdmin
