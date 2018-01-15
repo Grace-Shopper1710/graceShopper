@@ -33,12 +33,12 @@ const Order = db.define('order', {
 
   //VIRTUALS
 
-  fullName: {
-    type: Sequelize.VIRTUAL,
-    get () {
-      return this.getDataValue('firstName') + ' ' + this.getDataValue('lastName')
-    }
-  },
+  // fullName: {
+  //   type: Sequelize.VIRTUAL,
+  //   get () {
+  //     return this.getDataValue('firstName') + ' ' + this.getDataValue('lastName')
+  //   }
+  // },
   shippingAddress: {
     type: Sequelize.VIRTUAL,
     get() {

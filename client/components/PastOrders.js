@@ -31,3 +31,6 @@ export const PastOrders = (props) => {
 const PastOrdersContainer = connect(mapStateToProps)(PastOrders)
 
 export default PastOrdersContainer
+//figure out where to put  line orders
+//will it be a separate component like order Detail
+//when do we  get line orders from the state?
