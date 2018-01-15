@@ -55,14 +55,15 @@ router.get('/promocode', (req, res, next) => {
 let transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-	    user: 'chukohsin@gmail.com',
-	    pass: 'cheng824'
+	    user: 'graceshoppersrs@gmail.com',
+	    pass: 'random#2CODY6'
 	}
 })
 
 //Place Order - Final Click
 router.post('/checkout', (req, res, next) => {
 	let cart = req.session.cart
+	let emailContent = `<p>${req.body.card.name}</p>`
 	stripe.customers.create({
 		email: req.body.email,
 		source: req.body.id
@@ -93,13 +94,10 @@ router.post('/checkout', (req, res, next) => {
 	))
 	.then(LineItems => {
 		let mailOptions = {
-			from: 'chukohsin@gmail.com',
+			from: 'graceshoppersrs@gmail.com',
 			to: req.body.email,
 			subject: 'Your Beer Order Confirmation',
-			text: `${req.body.card.name} Thank you for your order from Beer Shop. 
-			Once your package ships we will send an email with a link to track your order. 
-			If you have questions about your order, you can email us at chukohsin@gmail.com
-			or call us at 6072793617.`
+			html: emailContent
 		}
 		transporter.sendMail(mailOptions, function (err, info) {
 		   if (err) console.log("email fail")
