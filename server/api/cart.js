@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const { Product, Order, LineItem } = require('../db/models')
+const stripe = require('stripe')('sk_test_CEGGnbJKwt6W2rUaSjqRSvth')
+const nodemailer = require('nodemailer')
 
 module.exports = router
-
-//const newCart = { products: [], totals: 0 }
 
 //Where should we form a new cart?
 //- when user add first item in the cart?
@@ -43,19 +43,44 @@ router.put('/', (req, res, next) => {
 // - solve by using drop down qty form(1 to ?)?
 // - solve by conditional in front end? backend?
 
+router.get('/promocode', (req, res, next) => {
+	stripe.coupons.list()
+	.then(coupons => (
+		res.json(coupons)
+	))
+	.catch(err => console.error(err))
+})
+
+//nodeMailer transporter
+let transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+	    user: 'chukohsin@gmail.com',
+	    pass: 'cheng824'
+	}
+})
+
 //Place Order - Final Click
 router.post('/checkout', (req, res, next) => {
-	console.log(req.body)
 	let cart = req.session.cart
-	Order.create({
-		firstName: req.body.firstName,
-		lastName: req.body.lastName,
-		total: cart.total,
-		address: req.body.address,
-		zipCode: req.body.zipCode,
-		city: req.body.city,
-		state: req.body.state
+	stripe.customers.create({
+		email: req.body.email,
+		source: req.body.id
 	})
+	.then(customer =>  stripe.charges.create({ amount: Math.round(+cart.total * 100), currency: 'usd', customer: customer.id}))
+    .then(order => {
+		return Order.create({
+		name: req.body.card.name,
+		email: req.body.email,
+		total: cart.total,
+		address: req.body.card.address_line1,
+		zipCode: req.body.card.address_zip,
+		city: req.body.card.address_city,
+		state: req.body.card.address_state,
+		stripeTokenId: req.body.id,
+		userId: req.user ? req.user.id : null
+		})
+    })
 	.then(order => Promise.all(
 		cart.products.map(product => (
 			LineItem.create({
@@ -66,10 +91,24 @@ router.post('/checkout', (req, res, next) => {
 			})
 		))
 	))
-	.then(orderlineItems => {	
-		res.json(orderlineItems)
-		
+	.then(LineItems => {
+		let mailOptions = {
+			from: 'chukohsin@gmail.com',
+			to: req.body.email,
+			subject: 'Your Beer Order Confirmation',
+			text: `${req.body.card.name} Thank you for your order from Beer Shop. 
+			Once your package ships we will send an email with a link to track your order. 
+			If you have questions about your order, you can email us at chukohsin@gmail.com
+			or call us at 6072793617.`
+		}
+		transporter.sendMail(mailOptions, function (err, info) {
+		   if (err) console.log("email fail")
+		   else console.log(info);
+		})
+		req.session.destroy()
+		res.send(LineItems)
 	})
+	.catch(err => res.status(500).send({ error: err }))
 
 })
 
@@ -119,3 +158,11 @@ function calculateTotals(req) {
 		return accu + curr.qty * curr.price
 	}, 0).toFixed(2)
 }
+
+function postStripeCharge (res) { return (stripeErr, stripeRes) => {
+  if (stripeErr) {
+    res.status(500).send({ error: stripeErr });
+  } else {
+    res.status(200).send({ success: stripeRes });
+  }
+}}

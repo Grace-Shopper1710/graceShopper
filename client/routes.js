@@ -4,7 +4,7 @@ import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders} from './components'
-import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders} from './store'
+import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders, fetchPromoCode} from './store'
 
 import Home from './components/Home'
 
@@ -88,6 +88,7 @@ const mapDispatch = (dispatch) => {
       dispatch(fetchAllBreweries())
       dispatch(fetchCart())
       dispatch(fetchAllReviews())
+      dispatch(fetchPromoCode())
       dispatch(fetchAllOrders())
     }
   }
