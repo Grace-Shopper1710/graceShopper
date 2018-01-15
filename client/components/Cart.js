@@ -8,7 +8,7 @@ import StripeCheckout from 'react-stripe-checkout'
 
 const mapStateToProps = state => ({ cart: state.cart, beers: state.product, promoCode: state.promoCode, discount: state.discount })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
 	handleClick: (productId) => event => {
 		dispatch(removeFromCart(productId))
 	},
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
 			dispatch(updateItemQuantity(productId, +event.target.value))
 		}
 	},
-	onToken: () => token => {
+	onToken: () => (token) => {
 		dispatch(checkout(token))
 	},
 	handlePromoCode: (promoCodes, total) => (event) => {
@@ -48,16 +48,7 @@ export const Cart = (props) => {
 						props.cart.products.map(product => {
 							const item = props.beers.filter(beer => beer.id === product.id)[0] || {}
 							return (
-							<StripeCheckout
-								shippingAddress = {true}
-								billingAddress = {true}
-								amount={props.cart.total * 100}
-								token={props.onToken(props.cart.total * 100)}
-								currency={'USD'}
-								stripeKey={'pk_test_GknBAWoOhGnIpyYlADnXg10z'}>
-							</StripeCheckout>
 								<div key={product.id}>
-								<div>
 									<div className="col-md-2">Item: <NavLink to={`/beers/${item.id}`}>{item.name}</NavLink></div>
 									<div className="col-md-2">Item Price: ${product.price}</div>
 									<div className="col-md-2">
@@ -74,7 +65,6 @@ export const Cart = (props) => {
 											</label>
 										</form>
 									</div>
-									</div>
 									<div className="col-md-2">${product.price * product.qty}</div>
 									<button className="btn-danger btn-sm col-md-3" onClick={props.handleClick(product.id)}>Remove from Cart</button>
 								</div>
@@ -86,19 +76,28 @@ export const Cart = (props) => {
 			}
 			<br /><br /><br />
 			<div className="text-md-left">
-				<p>Subtotal:</p>
-				<p>Tax</p>
-				<p>Total: ${props.cart ? props.cart.total : 0}</p>
-				<NavLink to={'/checkout'} className="btn btn-success">Checkout</NavLink>
+				<p>Subtotal: ${props.cart ? props.cart.total : 0}</p>
+				<p>Tax: 0</p>
+				{ !!props.discount && props.cart.total !== 0 && <p>Discount: - ${props.discount}</p>}
+				<p>Total: ${props.cart && (props.cart.total - props.discount) > 0 ? (props.cart.total - props.discount).toFixed(2) : 0}</p>
 			</div>
+			<form onSubmit={props.handlePromoCode(props.promoCode, props.cart.total)}>
+				<label>Promo Code:
+					<input type="text" name="promoCode" />
+					<button type="submit" >Submit</button>
+				</label>
+			</form>
+			<StripeCheckout
+				shippingAddress = {true}
+				billingAddress = {true}
+				amount={props.cart.total * 100}
+				token={props.onToken(props.cart.total * 100)}
+				currency={'USD'}
+				stripeKey={'pk_test_GknBAWoOhGnIpyYlADnXg10z'}>
+			</StripeCheckout>
 		</div>
 	)
 }
 
 const cartContainer = connect(mapStateToProps, mapDispatchToProps)(Cart)
 export default cartContainer
-// {
-// 					 (this.state.discount.type === 'amount_off') &&
-// 						<span> - {this.state.discount.amount}</span>
-					
-// 				}

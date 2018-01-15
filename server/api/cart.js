@@ -2,10 +2,9 @@ const express = require('express')
 const router = express.Router()
 const { Product, Order, LineItem } = require('../db/models')
 const stripe = require('stripe')('sk_test_CEGGnbJKwt6W2rUaSjqRSvth')
+const nodemailer = require('nodemailer')
 
 module.exports = router
-
-//const newCart = { products: [], totals: 0 }
 
 //Where should we form a new cart?
 //- when user add first item in the cart?
@@ -52,6 +51,15 @@ router.get('/promocode', (req, res, next) => {
 	.catch(err => console.error(err))
 })
 
+//nodeMailer transporter
+let transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+	    user: 'chukohsin@gmail.com',
+	    pass: 'cheng824'
+	}
+})
+
 //Place Order - Final Click
 router.post('/checkout', (req, res, next) => {
 	let cart = req.session.cart
@@ -69,8 +77,9 @@ router.post('/checkout', (req, res, next) => {
 		zipCode: req.body.card.address_zip,
 		city: req.body.card.address_city,
 		state: req.body.card.address_state,
-		stripeTokenId: req.body.id
-	})
+		stripeTokenId: req.body.id,
+		userId: req.user ? req.user.id : null
+		})
     })
 	.then(order => Promise.all(
 		cart.products.map(product => (
@@ -82,8 +91,22 @@ router.post('/checkout', (req, res, next) => {
 			})
 		))
 	))
-	.then(() => {
-		req.session.cart = null
+	.then(LineItems => {
+		let mailOptions = {
+			from: 'chukohsin@gmail.com',
+			to: req.body.email,
+			subject: 'Your Beer Order Confirmation',
+			text: `${req.body.card.name} Thank you for your order from Beer Shop. 
+			Once your package ships we will send an email with a link to track your order. 
+			If you have questions about your order, you can email us at chukohsin@gmail.com
+			or call us at 6072793617.`
+		}
+		transporter.sendMail(mailOptions, function (err, info) {
+		   if (err) console.log("email fail")
+		   else console.log(info);
+		})
+		req.session.destroy()
+		res.send(LineItems)
 	})
 	.catch(err => res.status(500).send({ error: err }))
 

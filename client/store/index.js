@@ -11,16 +11,11 @@ import loading from './loading'
 import searchInput from './searchBar'
 import review from './review'
 import reviewForm from './reviewForm'
-<<<<<<< HEAD
 import promoCode from './promoCode'
 import discount from './discount'
-
-const reducer = combineReducers({user, product, brewery, style, cart, searchInput, loading, review, reviewForm, promoCode, discount})
-=======
 import order from './order'
 
-const reducer = combineReducers({user, product, brewery, style, cart, searchInput, loading, review, reviewForm, order})
->>>>>>> 8f3746855a714a155a27e56c5ee32b2c79cfd5c8
+const reducer = combineReducers({user, product, brewery, style, cart, searchInput, loading, review, reviewForm, promoCode, discount, order})
 
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
@@ -38,10 +33,6 @@ export * from './searchBar'
 export * from './review'
 export * from './reviewForm'
 export * from './loading'
-<<<<<<< HEAD
 export * from './promoCode'
 export * from './discount'
-=======
 export * from './order'
-
->>>>>>> 8f3746855a714a155a27e56c5ee32b2c79cfd5c8
