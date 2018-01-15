@@ -27,7 +27,10 @@ router.get('/:productId', (req, res, next) => {
     Product.findById(req.params.productId,
         {include: [{all: true}]
     })
-    .then(product => res.json(product))
+    .then(product => {
+      if (!product) res.sendStatus(404)
+      else res.json(product)
+    })
     .catch(next)
 })
 

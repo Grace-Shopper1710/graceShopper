@@ -46,7 +46,7 @@ const Order = db.define('order', {
   shippingAddress: {
     type: Sequelize.VIRTUAL,
     get() {
-      return this.getDataValue('address') + ' ' + this.getDataValue('city') + ' ' + this.getDataValue('state') + this.getDataValue('zipcode')
+      return this.getDataValue('address') + ' ' + this.getDataValue('city') + ', ' + this.getDataValue('state') + ' ' + this.getDataValue('zipCode')
     }
   }
 })

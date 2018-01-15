@@ -14,7 +14,7 @@ describe('Breweries routes:', () => {
 describe('GET api/breweries', () => {
 
 
-  it('responds with an array via JSON that is empty',() => {
+  it('responds with an array via JSON that is empty', () => {
     return request(app)
     .get('/api/breweries')
     .expect('Content-Type', /json/)
@@ -84,6 +84,11 @@ describe('GET /breweries/:breweryId', () => {
     })
   })
 
+  it(`can't bring back a single brewery that doesn't exist in the db`, () => {
+    return request(app)
+    .get(`/api/breweries/10000`)
+    .expect(404)
+    })
 })
 
 
