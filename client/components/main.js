@@ -50,6 +50,7 @@ const Main = (props) => {
               ? <div>
                 {/* The navbar will show these links after you log in */}
                 <a href="#" onClick={handleClick}>Logout</a>
+                <Link to="/myorders">My Orders</Link>
               </div>
               : <div>
                 {/* The navbar will show these links before you log in */}
