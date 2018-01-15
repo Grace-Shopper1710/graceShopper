@@ -42,7 +42,7 @@ export const removeBeer = (id, history) => dispatch => {
             dispatch(deleteBeer(id))
             history.push('/beers')
         })
-        .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err));
+        .catch(err => console.error(`Removing beer: ${id} unsuccessful`, err))
 }
 export const addBeer = (beer, history) => dispatch => {
     axios.post('/api/products/', beer)
