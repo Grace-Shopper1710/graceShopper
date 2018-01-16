@@ -12,17 +12,14 @@ class EditStyle extends React.Component {
 
 render() {
     const { styles } = this.props
-
-    const checkMe = (!styles.length)
-
-    if (checkMe) return <div />
+    if (!styles.length) return <div />
 
     const targetStyle = this.props.styles.find(sty => sty.id === +this.props.match.params.id)
     if (!targetStyle) return <div />
 
     return (
         <div>
-            <NavLink to={'/admin/newstyle'} class="btn btn-primary">Create a New Style</NavLink>
+            <NavLink to={'/admin/newstyle'} className="btn btn-primary">Create a New Style</NavLink>
             <button onClick={this.onStyleDelete}>Delete Style</button>
             <form onSubmit={this.onStyleSubmit}>
                 <h1>Edit Style</h1>
