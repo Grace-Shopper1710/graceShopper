@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { writeReview, postNewReview } from '../store'
+import { writeReview, postNewReview, dirtyForm } from '../store'
+
 
 const mapStateToProps = state => ({
     breweries: state.brewery,
     reviewForm: state.reviewForm,
-    user: state.user
+    user: state.user,
+    isDirty: state.dirtyForm
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -14,6 +16,11 @@ const mapDispatchToProps = dispatch => ({
             [name]: event.target.value
         }
         dispatch(writeReview(newReview))
+        if (event.target.value.length >= 100 || (event.target.value.length >= 1 && event.target.name === 'content')) {
+            dispatch(dirtyForm(true))
+        } else if (event.target.value.length < 100) {
+            dispatch(dirtyForm(false))
+        }
     },
     handleSubmit: props => event => {
         event.preventDefault()
@@ -32,7 +39,7 @@ const ReviewForm = props => {
         <form onSubmit={props.handleSubmit(props)}>
             <h2> Add a Review</h2>
             <div>
-                Rating:
+                Rating:<br />
                 <div className="row">
                     <label className="col-md-1">
                         <input
@@ -76,7 +83,7 @@ const ReviewForm = props => {
                     </label>
                     <br />
                 </div>
-                <label> Review:
+                <label> Review:<br />
                     <textarea
                         type="text"
                         name="content"
@@ -84,8 +91,9 @@ const ReviewForm = props => {
                         value={props.reviewForm.content}
                         onChange={props.handleChange('content')}
                         />
-                </label><br />
-                <button type="submit"> Add Review </button>
+                </label>
+                <button type="submit" disabled={props.isDirty}> Add Review </button><br />
+                {props.isDirty && <p>review must be at least 100 characters</p>}
             </div>
         </form>
     )
