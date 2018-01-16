@@ -13,12 +13,14 @@ const AllBreweries = (props) => {
 			{
 				breweries.map(brewery => (
 					<div key={brewery.id}>
-						<NavLink to={`/breweries/${brewery.id}`}><img src={brewery.image} /></NavLink>
+						<NavLink to={`/breweries/${brewery.id}`}><img className="img-thumbnail" src={brewery.image} /></NavLink>
 						
 						<div>
 							<NavLink to={`/breweries/${brewery.id}`}>{brewery.name}</NavLink>
 							{brewery.style ? brewery.style.name : null}<br />
-							{brewery.description}<br />
+							{`${brewery.description.slice(0,160)}...`}
+							<NavLink to={`/breweries/${brewery.id}`} className="btn btn-default">Learn More</NavLink>
+							<br />
 						</div>
 						{
 							isAdmin &&
