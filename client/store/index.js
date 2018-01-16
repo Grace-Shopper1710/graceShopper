@@ -40,7 +40,7 @@ const reducer = combineReducers({
   breweryFilter,
   sortFilter,
   ageverif,
-  dirtyForm
+  dirtyForm,
   orderFilter
 })
 
