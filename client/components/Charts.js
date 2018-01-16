@@ -63,7 +63,6 @@ export class Charts extends React.Component {
 				if (!isAdded)orderData.push({ day: new Date(order.updatedAt).toLocaleDateString(), count: order.total })
 			})
 			orderData.sort(compare)
-			console.log(orderData)
 		}
 		return (
 	        <div className="container">

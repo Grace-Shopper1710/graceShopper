@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleModal} from '../store'
+import {toggleModal, setAgeVerifOnSession } from '../store'
 import Modal from 'react-modal'
 import moment from 'moment'
 import history from '../history'
@@ -12,7 +12,8 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
     toggleModal: () => event => {
-      dispatch(toggleModal(false))
+      dispatch(setAgeVerifOnSession())
+
     },
     tooYoung: () => event => {
       dispatch(toggleModal(false))

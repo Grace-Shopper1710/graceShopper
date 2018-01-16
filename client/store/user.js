@@ -34,9 +34,11 @@ export const auth = (email, password, method) =>
     axios.post(`/auth/${method}`, { email, password })
       .then(res => {
         dispatch(getUser(res.data))
-        console.log(res.data)
         if (res.data.passwordReset) history.push('/passwordreset')
-        else history.push('/home')
+        else {
+          if(res.data.isAdmin)history.push('/admin/charts')
+          else history.push('/')
+        }
       }, authError => { // rare example: a good use case for parallel (non-catch) error handler
         dispatch(getUser({error: authError}))
       })

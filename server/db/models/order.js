@@ -6,6 +6,13 @@ const Order = db.define('order', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    },
+    defaultValue: 'chukohsin@gmail.com'
+  },
   address: {
     type: Sequelize.STRING,
     allowNull: false

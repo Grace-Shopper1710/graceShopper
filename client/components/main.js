@@ -12,11 +12,13 @@ import AgeVerif from './AgeVerif'
  *  rendered out by the component's `children`.
  */
 const Main = props => {
-  const { children, handleClick, isLoggedIn, isAdmin, cart } = props
-
+  const { children, handleClick, isLoggedIn, isAdmin, cart, ageverif } = props
+  console.log(ageverif)
   return (
     <div className="container-fluid">
-      <AgeVerif />
+      {
+        ageverif && <AgeVerif />
+      }
       <nav>
       <div className="header">BEER</div>
       <div className="navItems">
@@ -73,7 +75,8 @@ const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
     isAdmin: !!state.user.isAdmin && !!state.user.id,
-    cart: state.cart
+    cart: state.cart,
+    ageverif: state.ageverif
   }
 }
 
