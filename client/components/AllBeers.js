@@ -32,27 +32,31 @@ export class AllBeers extends React.Component {
 	render() {
 		const { beers, searchInput, user, styleFilter, breweryFilter, sortFilter } = this.props
 		const isAdmin = user ? user.isAdmin : false
-	
+
 		const filterFunc = (arr, sI, sF, bF, sort) => {
-			if(sI) arr = arr.filter(beer => { return beer.name.toLowerCase().startsWith(searchInput)})
-			if(sF) arr = arr.filter(beer => { return beer.styleId === +styleFilter})
-			if(bF) arr = arr.filter(beer => { return beer.breweryId === +breweryFilter})
-			if(sort === 'highToLow') arr = arr.sort((a, b) => b.price - a.price)
-			if(sort === 'lowToHigh') arr = arr.sort((a, b) => a.price - b.price)
+			if (sI) arr = arr.filter(beer => { return beer.name.toLowerCase().startsWith(searchInput)})
+			if (sF) arr = arr.filter(beer => { return beer.styleId === +styleFilter})
+			if (bF) arr = arr.filter(beer => { return beer.breweryId === +breweryFilter})
+			if (sort === 'highToLow') arr = arr.sort((a, b) => b.price - a.price)
+			if (sort === 'lowToHigh') arr = arr.sort((a, b) => a.price - b.price)
 			return arr;
 		}
-	
+
 		const filteredBeers = filterFunc(beers, searchInput, styleFilter, breweryFilter, sortFilter)
-	
+
 	return (
 		<div>
 			<FilterBar />
 			{isAdmin && <NavLink to={'/admin/newbeer'} className="btn btn-default">Create a New Beer</NavLink>}
 			<div className="row">
-				{
+				{	filteredBeers.length > 0 ?
 					filteredBeers.map(beer => (
 						<BeerItem key={beer.id} beer={beer} isAdmin={isAdmin} />
 					))
+					:
+					<div className="container">
+					<h3> Sorry! No beers match your search results. </h3>
+					</div>
 				}
 			</div>
 		</div>

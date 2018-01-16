@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {toggleModal} from '../store'
 import Modal from 'react-modal'
+import moment from 'moment'
 
 const mapState = state => ({
   modalIsOpen: state.ageverif
@@ -34,7 +35,12 @@ const AgeVerif = (props) => {
           ariaHideApp={false}
           onRequestClose={props.toggleModal()}
       >
-          <h1>Are you over 21</h1>
+          <h1>Are you 21 or over?</h1>
+          You must be born on or before {moment().subtract(21, 'years').calendar()} to visit this site.
+          <div className="minor-margin">
+          <button className="btn btn-outline-info" onClick={props.toggleModal()}> Yes </button>
+          <button className="btn btn-outline-info" onClick={props.toggleModal()}> No </button>
+          </div>
         </Modal>
     )
 }
