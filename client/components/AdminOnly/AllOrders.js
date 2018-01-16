@@ -57,12 +57,12 @@ export class AllOrders extends React.Component {
                 <form
                   onSubmit={e => this.onStatusChange(e)}>
                     <select
-                      key={order.id}
                       id={order.id}
                       name="updateStatus"
                       defaultValue ={order.status}>
-                        {orderStatus.map(status =>
+                        {orderStatus.map((status, i)=>
                           <option
+                            key={i}
                             value={status}>
                             {status}
                           </option>
