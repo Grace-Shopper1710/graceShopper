@@ -43,7 +43,7 @@ export class AllBeers extends React.Component {
 		}
 		const availableBeers = beers.filter(beer => beer.inventory > 0)
 		const filteredBeers = filterFunc(availableBeers, searchInput, styleFilter, breweryFilter, sortFilter)
-	
+
 	return (
 		<div>
 			<FilterBar />

@@ -18,12 +18,19 @@ const  OrderDetail = (props) => {
 
     const products = props.products
     if (!selectedOrder.lineItems) return <div>iThere is a problem with your order, we'll be reaching out shortly</div>
+
     return (
 
         <div>
           <div><NavLink to={`/orders`}>{props.user.isAdmin && <button>Back to All Orders</button>}</NavLink></div>
 
-          <h2>Order ID #: {selectedOrder.id}</h2>
+            <div>
+              <h2>Order ID #: {selectedOrder.id}</h2>
+              <span><b>Order Status:</b>{selectedOrder.status}</span>
+              <span>  </span>
+              <span><b>Last Updated:</b> {selectedOrder.updatedAt.slice(0,10)}</span>
+           </div>
+
 
           <ul>
           <li>Date Placed: {selectedOrder.createdAt.slice(0,10)}</li>
@@ -40,10 +47,6 @@ const  OrderDetail = (props) => {
                 </li>
               )})
             }
-          <li>
-            <h3>Order Status: {selectedOrder.status}</h3>
-            <p>Last Updated: {selectedOrder.updatedAt.slice(0,10)}</p>
-          </li>
 
           </ul>
 
