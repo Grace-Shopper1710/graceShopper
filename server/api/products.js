@@ -42,7 +42,8 @@ router.post('/', isAdmin, (req, res, next) => {
 
 router.put('/:productId', isAdmin, (req, res, next) => {
     Product.findOne({
-        where: {id: req.params.productId}
+        where: {id: req.params.productId},
+        include: {all: true}
     })
     .then(product => product.update(req.body))
     .then(product => res.json(product))
