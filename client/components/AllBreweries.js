@@ -14,7 +14,6 @@ const AllBreweries = (props) => {
 				breweries.map(brewery => (
 					<div key={brewery.id}>
 						<NavLink to={`/breweries/${brewery.id}`}><img className="img-thumbnail" src={brewery.image} /></NavLink>
-						
 						<div>
 							<NavLink to={`/breweries/${brewery.id}`}>{brewery.name}</NavLink>
 							{brewery.style ? brewery.style.name : null}<br />
@@ -24,7 +23,7 @@ const AllBreweries = (props) => {
 						</div>
 						{
 							isAdmin &&
-							<NavLink to={`/breweries/${brewery.id}/edit`}><button>Edit</button></NavLink>
+							<button><NavLink to={`/breweries/${brewery.id}/edit`}>Edit</NavLink></button>
 						}
 					</div>
 				))

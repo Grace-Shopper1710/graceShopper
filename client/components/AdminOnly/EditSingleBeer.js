@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import {updateBeer, removeBeer} from '../../store'
+import {putBeer, removeBeer} from '../../store'
 
 
 class EditSingleBeer extends React.Component {
@@ -114,13 +114,13 @@ class EditSingleBeer extends React.Component {
             packaging: event.target.packaging.value,
             price: +event.target.price.value
         }
-        this.props.updateBeer(+this.props.match.params.id, beer, this.props.history)
+        this.props.putBeer(+this.props.match.params.id, beer, this.props.history)
     }
 }
 
 const mapStateToProps = state => ({ beers: state.product, breweries: state.brewery, styles: state.style })
 
-const mapDispatchToProps = {updateBeer, removeBeer}
+const mapDispatchToProps = {putBeer, removeBeer}
 
 const editSingleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(EditSingleBeer)
 

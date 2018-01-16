@@ -1,39 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { PolarArea as PolarAreaChart } from 'react-chartjs'
 import SalesLineChart from './LineChart'
 
 
 let styleData = [
 	{
-		value: 300,
+		value: 400,
 		color:"#F7464A",
 		highlight: "#FF5A5E",
-		label: "Red"
+		label: "IPA"
 	},
 	{
-		value: 50,
+		value: 500,
 		color: "#46BFBD",
 		highlight: "#5AD3D1",
-		label: "Green"
+		label: "Stout"
 	},
 	{
-		value: 100,
+		value: 250,
 		color: "#FDB45C",
 		highlight: "#FFC870",
-		label: "Yellow"
+		label: "Lager"
 	},
 	{
-		value: 40,
+		value: 350,
 		color: "#949FB1",
 		highlight: "#A8B3C5",
-		label: "Grey"
+		label: "Sour"
 	},
 	{
-		value: 120,
+		value: 250,
 		color: "#4D5360",
 		highlight: "#616774",
-		label: "Dark Grey"
+		label: "Pale Ale"
 	}
 
 ];
@@ -82,7 +83,15 @@ export class Charts extends React.Component {
 	                </div>
 	                <div className="col-xs-5">
 	                    <div className="bottom-right" id="ret_visitors">
-	                        {/*<RetVisitors/>*/}
+							<div className='AdminButton'>
+								<NavLink to={'/beers'}><button type="button" class="btn btn-warning">ADD/EDIT BEER</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/breweries'}><button type="button" class="btn btn-warning" >ADD/EDIT BREWERY</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/styles'}><button type="button" class="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>
+							</div>
 	                    </div>
 	                </div>
 	            </div>
@@ -98,7 +107,6 @@ export default chartsContainer
 
 //Helper Function
 function compare(a, b) {
-  // Use toUpperCase() to ignore character casing
   const day1 = a.day;
   const day2 = b.day;
   let comparison = 0;

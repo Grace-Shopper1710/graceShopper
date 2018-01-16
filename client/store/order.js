@@ -1,12 +1,8 @@
 import axios from 'axios'
 
-//ACTION TYPES
 export const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
-
 export const UPDATE_ORDER = 'UPDATE_ORDER'
 
-
-//ACTION CREATORS
 export const getAllOrders = (orders) => {
   return {
     type: GET_ALL_ORDERS,
@@ -21,8 +17,6 @@ export const updateOrder = (order) => {
   }
 }
 
-
-//THUNKS
 export const fetchAllOrders = () =>
   dispatch =>
   axios.get('/api/orders')

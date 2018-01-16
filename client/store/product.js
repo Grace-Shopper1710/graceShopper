@@ -1,24 +1,24 @@
 import axios from 'axios'
 
 export const FETCH_ALL_PRODUCTS = 'FETCH_ALL_PRODUCTS'
-const UPDATE = 'UPDATE_BEER'
-const DELETE = 'DELETE_BEER'
+const UPDATE_BEER = 'UPDATE_BEER'
+const DELETE_BEER = 'DELETE_BEER'
 
-//Action Creators
 export const getAllProducts = (products) => ({
     type: FETCH_ALL_PRODUCTS,
     products
 })
-const update = beer => ({
-    type: UPDATE,
+
+export const updateBeer = beer => ({
+    type: UPDATE_BEER,
     beer
 })
-const deleteBeer = beerId => ({
-    type: DELETE,
+
+export const deleteBeer = beerId => ({
+    type: DELETE_BEER,
     beerId
 })
 
-//Thunk Functions
 export const fetchAllProducts = () =>
     dispatch =>
         axios.get('/api/products')
@@ -26,11 +26,11 @@ export const fetchAllProducts = () =>
             .then(products => dispatch(getAllProducts(products)))
             .catch(err => console.error(err))
 
-export const updateBeer = (id, beer, history) =>
+export const putBeer = (id, beer, history) =>
     dispatch =>
         axios.put(`/api/products/${id}`, beer)
             .then(res => {
-                dispatch(update(res.data))
+                dispatch(updateBeer(res.data))
                 history.push('/beers')
 
             })
@@ -57,16 +57,15 @@ export const addBeer = (beer, history) => dispatch => {
         .catch(err => console.error(`Adding beer was unsuccessful`, err));
 }
 
-//Reducer
 export default function (products = [], action) {
     switch (action.type) {
         case FETCH_ALL_PRODUCTS:
             return action.products
-        case UPDATE:
+        case UPDATE_BEER:
             return products.map(beer => (
                 action.beer.id === beer.id ? action.beer : beer
             ))
-        case DELETE:
+        case DELETE_BEER:
             return products.filter(beer =>
                 action.beerId !== beer.id
             )

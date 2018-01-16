@@ -44,7 +44,7 @@ export const removeBrewery = (id, history) => dispatch => {
     })
     .catch(err => console.error(`Removing brewery: ${id} unsuccessful`, err));
 }
-export const addBrewery = (brewery, history) => 
+export const addBrewery = (brewery, history) =>
   dispatch => {
     axios.post('/api/breweries/', brewery)
       .then(() => {
