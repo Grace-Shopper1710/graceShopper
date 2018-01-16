@@ -3,6 +3,7 @@ import axios from 'axios'
 export const FETCH_ALL_STYLES = 'FETCH ALL STYLES'
 const UPDATE = 'UPDATE_STYLE'
 const DELETE = 'DELETE_STYLE'
+const ADD = 'ADD_STYLE'
 
 export const getAllStyles = (styles) => {
   return {
@@ -13,6 +14,11 @@ export const getAllStyles = (styles) => {
 
 export const updateSingleStyle = style => ({
   type: UPDATE,
+  style
+})
+
+export const addSingleStyle = style => ({
+  type: ADD,
   style
 })
 
@@ -32,7 +38,7 @@ export const updateStyle = (id, style, history) =>
   dispatch =>
     axios.put(`/api/styles/${id}`, style)
       .then(res => {
-        dispatch(update(res.data))
+        dispatch(updateSingleStyle(res.data))
         history.push('/styles')
 
       })
@@ -48,14 +54,11 @@ export const removeStyle = (id, history) => dispatch => {
 }
 export const addStyle = (style, history) => dispatch => {
   axios.post('/api/styles/', style)
-    .then(() => {
-      axios.get('/api/styles')
-        .then(res => res.data)
-        .then(styles => dispatch(getAllStyles(styles)))
-        .then(() => {
-          history.push('/styles')
-        })
-    })
+  .then(res => {
+    dispatch(addSingleStyle(res.data))
+    history.push('/styles')
+
+  })
     .catch(err => console.error(`Adding style was unsuccessful`, err))
 }
 
@@ -71,6 +74,8 @@ export default function (styles = [], action) {
       return styles.filter(style =>
         action.styleId !== style.id
       )
+      case ADD:
+      return [...styles, action.style]
     default:
       return styles
   }

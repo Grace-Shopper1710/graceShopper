@@ -12,10 +12,7 @@ class EditBrewery extends React.Component {
 
     render() {
         const { breweries } = this.props
-
-        const checkMe = (!breweries.length)
-
-        if (checkMe) return <div />
+        if (!breweries.length) return <div />
 
         const targetBrewery = this.props.breweries.find(brew => brew.id === +this.props.match.params.id)
         if (!targetBrewery) return <div />
@@ -24,14 +21,9 @@ class EditBrewery extends React.Component {
             <div>
                 <NavLink to={'/admin/newbrewery'}><button>Create a New Brewery</button></NavLink>
                 <button 
-                onClick={(e)=>{
-                    console.log(this.onBreweryDelete)
-                    this.onBreweryDelete(e)
-                }}>
+                onClick={this.onBreweryDelete}>
                    Delete This Brewery!</button>
-                <form onSubmit={
-                    this.onBrewerySubmit
-                }>
+                <form onSubmit={this.onBrewerySubmit}>
                     <h1>Edit A Brewery</h1>
                     <ul>
                         <li>

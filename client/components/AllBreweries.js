@@ -6,6 +6,7 @@ const mapStateToProps = state => ({ breweries: state.brewery, user: state.user }
 
 const AllBreweries = (props) => {
 	const { breweries, user } = props
+	if (!breweries.length) return <div/>
 	const isAdmin = user ? user.isAdmin : false
 	return (
 		<div>
