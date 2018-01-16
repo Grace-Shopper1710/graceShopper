@@ -34,5 +34,6 @@ export {default as OrderDetail} from './OrderDetail'
 export {default as OrderConfirmation} from './OrderConfirmation'
 export {default as Filterbar} from './FilterBar'
 export {default as Charts} from './Charts'
+export {default as PasswordReset} from './PasswordReset'
 export {default as AgeVerif} from './AgeVerif'
 

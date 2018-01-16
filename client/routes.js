@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation, OrderDetail, Charts} from './components'
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation, OrderDetail, Charts, PasswordReset} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders, fetchPromoCode, fetchUsers} from './store'
 
 
@@ -18,7 +18,7 @@ class Routes extends Component {
   }
 
   render () {
-    const {isLoggedIn, isAdmin} = this.props
+    const {isLoggedIn, isAdmin, isTriggered} = this.props
 
     return (
       <Router history={history}>
@@ -41,6 +41,10 @@ class Routes extends Component {
               isLoggedIn &&
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
+                  {
+                    isTriggered &&
+                    <Route path="/passwordreset" component={PasswordReset}/>
+                  }
                   <Route path="/home" component={UserHome} />
                   <Route exact path="/myorders" component=
                   {PastOrders} />
@@ -82,7 +86,8 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
-    isAdmin: !!state.user.isAdmin && !!state.user.id
+    isAdmin: !!state.user.isAdmin && !!state.user.id,
+    isTriggered: !!state.user.id && !!state.user.passwordReset
   }
 }
 

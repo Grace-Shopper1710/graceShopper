@@ -47,12 +47,18 @@ export class Charts extends React.Component {
 	}
 
 	render () {
-		if(this.props.orders[0])console.log(new Date(this.props.orders[0].updatedAt).toLocaleDateString() || "")
-		// let orderData = this.props.orders.reduce(order => {
-		// 	for(let i = 0; i < accu.length; i++) {
-		// 		if(accu[i].day === order.updatedAt)
-		// 	}
-		// }, [])
+		if(this.props.orders[0]) {
+			let orderData = this.props.orders.reduce((accu, curr) => {
+				for (let i = 0; i < accu.length; i++) {
+					if (accu[i].day === curr.updatedAt) {
+						accu[i].count += curr.total
+					} else {
+						accu.push({ day: new Date(curr.updatedAt).toLocaleDateString(), count: curr.total })
+					}
+				}
+			}, [])
+			console.log(orderData)
+		}
 		return (
 	        <div className="container">
 	            <div className="row">
