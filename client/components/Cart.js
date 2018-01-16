@@ -36,6 +36,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export const Cart = (props) => {
+	console.log('!!!!!!!!!!!!!!!!!!', props)
 	const products = props.cart.products || []
 	return (
 		<div className="container">
@@ -51,7 +52,7 @@ export const Cart = (props) => {
 									<div className="col-md-2">Item: <NavLink to={`/beers/${item.id}`}>{item.name}</NavLink></div>
 									<div className="col-md-2">Item Price: ${product.price}</div>
 									<div className="col-md-2">
-										<form>
+										<form classname='icon-star'>
 											<label>
 												Quantity:
 												<select defaultValue={product.qty} onChange={props.handleChange(product.id)}>
