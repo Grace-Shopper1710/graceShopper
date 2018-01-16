@@ -3,6 +3,23 @@ const {User} = require('../db/models')
 
 module.exports = router
 
+router.put('/:userId', (req, res, next) => {
+  const id = req.params.userId
+  if (req.user && (req.user.isAdmin || +req.user.id === +id)) {
+    User.findById(req.params.userId/*, {
+      attributes: ['id', 'email']
+    }*/)
+    .then(user => user.update(req.body))
+    .then(user => user.update({passwordReset: false}))
+    .then(user => res.json(user))
+} else {
+    const err = new Error('Not Authorized')
+    err.status = 403
+    next(err)
+}
+  
+})
+
 const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
       next()
@@ -36,14 +53,6 @@ router.post('/', (req, res, next) => {
   User.create(req.body)
     .then(user => res.status(201).json(user))
     .catch(next);
-})
-
-router.put('/:userId', isAdmin, (req, res, next) => {
-  User.findById(req.params.userId, {
-    attributes: ['id', 'email']
-  })
-  .then(user => user.update(req.body))
-  .then(user => res.json(user))
 })
 
 router.delete('/:userId', isAdmin, (req, res, next) => {
