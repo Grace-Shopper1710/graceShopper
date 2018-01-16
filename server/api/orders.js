@@ -38,8 +38,8 @@ router.post('/', isAdmin, (req, res, next) => {
 })
 
 router.put('/:orderId', isAdmin, (req, res, next) => {
-    Order.findOne({
-        where: {id: req.params.orderId}
+  Order.findById(req.params.orderId,
+      {include: [{all: true}]
     })
     .then(order => order.update(req.body))
     .then(order => res.json(order))
