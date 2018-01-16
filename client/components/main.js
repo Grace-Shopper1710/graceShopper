@@ -39,8 +39,7 @@ const Main = props => {
                 <Link to="/styles">Styles</Link>
                 <Link to="/users">Users</Link>
                 <Link to="/orders">Orders</Link>
-
-
+                <Link to="/admin/charts">Charts</Link>
               </div>
               :
               null

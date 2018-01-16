@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation, OrderDetail, PasswordReset, TooYoung} from './components'
+import { Main, Login, Signup, UserHome, AllBeers, SingleBeer, AllStyles, SingleStyle, AllBreweries, SingleBrewery, Cart, Checkout, EditSingleBeer, AllUsers, AllOrders, NewBeer, EditBrewery, NewBrewery, EditStyle, NewStyle, PastOrders, OrderConfirmation, OrderDetail, Charts, PasswordReset, TooYoung} from './components'
 import {me, fetchAllProducts, fetchAllStyles, fetchAllBreweries, fetchCart, fetchAllReviews, fetchAllOrders, fetchPromoCode, fetchUsers} from './store'
 
 
@@ -65,6 +65,7 @@ class Routes extends Component {
                         <Route path="/admin/newbeer" component={NewBeer} />
                         <Route path="/admin/newbrewery" component={NewBrewery} />
                         <Route path="/admin/newstyle" component={NewStyle} />
+                        <Route path="/admin/charts" component={Charts} />
                       </Switch>
                   }
                 </Switch>
