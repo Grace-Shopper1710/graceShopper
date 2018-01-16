@@ -1,6 +1,6 @@
 import axios from 'axios'
 import history from '../history'
-import { fetchAllOrders } from './index'
+import { fetchAllOrders } from './order'
 
 //ACTION TYPES
 const GOT_CART_FROM_SERVER = 'GOT_CART_FROM_SERVER'

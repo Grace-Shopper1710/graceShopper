@@ -11,6 +11,7 @@ export const UserHome = (props) => {
   return (
     <div>
       <h3>Welcome, {email}</h3>
+      <img src="https://battleforliberty.com/wp-content/uploads/2017/06/beer-793x526.jpg"/>
     </div>
   )
 }

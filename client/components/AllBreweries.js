@@ -17,8 +17,8 @@ const AllBreweries = (props) => {
 						<div>
 							<NavLink to={`/breweries/${brewery.id}`}>{brewery.name}</NavLink>
 							{brewery.style ? brewery.style.name : null}<br />
-							{`${brewery.description.slice(0,160)}...`}
-							<NavLink to={`/breweries/${brewery.id}`}>Learn More</NavLink>
+							{brewery.description.slice(0, 160)}...
+							<NavLink to={`/breweries/${brewery.id}`} className="btn btn-default">Learn More</NavLink>
 							<br />
 						</div>
 						{

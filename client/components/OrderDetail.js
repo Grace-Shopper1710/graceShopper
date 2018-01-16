@@ -27,7 +27,6 @@ const  OrderDetail = (props) => {
             <div>
               <h2>Order ID #: {selectedOrder.id}</h2>
               <span><b>Order Status:</b>{selectedOrder.status}</span>
-              <span>  </span>
               <span><b>Last Updated:</b> {selectedOrder.updatedAt.slice(0,10)}</span>
            </div>
 
