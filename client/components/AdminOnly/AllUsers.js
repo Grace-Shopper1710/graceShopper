@@ -22,15 +22,15 @@ class AllUsers extends React.Component {
               <p> {user.email}</p>
                 <div>
                 <label>User Is Admin</label>
-                <form onSubmit={e=>this.onAdminChange(e, user.id)} action="" onChange={e => { }}>
+                <form onSubmit={e=> this.onAdminChange(e, user.id)} action="" onChange={e => { }}>
                   <select name="isAdmin" defaultValue={user.isAdmin}>
                     <option key={`true${user.id}`} value="true"> True</option>
                     <option key={`false${user.id}`} value="false"> False</option>
                   </select>
                   <button type="submit">Submit Admin Status Change</button>
                 </form>
-                <button onClick={e=>this.onUserDelete(e, user.id)}>Delete This User</button>
-                <button onClick={e=>this.onPasswordResetTrigger(e, user.id)}>Prompt Password Reset</button>
+                <button onClick={e=> this.onUserDelete(e, user.id)}>Delete This User</button>
+                <button onClick={e=> this.onPasswordResetTrigger(e, user.id)}>Prompt Password Reset</button>
                 <p></p>
                 </div>
             </li>))}

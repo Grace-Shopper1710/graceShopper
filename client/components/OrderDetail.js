@@ -12,11 +12,12 @@ const mapState = (state, ownProps) => ({
 
 const  OrderDetail = (props) => {
 
+    if (!props.orders.length) return <div>Retrieving your orders</div>
+
     const selectedOrder = props.orders.find(order => order.id === +props.match.params.id)
 
     const products = props.products
-
-    if (!selectedOrder) return <div>is this the problem?</div>
+    if (!selectedOrder.lineItems) return <div>iThere is a problem with your order, we'll be reaching out shortly</div>
     return (
 
         <div>

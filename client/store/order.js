@@ -5,8 +5,6 @@ export const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
 
 export const UPDATE_ORDER = 'UPDATE_ORDER'
 
-export const GET_UPDATED_ORDER = 'GET_UPDATED_ORDER'
-
 
 //ACTION CREATORS
 export const getAllOrders = (orders) => {
@@ -23,12 +21,6 @@ export const updateOrder = (order) => {
   }
 }
 
-export const getUpdatedOrder = (order) => {
-  return {
-    type: GET_UPDATED_ORDER,
-    order
-  }
-}
 
 //THUNKS
 export const fetchAllOrders = () =>
@@ -39,13 +31,12 @@ export const fetchAllOrders = () =>
   .catch(err => console.error(err))
 
 
-  export const editOrder = (order) => dispatch => {
-    console.log("&&&", order)
-    axios.put(`api/orders/${order.id}`, order)
+  export const editOrder = (orderId, statusUpdate) => dispatch => {
+    axios.put(`api/orders/${orderId}`, statusUpdate)
     .then(res => {
       dispatch(updateOrder(res.data))
     })
-    .catch(err => console.error(`Updating order ${order.id} unsucessful`, err))
+    .catch(err => console.error(`Updating order ${orderId} unsucessful`, err))
   }
 
 
@@ -57,8 +48,6 @@ export default function (orders = [], action){
     case UPDATE_ORDER:
     return orders.map(order =>
         (+action.order.id === +order.id ? action.order : order))
-    case GET_UPDATED_ORDER:
-      return [...orders, action.order]
     default:
       return orders
   }
