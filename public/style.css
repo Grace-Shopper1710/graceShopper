@@ -21,6 +21,19 @@ body {
   box-sizing: border-box;
 }
 
+.userView {
+  display: flex;
+  margin: 4%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userReview > .reviewBox {
+  max-width: 40%;
+  max-height: none;
+}
+
 .minor-margin {
   display:flex;
   margin: 3%;
@@ -36,26 +49,33 @@ body {
   overflow-y: scroll;
 }
 
+
 hr {
   color: none;
   border: 1px solid #232b2b;
 }
 
-a {
+a:link {
   text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #4D7686;
+}
+
+a:active {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 .padding-bottom {
   padding-bottom: 6%;
-}
-
-.beerName {
-  font-weight: bold;
-  font-size: 120%;
 }
 
 label {
@@ -64,14 +84,19 @@ label {
 
 nav {
   width: 100%;
+  background-color: #002939;
+  font-size: 120%;
+}
+
+nav > a:link {
+  color: white;
 }
 
 nav * {
   display: inline-block;
-  margin: 1em;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin: 0.5em;
 }
+
 
 form div {
   margin: 1em;
