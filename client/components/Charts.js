@@ -7,34 +7,34 @@ import SalesLineChart from './LineChart'
 
 let styleData = [
 	{
-		value: 300,
+		value: 400,
 		color:"#F7464A",
 		highlight: "#FF5A5E",
-		label: "Red"
+		label: "IPA"
 	},
 	{
-		value: 50,
+		value: 500,
 		color: "#46BFBD",
 		highlight: "#5AD3D1",
-		label: "Green"
+		label: "Stout"
 	},
 	{
-		value: 100,
+		value: 250,
 		color: "#FDB45C",
 		highlight: "#FFC870",
-		label: "Yellow"
+		label: "Lager"
 	},
 	{
-		value: 40,
+		value: 350,
 		color: "#949FB1",
 		highlight: "#A8B3C5",
-		label: "Grey"
+		label: "Sour"
 	},
 	{
-		value: 120,
+		value: 250,
 		color: "#4D5360",
 		highlight: "#616774",
-		label: "Dark Grey"
+		label: "Pale Ale"
 	}
 
 ];
