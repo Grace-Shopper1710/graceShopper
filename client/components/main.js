@@ -17,8 +17,9 @@ const Main = props => {
   return (
     <div className="container-fluid">
       <AgeVerif />
-      <div className="header">BEER</div>
       <nav>
+      <div className="header">BEER</div>
+      <div className="navItems">
       {
         !isAdmin
           ? <div>
@@ -58,6 +59,7 @@ const Main = props => {
               </div>
           }
           <Link to="/cart">Cart: {cart.products ? cart.products.reduce((a, b) => a + b.qty, 0) : 0} items</Link>
+          </div>
       </nav>
         <hr />
         {children}

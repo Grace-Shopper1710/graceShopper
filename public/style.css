@@ -138,6 +138,10 @@ form div {
   display: inline-block;
 }
 
+.navItems {
+  align-content: flex-end;
+}
+
 .allBeers {
   width: 100%;
   margin: 5%;
