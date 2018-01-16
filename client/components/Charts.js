@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { PolarArea as PolarAreaChart } from 'react-chartjs'
 import SalesLineChart from './LineChart'
 
@@ -82,7 +83,15 @@ export class Charts extends React.Component {
 	                </div>
 	                <div className="col-xs-5">
 	                    <div className="bottom-right" id="ret_visitors">
-	                        {/*<RetVisitors/>*/}
+							<div className='AdminButton'>
+								<NavLink to={'/beers'}><button type="button" class="btn btn-warning">ADD/EDIT BEER</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/breweries'}><button type="button" class="btn btn-warning" >ADD/EDIT BREWERY</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/styles'}><button type="button" class="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>
+							</div>
 	                    </div>
 	                </div>
 	            </div>
@@ -98,7 +107,6 @@ export default chartsContainer
 
 //Helper Function
 function compare(a, b) {
-  // Use toUpperCase() to ignore character casing
   const day1 = a.day;
   const day2 = b.day;
   let comparison = 0;
