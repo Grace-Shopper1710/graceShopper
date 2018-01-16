@@ -41,15 +41,9 @@ export class AllBeers extends React.Component {
 			if (sort === 'lowToHigh') arr = arr.sort((a, b) => a.price - b.price)
 			return arr;
 		}
-<<<<<<< HEAD
 		const availableBeers = beers.filter(beer => beer.inventory > 0)
 		const filteredBeers = filterFunc(availableBeers, searchInput, styleFilter, breweryFilter, sortFilter)
-	
-=======
 
-		const filteredBeers = filterFunc(beers, searchInput, styleFilter, breweryFilter, sortFilter)
-
->>>>>>> 9d34387985b73fd979aa0edb88f1b1911559e2be
 	return (
 		<div>
 			<FilterBar />
