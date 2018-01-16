@@ -22,7 +22,7 @@ export const PastOrders = (props) => {
           <h1> Past Orders </h1>
             {userOrders.map(order => {return (
               <li key={order.id}>
-              <NavLink to= {`/myorders/${order.id}`}>{order.id}</NavLink>
+              <NavLink to={`/myorders/${order.id}`}>Order #:{order.id}</NavLink>
               <p>{order.name}</p>
               <p>{order.shippingAddress}</p>
               <p>Order Status: {order.status}</p>
@@ -42,6 +42,4 @@ export const PastOrders = (props) => {
 const PastOrdersContainer = connect(mapStateToProps)(PastOrders)
 
 export default PastOrdersContainer
-//figure out where to put  line orders
-//will it be a separate component like order Detail
-//when do we  get line orders from the state?
+
