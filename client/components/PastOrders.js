@@ -11,21 +11,26 @@ export const PastOrders = (props) => {
   const user = props.user
   const orders = props.orders || []
   const userOrders = orders.filter(order => order.userId === user.id)
-  return (
-    <div>
-      <ul>
-        {userOrders.map(order => {return (
-          <li key={order.id}>
-          <NavLink to= {`/myorders/${order.id}`}>{order.id}</NavLink>
-          <p>{order.fullName}</p>
-          <p>{order.shippingAddress}</p>
-          <p>Order Status: {order.status}</p>
-          <p>${order.total}</p>
-          </li>
-        )})}
-      </ul>
-    </div>
-  )
+
+  if (!userOrders.length){
+    return (<div><h2>You've made no purchases with us . . .you might wanna get on that</h2></div>)}
+  else  {
+    return (
+      <div>
+        <ul>
+          {userOrders.map(order => {return (
+            <li key={order.id}>
+            <NavLink to= {`/myorders/${order.id}`}>{order.id}</NavLink>
+            <p>{order.fullName}</p>
+            <p>{order.shippingAddress}</p>
+            <p>Order Status: {order.status}</p>
+            <p>${order.total}</p>
+            </li>
+          )})}
+        </ul>
+      </div>
+    )
+  }
 }
 
 const PastOrdersContainer = connect(mapStateToProps)(PastOrders)

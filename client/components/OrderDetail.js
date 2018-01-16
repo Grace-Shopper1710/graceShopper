@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
+
 const mapState = (state, ownProps) => ({
   orders: state.order,
   products: state.product
@@ -22,11 +23,12 @@ const  OrderDetail = (props) => {
     return (
 
         <div>
-          <h2>Order ID: #{selectedOrder.id}</h2>
+          <h2>Order ID #: {selectedOrder.id}</h2>
+
           <ul>
+          <li>Order Status: {selectedOrder.status}</li>
             {
               selectedOrder.lineItems.map(lineItem => {
-
                 return (
                 <li key={lineItem.id}>
                 <p>quantity: {lineItem.quantity}</p>
