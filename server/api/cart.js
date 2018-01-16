@@ -64,6 +64,7 @@ let transporter = nodemailer.createTransport({
 router.post('/checkout', (req, res, next) => {
 	let cart = req.session.cart
 	let itemList = ''
+	//reduce instead
 	cart.products.forEach(product => {
 		itemList += `<li>Product: ${product.id} Quantity: ${product.qty} Price: ${product.price}</li>`
 	})
@@ -109,6 +110,7 @@ router.post('/checkout', (req, res, next) => {
 			subject: 'Your Beer Order Confirmation',
 			html: emailContent
 		}
+		//error handle this
 		transporter.sendMail(mailOptions, function (err, info) {
 		   if (err) console.log("email fail")
 		   else console.log(info);
