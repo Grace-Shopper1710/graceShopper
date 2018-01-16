@@ -51,7 +51,9 @@ class Routes extends Component {
                       <Switch>
                          {/* Routes placed here are only available to admin users */}
                         <Route path="/users" component={AllUsers} />
-                        <Route path="/orders" component={AllOrders} />
+                        <Route exact path="/orders" component={AllOrders} />
+                        <Route exact path="/orders/:id" component={OrderDetail} />
+                        <Route exact path="/myorders" component={PastOrders} />
                         <Route exact path="/beers/:id/edit" component={EditSingleBeer} />
                         <Route exact path="/style/:id/edit" component={EditStyle} />
                         <Route exact path="/breweries/:id/edit" component={EditBrewery} />

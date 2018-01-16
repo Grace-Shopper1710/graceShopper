@@ -28,7 +28,8 @@ const Order = db.define('order', {
   },
   status: {
     type:   Sequelize.ENUM,
-    values: ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED']
+    values: ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED'],
+    defaultValue: 'CREATED'
   },
 
   //VIRTUALS
