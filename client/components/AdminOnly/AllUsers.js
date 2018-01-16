@@ -60,6 +60,16 @@ const mapStateToProps = state => ({ users: state.users })
 
 const mapDispatchToProps = {deleteAUser, changeUser}
 
+/*
+lyssa reference:
+const mapDispatchToProps = dispatch => ({
+  onAdminChange(event, userId){
+    event.preventDefault()
+    dispatch(changeUser(userId, {isAdmin: changeHow}))
+  }
+})
+ */
+
 const allUsersContainer = connect(mapStateToProps, mapDispatchToProps)(AllUsers)
 
 export default allUsersContainer
