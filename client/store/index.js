@@ -18,6 +18,8 @@ import users from './users'
 import styleFilter from './styleFilter'
 import breweryFilter from './breweryFilter'
 import sortFilter from './sortFilter'
+import ageverif from './ageverif'
+import dirtyForm from './dirtyForm'
 import orderFilter from './orderFilter'
 
 const reducer = combineReducers({
@@ -37,6 +39,8 @@ const reducer = combineReducers({
   styleFilter,
   breweryFilter,
   sortFilter,
+  ageverif,
+  dirtyForm
   orderFilter
 })
 
@@ -63,4 +67,6 @@ export * from './users'
 export * from './styleFilter'
 export * from './breweryFilter'
 export * from './sortFilter'
+export * from './ageverif'
+export * from './dirtyForm'
 export * from './orderFilter'

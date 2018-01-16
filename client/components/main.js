@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { logout } from '../store'
-import SearchBar from './SearchBar'
+import { logout, toggleModal } from '../store'
+import AgeVerif from './AgeVerif'
 
 /**
  * COMPONENT
@@ -16,6 +16,7 @@ const Main = props => {
 
   return (
     <div className="container-fluid">
+      <AgeVerif />
       <div className="header">BEER</div>
       <nav>
       {
@@ -79,6 +80,9 @@ const mapDispatch = (dispatch) => {
   return {
         handleClick() {
       dispatch(logout())
+    },
+    openModal (){
+      dispatch(toggleModal(true))
     }
   }
 }
