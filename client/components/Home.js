@@ -8,7 +8,7 @@ export default class Home extends React.Component {
     render (){
     return (
       <div className='heroImage'>
-          <h1>Images for home page</h1>
+          <h1>BUY BEER</h1>
       </div>
     )
     }
