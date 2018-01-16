@@ -18,6 +18,7 @@ import users from './users'
 import styleFilter from './styleFilter'
 import breweryFilter from './breweryFilter'
 import sortFilter from './sortFilter'
+import ageverif from './ageverif'
 
 const reducer = combineReducers({
   user,
@@ -35,7 +36,8 @@ const reducer = combineReducers({
   users,
   styleFilter,
   breweryFilter,
-  sortFilter
+  sortFilter,
+  ageverif
 })
 
 const middleware = composeWithDevTools(applyMiddleware(
@@ -61,3 +63,4 @@ export * from './users'
 export * from './styleFilter'
 export * from './breweryFilter'
 export * from './sortFilter'
+export * from './ageverif'
