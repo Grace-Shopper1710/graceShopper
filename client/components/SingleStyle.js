@@ -15,7 +15,7 @@ const SingleStyle = props => {
 
   return (
     <div>
-      <h1>{selectedStyle.name}</h1>
+      <h1>{selectedStyle.name}s</h1>
       <p>{selectedStyle.description}</p>
       <div>
       {

@@ -8,7 +8,7 @@ export default class Home extends React.Component {
     render (){
     return (
       <div className='heroImage'>
-          <h1>Images for home page</h1>
+      <img src="https://battleforliberty.com/wp-content/uploads/2017/06/beer-793x526.jpg"/>
       </div>
     )
     }
