@@ -158,34 +158,25 @@ class LineChart extends React.Component {
     }
 
     render() {
-        let data=[
-            {day:'02-11-2016',count:180},
-            {day:'02-12-2016',count:250},
-            {day:'02-13-2016',count:150},
-            {day:'02-14-2016',count:496},
-            {day:'02-15-2016',count:140},
-            {day:'02-16-2016',count:380},
-            {day:'02-17-2016',count:100},
-            {day:'02-18-2016',count:150}
-        ];
+    	console.log(this.props.orderData)
 
         let margin = {top: 5, right: 50, bottom: 20, left: 50},
             w = this.props.width - (margin.left + margin.right),
             h = this.props.height - (margin.top + margin.bottom);
 
-        let parseDate = d3.time.format("%m-%d-%Y").parse
-        data.forEach(function (d) {
+        let parseDate = d3.time.format("%m/%d/%Y").parse
+        this.props.orderData.forEach(function (d) {
             d.date = parseDate(d.day);
         });
 
          var x = d3.time.scale()
-            .domain(d3.extent(data, function (d) {
+            .domain(d3.extent(this.props.orderData, function (d) {
                 return d.date;
             }))
             .rangeRound([0, w]);
 
         var y = d3.scale.linear()
-            .domain([0,d3.max(data,function(d){
+            .domain([0,d3.max(this.props.orderData,function(d){
                 return d.count+100;
             })])
             .range([h, 0]);
@@ -196,7 +187,7 @@ class LineChart extends React.Component {
             })
             .y(function (d) {
                 return y(d.count);
-            }).interpolate("cardinal");
+            }).interpolate("linear");
 
         var yAxis = d3.svg.axis()
             .scale(y)
@@ -206,7 +197,7 @@ class LineChart extends React.Component {
         var xAxis = d3.svg.axis()
             .scale(x)
             .orient('bottom')
-            .tickValues(data.map(function(d,i){
+            .tickValues(this.props.orderData.map(function(d,i){
                 if(i>0)
                     return d.date;
             }).splice(1))
@@ -240,9 +231,9 @@ class LineChart extends React.Component {
                         <Axis h={h} axis={yAxis} axisType="y" />
                         <Axis h={h} axis={xAxis} axisType="x"/>
 
-                        <path className="line shadow" d={line(data)} strokeLinecap="round"/>
+                        <path className="line shadow" d={line(this.props.orderData)} strokeLinecap="round"/>
 
-                        <Dots data={data} x={x} y={y} showToolTip={this.showToolTip} hideToolTip={this.hideToolTip}/>
+                        <Dots data={this.props.orderData} x={x} y={y} showToolTip={this.showToolTip} hideToolTip={this.hideToolTip}/>
 
                         <ToolTip tooltip={this.state.tooltip}/>
                     </g>
@@ -253,13 +244,13 @@ class LineChart extends React.Component {
   }
 
 
-const SalesLineChart = () => {
+const SalesLineChart = (props) => {
     return (
         <div>
             <h3>Sales Chart
             </h3>
             <div className="bottom-right-svg">
-                <LineChart />
+                <LineChart orderData={props.orderData} />
             </div>
         </div>
     )

@@ -47,16 +47,21 @@ export class Charts extends React.Component {
 	}
 
 	render () {
-		if(this.props.orders[0]) {
-			let orderData = this.props.orders.reduce((accu, curr) => {
-				for (let i = 0; i < accu.length; i++) {
-					if (accu[i].day === curr.updatedAt) {
-						accu[i].count += curr.total
-					} else {
-						accu.push({ day: new Date(curr.updatedAt).toLocaleDateString(), count: curr.total })
+		let orderData = []
+		if (this.props.orders) {
+			let orders = this.props.orders
+			orders.forEach(order => {
+				let isAdded = false
+				for (let i = 0; i < orderData.length; i++) {
+					if (orderData[i].day === new Date(order.updatedAt).toLocaleDateString()) {
+						orderData[i].count += Math.round(order.total * 100)/100
+						isAdded = true
+						break
 					}
 				}
-			}, [])
+				if (!isAdded)orderData.push({ day: new Date(order.updatedAt).toLocaleDateString(), count: order.total })
+			})
+			orderData.sort(compare)
 			console.log(orderData)
 		}
 		return (
@@ -65,7 +70,7 @@ export class Charts extends React.Component {
 	                <div className="col-xs-12" >
 	                    <div className="top" id="top-line-chart">
 	                        {/*<LineChart data={salesData} options={{scaleShowGridLines : true, scaleGridLineColor : "grey"}} width="700" height="350" />*/}
-	                        <SalesLineChart />
+	                        <SalesLineChart orderData={orderData} />
 	                    </div>
 	                </div>
 	            </div>
@@ -82,7 +87,7 @@ export class Charts extends React.Component {
 	                </div>
 	            </div>
 	        </div>
-    	)
+  		)
 	}
 }
 
@@ -90,3 +95,17 @@ const mapStateToProps = state => ({ orders: state.order})
 
 const chartsContainer = connect(mapStateToProps)(Charts)
 export default chartsContainer
+
+//Helper Function
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const day1 = a.day;
+  const day2 = b.day;
+  let comparison = 0;
+  if (day1 > day2) {
+    comparison = 1;
+  } else if (day1 < day2) {
+    comparison = -1;
+  }
+  return comparison;
+}
