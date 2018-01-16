@@ -11,7 +11,7 @@ export const getAllStyles = (styles) => {
   }
 }
 
-const update = style => ({
+export const updateSingleStyle = style => ({
   type: UPDATE,
   style
 })
@@ -44,7 +44,7 @@ export const removeStyle = (id, history) => dispatch => {
       dispatch(deleteStyle(id))
       history.push('/styles')
     })
-    .catch(err => console.error(`Removing style: ${id} unsuccessful`, err));
+    .catch(err => console.error(`Removing style: ${id} unsuccessful`, err))
 }
 export const addStyle = (style, history) => dispatch => {
   axios.post('/api/styles/', style)
@@ -56,7 +56,7 @@ export const addStyle = (style, history) => dispatch => {
           history.push('/styles')
         })
     })
-    .catch(err => console.error(`Adding style was unsuccessful`, err));
+    .catch(err => console.error(`Adding style was unsuccessful`, err))
 }
 
 export default function (styles = [], action) {

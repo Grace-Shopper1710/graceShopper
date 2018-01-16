@@ -1,6 +1,6 @@
 import axios from 'axios'
 import history from '../history'
-import { fetchCart } from './index'
+import { fetchCart } from './cart'
 
 /**
  * ACTION TYPES
@@ -55,7 +55,7 @@ export const logout = () =>
 /**
  * REDUCER
  */
-export default function (state = defaultUser, action) {
+export default function (state = {}, action) {
   switch (action.type) {
     case GET_USER:
       return action.user

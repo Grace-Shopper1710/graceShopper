@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 export const SELECT_ORDER_STATUS = 'SELECT_ORDER_STATUS'
-
 export const CLEAR_ORDER_STATUS = 'CLEAR_ORDER_STATUS'
-
 
 export const selectOrderFilter = (selectedStatus) => ({
   type: SELECT_ORDER_STATUS,
