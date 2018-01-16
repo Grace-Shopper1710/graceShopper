@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { addItemToCart } from '../store'
-import {default as Review} from './Reviews'
-import {default as ReviewForm} from './ReviewForm'
+import { default as Review } from './Reviews'
+import { default as ReviewForm } from './ReviewForm'
 
 const mapStateToProps = state => ({
 	beers: state.product,
@@ -19,14 +19,15 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export const SingleBeer = (props) => {
-
-		const targetBeer = props.beers.find(beer => beer.id === +props.match.params.id)
-		if (!targetBeer) return <div />
-		return (
-			<div>
+	if (!props.beers.length) return <div />
+	const targetBeer = props.beers.find(beer => beer.id === +props.match.params.id)
+	if (!targetBeer.brewery) return <div />
+	console.log(targetBeer)
+	return (
+		<div>
 			<div className="row">
 				<div className="col-md-5">
-				<img src={targetBeer.image} className="img-thumbnail" />
+					<img src={targetBeer.image} className="img-thumbnail" />
 				</div>
 				<div className="col-md-5">
 					<h1>{targetBeer.name}</h1>
@@ -39,11 +40,11 @@ export const SingleBeer = (props) => {
 						<label>
 							Quantity:
 							<select name="qty">
-							{
-								Array.from(Array(targetBeer.inventory).keys()).map(num => (
-									<option key={num} value={num}>{num}</option>
-								))
-							}
+								{
+									Array.from(Array(targetBeer.inventory).keys()).map(num => (
+										<option key={num} value={num}>{num}</option>
+									))
+								}
 							</select>
 						</label>
 						<button type="submit" value="Add to Cart"> Add to Cart </button>
@@ -51,19 +52,19 @@ export const SingleBeer = (props) => {
 				</div>
 			</div>
 			<hr />
-				<div className="row">
+			<div className="row">
 				<div className="col-md-6">
-				<Review beer={targetBeer} />
+					<Review beer={targetBeer} />
 				</div>
-				{ props.isLoggedIn ?
+				{props.isLoggedIn ?
 					<div className="col-md-6">
-					<ReviewForm beer={targetBeer} />
+						<ReviewForm beer={targetBeer} />
 					</div> :
 					null
 				}
-				</div>
 			</div>
-		)
+		</div>
+	)
 }
 
 const singleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(SingleBeer)

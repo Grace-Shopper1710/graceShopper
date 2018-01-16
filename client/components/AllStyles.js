@@ -7,6 +7,7 @@ const mapStateToProps = state => ({ styles: state.style, user: state.user })
 const AllStyles = (props) => {
     const { styles, user } = props
     const isAdmin = user ? user.isAdmin : false
+    if (!styles.length) return <div/>
     return (
       <div>
         {isAdmin && <NavLink to={'/admin/newstyle'}>Add New Style</NavLink>}
