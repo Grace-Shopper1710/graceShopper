@@ -46,7 +46,7 @@ export class AllBeers extends React.Component {
 	return (
 		<div>
 			<FilterBar />
-			{isAdmin && <NavLink to={'/admin/newbeer'} className="btn btn-default">Create a New Beer</NavLink>}
+			{isAdmin && <NavLink to={'/admin/newbeer'}>Create a New Beer</NavLink>}
 			<div className="row">
 				{	filteredBeers.length > 0 ?
 					filteredBeers.map(beer => (

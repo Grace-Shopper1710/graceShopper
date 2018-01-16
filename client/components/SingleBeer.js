@@ -42,7 +42,7 @@ export class SingleBeer extends React.Component {
 					<h1>{targetBeer.name}</h1>
 					<NavLink to={`/styles/${targetBeer.styleId}`}>{targetBeer.style.name}</NavLink><br />
 					<NavLink to={`/breweries/${targetBeer.breweryId}`}>{targetBeer.brewery.name}</NavLink><br />
-					Description: {targetBeer.description}<br />
+					{targetBeer.description}<br />
 					{targetBeer.packaging}<br />
 					${targetBeer.price}<br />
 					<form onSubmit={this.props.handleSubmit(targetBeer.id, this.state.quantity, targetBeer.price)}>
@@ -55,8 +55,8 @@ export class SingleBeer extends React.Component {
 								))
 							}
 							</select>
-						</label><br />
-						<button type="submit" value="Add to Cart" className="btn btn-default"> Add to Cart </button>
+						</label>
+						<button type="submit" value="Add to Cart"> Add to Cart </button>
 					</form>
 				</div>
 			</div>

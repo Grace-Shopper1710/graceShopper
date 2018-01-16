@@ -44,8 +44,8 @@ const AgeVerif = (props) => {
           <h1>Are you 21 or over?</h1>
           You must be born on or before {moment().subtract(21, 'years').calendar()} to visit this site.
           <div className="minor-margin">
-          <button className="btn btn-outline-info" onClick={props.toggleModal()}> Yes </button>
-          <button className="btn btn-outline-info" onClick={props.tooYoung()}> No </button>
+          <button onClick={props.toggleModal()}> Yes </button>
+          <button onClick={props.tooYoung()}> No </button>
           </div>
         </Modal>
     )

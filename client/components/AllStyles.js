@@ -9,7 +9,7 @@ const AllStyles = (props) => {
     const isAdmin = user ? user.isAdmin : false
     return (
       <div>
-        {isAdmin && <NavLink to={'/admin/newstyle'} className="btn btn-primary">Add New Style</NavLink>}
+        {isAdmin && <NavLink to={'/admin/newstyle'}>Add New Style</NavLink>}
           {
             styles.map(style => (
               <div key={style.id}>
@@ -18,7 +18,7 @@ const AllStyles = (props) => {
                   <p>{style.description}</p>
                   {
                   isAdmin &&
-                  <NavLink to={`/style/${style.id}/edit`} className="btn btn-primary btn-sm">Edit</NavLink>
+                  <NavLink to={`/style/${style.id}/edit`}>Edit</NavLink>
                   }
                 </div>
               </div>

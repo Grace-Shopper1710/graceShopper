@@ -9,11 +9,12 @@ const AllBreweries = (props) => {
 		const isAdmin = user ? user.isAdmin : false
 		return (
 			<div>
-				{isAdmin && <NavLink to={'/admin/newbrewery'}><button className="btn btn-primary btn-sm">Add a New Brewery</button></NavLink>}
+				{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Add a New Brewery</button></NavLink>}
+					<div className="container row">
 					{
 						breweries.map(brewery => (
-							<div key={brewery.id}>
-								<img src={brewery.image} />
+							<div key={brewery.id} className="col-sm-5">
+								<img src={brewery.image} className="img-thumbnail" />
 								<div>
 									<NavLink to={`/breweries/${brewery.id}`}>{brewery.name}</NavLink>
 									{brewery.style ? brewery.style.name : null}<br />
@@ -21,11 +22,12 @@ const AllBreweries = (props) => {
 								</div>
 								{
 								isAdmin &&
-								<NavLink to={`/breweries/${brewery.id}/edit`}><button className="btn btn-primary btn-sm">Edit</button></NavLink>
+								<NavLink to={`/breweries/${brewery.id}/edit`}><button>Edit</button></NavLink>
 								}
 							</div>
 						))
 					}
+					</div>
 			</div>
 		)
 }

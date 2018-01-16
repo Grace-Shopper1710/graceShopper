@@ -29,7 +29,7 @@ render() {
                         />
                     </li>
                 </ul>
-                <button className="btn btn-info" type="submit">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

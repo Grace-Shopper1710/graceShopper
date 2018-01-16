@@ -3,6 +3,11 @@
   src: url("./fonts/Cheque-Regular.otf");
 }
 
+@font-face {
+  font-family: "HKGrotesk";
+  src: url("./fonts/HKGrotesk-Regular.otf")
+}
+
 body {
   font-family: sans-serif;
   height: 100%;
@@ -10,8 +15,25 @@ body {
   margin: 0 !important;
 }
 
+button {
+  background-color: none;
+  border-radius: 10px;
+  color: #002939;
+  border: 2px solid #002939; /* Green */
+}
+
+button:hover {
+  -moz-transition: color .3s ease-in;
+  -o-transition: color .3s ease-in;
+  -webkit-transition: color .3s ease-in;
+  transition: color .3s ease-in;
+  background-color: #002939;
+  color: white;
+  border: 2px solid #002939;
+}
+
 .header {
-  font-family: "Cheque";
+  font-family: "Cheque" !important;
   color: white;
   font-size: 400%;
   background-color:#002939;
@@ -19,6 +41,7 @@ body {
 
 * {
   box-sizing: border-box;
+  font-family: "HKGrotesk" !important;
 }
 
 .userView {
@@ -57,6 +80,7 @@ hr {
 
 a:link {
   text-decoration: none;
+  color: #4D7686;
 }
 
 a:visited {
@@ -65,7 +89,7 @@ a:visited {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #4D7686;
 }
 
@@ -97,6 +121,17 @@ nav * {
   margin: 0.5em;
 }
 
+button > a:link {
+  color: #002939
+}
+
+button > a:hover {
+  color: white;
+}
+
+button > a:active {
+  color: white
+}
 
 form div {
   margin: 1em;
@@ -180,5 +215,5 @@ form div {
 .img-thumbnail {
   height:250px;
   width: 100%;
-  object-fit: scale-down;
+  object-fit: cover;
 }
