@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 const mapStateToProps = state => ({ reviews: state.review })
 
 const Reviews = props => {
-	const reviews = props.reviews.filter(review => review.productId === props.beer.id)
+	let id
+	props.beer ? id = props.beer.id : id = props.user.id
+	const reviews = props.reviews.filter(review => review.productId === id)
 	return (
 		<div className="reviewContainer">
 				{

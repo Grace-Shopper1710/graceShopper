@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {toggleModal} from '../store'
 import Modal from 'react-modal'
 import moment from 'moment'
+import history from '../history'
+
 
 const mapState = state => ({
   modalIsOpen: state.ageverif
@@ -11,7 +13,11 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
     toggleModal: () => event => {
       dispatch(toggleModal(false))
-  }
+    },
+    tooYoung: () => event => {
+      dispatch(toggleModal(false))
+      history.push('/tooyoung')
+    }
 })
 
 const customStyles = {
@@ -38,8 +44,8 @@ const AgeVerif = (props) => {
           <h1>Are you 21 or over?</h1>
           You must be born on or before {moment().subtract(21, 'years').calendar()} to visit this site.
           <div className="minor-margin">
-          <button className="btn btn-outline-info" onClick={props.toggleModal()}> Yes </button>
-          <button className="btn btn-outline-info" onClick={props.toggleModal()}> No </button>
+          <button onClick={props.toggleModal()}> Yes </button>
+          <button onClick={props.tooYoung()}> No </button>
           </div>
         </Modal>
     )

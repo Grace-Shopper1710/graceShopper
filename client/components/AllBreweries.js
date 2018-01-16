@@ -9,7 +9,7 @@ const AllBreweries = (props) => {
 	const isAdmin = user ? user.isAdmin : false
 	return (
 		<div>
-			{isAdmin && <NavLink to={'/admin/newbrewery'}><button className="btn btn-primary btn-sm">Add a New Brewery</button></NavLink>}
+			{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Add a New Brewery</button></NavLink>}
 			{
 				breweries.map(brewery => (
 					<div key={brewery.id}>
@@ -24,7 +24,7 @@ const AllBreweries = (props) => {
 						</div>
 						{
 							isAdmin &&
-							<NavLink to={`/breweries/${brewery.id}/edit`}><button className="btn btn-primary btn-sm">Edit</button></NavLink>
+							<NavLink to={`/breweries/${brewery.id}/edit`}><button>Edit</button></NavLink>
 						}
 					</div>
 				))
