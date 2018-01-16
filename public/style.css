@@ -3,6 +3,12 @@
   src: url("./fonts/Cheque-Regular.otf");
 }
 
+@font-face {
+  font-family: "HKGrotesk";
+  src: url("./fonts/HKGrotesk-Regular.otf")
+}
+
+
 body {
   font-family: sans-serif;
   height: 100%;
@@ -10,15 +16,48 @@ body {
   margin: 0 !important;
 }
 
-.header {
-  font-family: "Cheque";
+button {
+  background-color: none;
+  border-radius: 10px;
+  color: #002939;
+  border: 2px solid #002939; /* Green */
+}
+
+button:hover {
+  -moz-transition: color .3s ease-in;
+  -o-transition: color .3s ease-in;
+  -webkit-transition: color .3s ease-in;
+  transition: color .3s ease-in;
+  background-color: #002939;
   color: white;
-  font-size: 400%;
-  background-color:#002939;
+  border: 2px solid #002939;
 }
 
 * {
   box-sizing: border-box;
+  font-family: "HKGrotesk" !important;
+  font-size: 100% !important;
+}
+
+.header {
+  font-family: "Cheque" !important;
+  color: white;
+  font-size: 400% !important;
+  background-color:#002939;
+}
+
+
+.userView {
+  display: flex;
+  margin: 4%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userReview > .reviewBox {
+  max-width: 40%;
+  max-height: none;
 }
 
 .minor-margin {
@@ -36,26 +75,34 @@ body {
   overflow-y: scroll;
 }
 
+
 hr {
   color: none;
   border: 1px solid #232b2b;
 }
 
-a {
+a:link {
   text-decoration: none;
+  color: #4D7686;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #4D7686;
+}
+
+a:active {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 .padding-bottom {
   padding-bottom: 6%;
-}
-
-.beerName {
-  font-weight: bold;
-  font-size: 120%;
 }
 
 label {
@@ -64,18 +111,40 @@ label {
 
 nav {
   width: 100%;
+  background-color: #002939;
+  font-size: 120%;
+  display: flex;
+  align-items: baseline;
+}
+ 
+nav > a:link {
+  color: white;
 }
 
 nav * {
   display: inline-block;
-  margin: 1em;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin: 0.5em;
+}
+
+button > a:link {
+  color: #002939
+}
+
+button > a:hover {
+  color: white;
+}
+
+button > a:active {
+  color: white
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.navItems {
+  float: right;
 }
 
 .allBeers {
@@ -93,16 +162,6 @@ form div {
   margin-top: 1%;
   display: flex;
   flex-direction: column;
-}
-
-.styleName {
-  font-size: 150%;
-  font-weight: bold;
-  margin-bottom: .5%;
-}
-
-.styleDetail {
-  margin-bottom: 3%;
 }
 
 .beerItem {
@@ -157,12 +216,6 @@ form div {
   width: 100%;
   object-fit: scale-down;
 }
-
-/*body {
-    background-color: #2c313b;
-
-    font-family: 'Roboto', sans-serif !important;
-}*/
 
 h3{
     color: white;
@@ -275,12 +328,6 @@ h3{
     left: 0;
 }
 
-.fontSize {
-    font-size:.8em;
-    height: auto;
-    text-align: center;
-}
-
 .page-header{
     height:35px;
     textAlign:center;
@@ -289,5 +336,5 @@ h3{
 .page-h4{
     line-height:35px;
     color:rgb(125, 199, 244);
-
+  object-fit: cover;
 }

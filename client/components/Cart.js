@@ -67,7 +67,7 @@ export const Cart = (props) => {
 										</form>
 									</div>
 									<div className="col-md-2">${product.price * product.qty}</div>
-									<button className="btn-danger btn-sm col-md-3" onClick={props.handleClick(product.id)}>Remove from Cart</button>
+									<button onClick={props.handleClick(product.id)}>Remove from Cart</button>
 								</div>
 							)
 						})

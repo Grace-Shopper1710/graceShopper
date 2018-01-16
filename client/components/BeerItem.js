@@ -12,8 +12,8 @@ const BeerItem = (props) => {
 				{beer.packaging} <br />
 				${beer.price} <br />
 				{
-            	isAdmin &&
-				<button className="btn btn-info btn-sm"><NavLink to={`/beers/${beer.id}/edit`}>Edit Beer</NavLink></button>
+	        	isAdmin &&
+				<NavLink to={`/beers/${beer.id}/edit`}><button>Edit Beer</button></NavLink>
           		}
 		</div>
 	)
