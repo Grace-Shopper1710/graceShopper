@@ -17,9 +17,9 @@ const mapDispatchToProps = dispatch => ({
         }
         dispatch(writeReview(newReview))
         if (event.target.value.length >= 100 || (event.target.value.length >= 1 && event.target.name === 'content')) {
-            dispatch(dirtyForm(true))
-        } else if (event.target.value.length < 100) {
             dispatch(dirtyForm(false))
+        } else if (event.target.value.length < 100) {
+            dispatch(dirtyForm(true))
         }
     },
     handleSubmit: props => event => {

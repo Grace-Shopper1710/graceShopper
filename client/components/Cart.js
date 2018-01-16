@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom'
 import { removeFromCart, updateItemQuantity, checkout, gotCorrectPromocodeFromUser, removePromoCode } from '../store'
 import StripeCheckout from 'react-stripe-checkout'
 
-
-
 const mapStateToProps = state => ({ cart: state.cart, beers: state.product, promoCode: state.promoCode, discount: state.discount })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -49,7 +47,7 @@ export const Cart = (props) => {
 						props.cart.products.map(product => {
 							const item = props.beers.filter(beer => beer.id === product.id)[0] || {}
 							return (
-								<div key={product.id}>
+								<div key={product.id} className="cartItems">
 									<div className="col-md-2">Item: <NavLink to={`/beers/${item.id}`}>{item.name}</NavLink></div>
 									<div className="col-md-2">Item Price: ${product.price}</div>
 									<div className="col-md-2">
