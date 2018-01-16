@@ -5,12 +5,17 @@ module.exports = router
 
 router.put('/:userId', (req, res, next) => {
   const id = req.params.userId
+  console.log(req.body)
+  const didTrig = req.body.passwordReset ? true : false
   if (req.user && (req.user.isAdmin || +req.user.id === +id)) {
     User.findById(req.params.userId/*, {
       attributes: ['id', 'email']
     }*/)
     .then(user => user.update(req.body))
-    .then(user => user.update({passwordReset: false}))
+    .then(user => {
+      console.log(didTrig)
+      if (!didTrig) user.update({passwordReset: false})
+    })
     .then(user => res.json(user))
 } else {
     const err = new Error('Not Authorized')
