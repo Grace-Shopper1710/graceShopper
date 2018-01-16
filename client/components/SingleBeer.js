@@ -11,26 +11,16 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	handleSubmit: (productId, qty, price) => e => {
+	handleSubmit: (productId, price) => e => {
 		e.preventDefault()
-		const newItem = { productId, qty, price }
+		const newItem = { productId, qty: +e.target.qty.value, price }
 		dispatch(addItemToCart(newItem))
 	}
 })
 
-export class SingleBeer extends React.Component {
-	constructor (props) {
-		super(props)
-		this.state = { quantity: 0 }
-		this.handleChange = this.handleChange.bind(this)
-	}
+export const SingleBeer = (props) => {
 
-	handleChange (event) {
-		this.setState({ quantity: +event.target.value })
-	}
-
-	render () {
-		const targetBeer = this.props.beers.find(beer => beer.id === +this.props.match.params.id)
+		const targetBeer = props.beers.find(beer => beer.id === +props.match.params.id)
 		if (!targetBeer) return <div />
 		return (
 			<div>
@@ -45,10 +35,10 @@ export class SingleBeer extends React.Component {
 					{targetBeer.description}<br />
 					{targetBeer.packaging}<br />
 					${targetBeer.price}<br />
-					<form onSubmit={this.props.handleSubmit(targetBeer.id, this.state.quantity, targetBeer.price)}>
+					<form onSubmit={props.handleSubmit(targetBeer.id, targetBeer.price)}>
 						<label>
 							Quantity:
-							<select value={this.state.quantity} onChange={this.handleChange}>
+							<select name="qty">
 							{
 								Array.from(Array(targetBeer.inventory).keys()).map(num => (
 									<option key={num} value={num}>{num}</option>
@@ -65,7 +55,7 @@ export class SingleBeer extends React.Component {
 				<div className="col-md-6">
 				<Review beer={targetBeer} />
 				</div>
-				{ this.props.isLoggedIn ?
+				{ props.isLoggedIn ?
 					<div className="col-md-6">
 					<ReviewForm beer={targetBeer} />
 					</div> :
@@ -74,7 +64,6 @@ export class SingleBeer extends React.Component {
 				</div>
 			</div>
 		)
-	}
 }
 
 const singleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(SingleBeer)
