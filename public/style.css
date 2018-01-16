@@ -3,6 +3,11 @@
   src: url("./fonts/Cheque-Regular.otf");
 }
 
+@font-face {
+  font-family: "HKGrotesk";
+  src: url("./fonts/HKGrotesk-Regular.otf")
+}
+
 body {
   font-family: sans-serif;
   height: 100%;
@@ -10,8 +15,25 @@ body {
   margin: 0 !important;
 }
 
+button {
+  background-color: none;
+  border-radius: 10px;
+  color: #002939;
+  border: 2px solid #002939; /* Green */
+}
+
+button:hover {
+  -moz-transition: color .3s ease-in;
+  -o-transition: color .3s ease-in;
+  -webkit-transition: color .3s ease-in;
+  transition: color .3s ease-in;
+  background-color: #002939;
+  color: white;
+  border: 2px solid #002939;
+}
+
 .header {
-  font-family: "Cheque";
+  font-family: "Cheque" !important;
   color: white;
   font-size: 400%;
   background-color:#002939;
@@ -19,6 +41,20 @@ body {
 
 * {
   box-sizing: border-box;
+  font-family: "HKGrotesk" !important;
+}
+
+.userView {
+  display: flex;
+  margin: 4%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userReview > .reviewBox {
+  max-width: 40%;
+  max-height: none;
 }
 
 .minor-margin {
@@ -36,26 +72,34 @@ body {
   overflow-y: scroll;
 }
 
+
 hr {
   color: none;
   border: 1px solid #232b2b;
 }
 
-a {
+a:link {
   text-decoration: none;
+  color: #4D7686;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #4D7686;
+}
+
+a:active {
+  text-decoration: none;
+  color: #4D7686;
 }
 
 .padding-bottom {
   padding-bottom: 6%;
-}
-
-.beerName {
-  font-weight: bold;
-  font-size: 120%;
 }
 
 label {
@@ -64,13 +108,29 @@ label {
 
 nav {
   width: 100%;
+  background-color: #002939;
+  font-size: 120%;
+}
+
+nav > a:link {
+  color: white;
 }
 
 nav * {
   display: inline-block;
-  margin: 1em;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin: 0.5em;
+}
+
+button > a:link {
+  color: #002939
+}
+
+button > a:hover {
+  color: white;
+}
+
+button > a:active {
+  color: white
 }
 
 form div {
@@ -289,5 +349,5 @@ h3{
 .page-h4{
     line-height:35px;
     color:rgb(125, 199, 244);
-
+  object-fit: cover;
 }

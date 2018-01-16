@@ -43,11 +43,10 @@ export class AllBeers extends React.Component {
 		}
 		const availableBeers = beers.filter(beer => beer.inventory > 0)
 		const filteredBeers = filterFunc(availableBeers, searchInput, styleFilter, breweryFilter, sortFilter)
-
 	return (
 		<div>
 			<FilterBar />
-			{isAdmin && <NavLink to={'/admin/newbeer'} className="btn btn-default">Create a New Beer</NavLink>}
+			{isAdmin && <NavLink to={'/admin/newbeer'}>Create a New Beer</NavLink>}
 			<div className="row">
 				{	filteredBeers.length > 0 ?
 					filteredBeers.map(beer => (
