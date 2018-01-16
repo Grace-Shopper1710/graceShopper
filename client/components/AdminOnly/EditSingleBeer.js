@@ -120,7 +120,7 @@ class EditSingleBeer extends React.Component {
 
 const mapStateToProps = state => ({ beers: state.product, breweries: state.brewery, styles: state.style })
 
-const mapDispatchToProps = {putBeer, removeBeer}
+const mapDispatchToProps = { putBeer, removeBeer }
 
 const editSingleBeerContainer = connect(mapStateToProps, mapDispatchToProps)(EditSingleBeer)
 

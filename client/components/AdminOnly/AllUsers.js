@@ -22,7 +22,7 @@ class AllUsers extends React.Component {
               <p> {user.email}</p>
                 <div>
                 <label>User Is Admin</label>
-                <form onSubmit={e=> this.onAdminChange(e, user.id)} action="" onChange={e => { }}>
+                <form onSubmit={e=> this.onAdminChange(e, user.id)}>
                   <select name="isAdmin" defaultValue={user.isAdmin}>
                     <option key={`true${user.id}`} value="true"> True</option>
                     <option key={`false${user.id}`} value="false"> False</option>
@@ -40,7 +40,6 @@ class AllUsers extends React.Component {
   }
   onUserDelete(event, userId){
     event.preventDefault()
-    //console.log(userId)
     this.props.deleteAUser(userId)
   }
   onAdminChange(event, userId){

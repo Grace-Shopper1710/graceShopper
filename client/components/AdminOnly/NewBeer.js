@@ -10,9 +10,7 @@ class NewBeer extends React.Component {
 
     render() {
         const { styles, breweries } = this.props
-
         const checkMe = (!styles.length || !breweries.length)
-
         if (checkMe) return <div />
 
         return (
@@ -107,7 +105,6 @@ class NewBeer extends React.Component {
             packaging: event.target.packaging.value,
             price: +event.target.price.value
         }
-        console.log(beer)
         this.props.addBeer(beer, this.props.history)
     }
 }
