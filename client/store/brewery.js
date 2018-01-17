@@ -53,7 +53,7 @@ export const addBrewery = (brewery, history) =>
   dispatch => {
     axios.post('/api/breweries/', brewery)
     .then(res => {
-      dispatch(update(res.data))
+      dispatch(addABrewery(res.data))
       history.push('/breweries')
     })
         .catch(err => console.error(`Adding brewery was unsuccessful`, err))
@@ -72,7 +72,7 @@ export default function (breweries = [], action) {
         action.breweryId !== brewery.id
       )
     case ADD:
-      return [...action.brewery, breweries]
+      return [...breweries, action.brewery]
     default:
       return breweries
   }

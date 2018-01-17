@@ -8,6 +8,7 @@ const AllBreweries = (props) => {
 	const { breweries, user } = props
 	if (!breweries.length) return <div/>
 	const isAdmin = user ? user.isAdmin : false
+	console.log(breweries)
 	return (
 		<div>
 			{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Add a New Brewery</button></NavLink>}

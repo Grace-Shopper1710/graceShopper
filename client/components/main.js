@@ -13,7 +13,6 @@ import AgeVerif from './AgeVerif'
  */
 const Main = props => {
   const { children, handleClick, isLoggedIn, isAdmin, cart, ageverif } = props
-  console.log(ageverif)
   return (
     <div className="container-fluid">
       {
