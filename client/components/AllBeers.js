@@ -54,7 +54,7 @@ export class AllBeers extends React.Component {
 					))
 					:
 					<div className="container">
-					<h3> Sorry! No beers match your search results. </h3>
+					<h1> Sorry! No beers match your search results. </h1>
 					</div>
 				}
 			</div>
