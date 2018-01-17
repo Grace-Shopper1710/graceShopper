@@ -28,6 +28,7 @@
     "cheerio": "^1.0.0-rc.2",
     "compression": "^1.7.1",
     "connect-session-sequelize": "^4.1.0",
+    "csshake": "^1.5.3",
     "d3": "^3.5.17",
     "express": "^4.14.1",
     "express-favicon": "^2.0.0",

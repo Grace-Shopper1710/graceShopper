@@ -46,7 +46,7 @@ export const SingleBeer = (props) => {
 								}
 							</select>
 						</label>
-						<button type="submit" value="Add to Cart"> Add to Cart </button>
+						<button className="shake-slow" type="submit" value="Add to Cart"> Add to Cart </button>
 						
 					</form>
 				</div>

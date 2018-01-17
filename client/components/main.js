@@ -19,7 +19,7 @@ const Main = props => {
         ageverif && <AgeVerif />
       }
       <nav>
-      <div className="header">BEER</div>
+      <div className="header shake-chunk">BEER</div>
       <div className="navItems">
       {
         !isAdmin
