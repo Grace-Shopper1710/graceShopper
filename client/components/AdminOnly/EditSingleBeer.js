@@ -22,8 +22,8 @@ class EditSingleBeer extends React.Component {
         
         return (
             <div>
-                <NavLink to={'/admin/newbeer'} className="btn btn-primary">New Beer</NavLink>
-                <button onClick={this.onBeerDelete} className="btn btn-danger">Delete Beer</button>
+                <NavLink to={'/admin/newbeer'}>New Beer</NavLink>
+                <button onClick={this.onBeerDelete}>Delete Beer</button>
                 <form onSubmit={this.onBeerSubmit}>
                     <h1>EDIT A BEER</h1>
                         <div>
