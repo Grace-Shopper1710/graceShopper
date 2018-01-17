@@ -83,10 +83,10 @@ export class Charts extends React.Component {
 	                <div className="col-xs-5">
 	                    <div className="bottom-right" id="ret_visitors">
 							<div className='AdminButton'>
-								<NavLink to={'/beers'}><button type="button" class="btn btn-warning">ADD/EDIT BEER</button></NavLink>
+								<NavLink to={'/beers'}><button type="button" className="btn btn-warning">ADD/EDIT BEER</button></NavLink>
 							</div>
 							<div className='AdminButton'>
-								<NavLink to={'/breweries'}><button type="button" class="btn btn-warning" >ADD/EDIT BREWERY</button></NavLink>
+								<NavLink to={'/breweries'}><button type="button" className="btn btn-warning" >ADD/EDIT BREWERY</button></NavLink>
 							</div>
 							<div className='AdminButton'>
 								<NavLink to={'/styles'}><button type="button" className="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>

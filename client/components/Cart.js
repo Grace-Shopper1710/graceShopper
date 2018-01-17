@@ -57,7 +57,7 @@ export const Cart = (props) => {
 												<select defaultValue={product.qty} onChange={props.handleChange(product.id)}>
 													{
 														Array.from(Array(item.inventory).keys()).map(num => (
-															<option key={num} value={num}>{num}</option>
+															<option key={num + 1} value={num + 1}>{num + 1}</option>
 														))
 													}
 												</select>

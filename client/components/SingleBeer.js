@@ -42,12 +42,13 @@ export const SingleBeer = (props) => {
 							<select name="qty">
 								{
 									Array.from(Array(targetBeer.inventory).keys()).map(num => (
-										<option key={num} value={num}>{num}</option>
+										<option key={num + 1} value={num + 1}>{num + 1}</option>
 									))
 								}
 							</select>
 						</label>
-						<button type="submit" value="Add to Cart"> Add to Cart </button>
+						<button className="shake-slow" type="submit" value="Add to Cart"> Add to Cart </button>
+						
 					</form>
 				</div>
 			</div>
