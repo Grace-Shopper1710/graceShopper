@@ -116,10 +116,6 @@ var data = {
             description: "Saisons are sturdy farmhouse ale that was traditionally brewed in the winter, to be consumed throughout the summer months. Not so long ago it was close to being an endangered style, but over recent years there's been a massive revival; especially in the US. This is a very complex style; many are very fruity in the aroma and flavor. Look for earthy yeast tones, mild to moderate tartness. Lots of spice and with a medium bitterness. They tend to be semi-dry with many only having touch of sweetness."
         },
         {
-            name: "American Wild Ale",
-            description: "Sometimes Belgian influenced, American Wild Ales are beers that are introduced to 'wild' yeast or bacteria, such as: Brettanomyces (Brettanomyces Bruxellensis, Brettanomyces Lambicus or Brettanomyces Anomolus), Pediococcus or Lactobacillus. This introduction may occur from oak barrels that have been previously inoculated, pitched into the beer, or gained from various 'sour mash' techniques. Regardless of which and how, these little creatures often leave a funky calling card that can be quite strange, interesting, pleasing to many, but also often deemed as undesirable by many."
-        },
-        {
             name: "English Stout",
             description: "As mysterious as they look, stouts are typically dark brown to pitch black in color. A common profile amongst Stouts, but not in all cases, is the use of roasted barley (unmalted barley that is kilned to the point of being charred) which lends a dry character to the beer as well as a huge roasted flavor that can range from burnt to coffee to chocolate. A different balance of hops is up to the brewers preference, but the roasted character must be there."
         }
@@ -403,7 +399,7 @@ var data = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
             abv: 5.80,
             breweryId: 10,
-            styleId: 6
+            styleId: 3
         },
         {
             name: "Omniscience & Proselytism",
@@ -414,7 +410,7 @@ var data = {
             description: "Ale Refermented in Oak Barrels With Strawberries: Strawberries from Fredericksburg, Texas were added to oak barrels containing mature sour beer. The beer was then allowed to referment to dryness. Unfiltered, unpasteurized and naturally conditioned. The name Omniscience & Proselytism does not refer to any claims of inducing omniscience.",
             abv: 5.0,
             breweryId: 10,
-            styleId: 6
+            styleId: 3
         },
         {
             name: "Alien Church",
