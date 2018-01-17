@@ -19,7 +19,7 @@ render() {
 
     return (
         <div>
-            <NavLink to={'/admin/newstyle'} className="btn btn-primary">Create a New Style</NavLink>
+            <NavLink to={'/admin/newstyle'}><button>Create a New Style</button></NavLink>
             <button onClick={this.onStyleDelete}>Delete Style</button>
             <form onSubmit={this.onStyleSubmit}>
                 <h1>Edit Style</h1>

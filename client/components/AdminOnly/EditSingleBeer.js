@@ -22,7 +22,7 @@ class EditSingleBeer extends React.Component {
         
         return (
             <div>
-                <NavLink to={'/admin/newbeer'}>New Beer</NavLink>
+                <NavLink to={'/admin/newbeer'}><button>New Beer</button></NavLink>
                 <button onClick={this.onBeerDelete}>Delete Beer</button>
                 <form onSubmit={this.onBeerSubmit}>
                     <h1>EDIT A BEER</h1>
