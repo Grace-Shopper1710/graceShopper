@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-const shippedEmailContent = `<h3>Hi! Your order from Beers.Beers.Beers has shipped!</h3> 
+const shippedEmailContent = `<h3>Hi! Your order from Beers.Beers.Beers has shipped!</h3>
 <p>You can track it online: U.S. Postal Service: <a>00000000000000000000</a></p>
 <p><strong>Thanks again for your purchase!</strong></p>`
 
@@ -52,7 +52,6 @@ router.post('/', isAdmin, (req, res, next) => {
 })
 
 router.put('/:orderId', isAdmin, (req, res, next) => {
-    console.log(req.body)
   Order.findById(req.params.orderId,
       {include: [{all: true}]
     })
@@ -69,6 +68,9 @@ router.put('/:orderId', isAdmin, (req, res, next) => {
                if (err) console.log('email fail')
                else res.json(order);
             })
+        }
+        else {
+          res.json(order)
         }
     })
     .catch(next)
