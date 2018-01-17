@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { removeFromCart, updateItemQuantity, checkout, gotCorrectPromocodeFromUser, removePromoCode } from '../store'
 import StripeCheckout from 'react-stripe-checkout'
+import Notifications, {notify} from 'react-notify-toast';
 
 const mapStateToProps = state => ({ cart: state.cart, beers: state.product, promoCode: state.promoCode, discount: state.discount })
 
@@ -22,16 +23,20 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	removePromoCode: () => (dispatch(removePromoCode())),
 	handlePromoCode: (promoCodes, total) => (event) => {
 		event.preventDefault()
+		let rightCode = false
 		promoCodes.forEach(promoCode => {
 			if(event.target.promoCode.value === promoCode.id){
+				rightCode = true
 				const type = promoCode.amount_off ? 'amount_off' : 'percent_off'
 				if(promoCode.amount_off) {
 					dispatch(gotCorrectPromocodeFromUser(promoCode.amount_off/100))
 				} else {
 					dispatch(gotCorrectPromocodeFromUser(total * promoCode.percent_off/100))
 				}
+				notify.show('Promo Code Added!',"custom", 3000, { background: 'orange', text: "#FFFFFF" })
 			}
 		})
+		if (!rightCode) notify.show('WRONG PROMO CODE!',"custom", 3000, { background: 'crimson', text: "#FFFFFF" })
 	}
 })
 
@@ -39,6 +44,7 @@ export const Cart = (props) => {
 	const products = props.cart.products || []
 	return (
 		<div className="container">
+			<Notifications />
 			{
 				props.cart && products.length 
 				?

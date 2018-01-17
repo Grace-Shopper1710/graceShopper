@@ -19,7 +19,7 @@ const Main = props => {
         ageverif && <AgeVerif />
       }
       <nav>
-      <div className="header shake-chunk">BEER</div>
+      <div className="header shake-slow"><img style={{width: 66, height: 58}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Fxemoji_u1F37B.svg/2000px-Fxemoji_u1F37B.svg.png" />BEER</div>
       <div className="navItems">
       {
         !isAdmin
