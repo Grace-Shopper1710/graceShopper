@@ -18,10 +18,10 @@ class AllUsers extends React.Component {
         <h1>Site Users</h1>
         <ul>
           {users.map(user => (
-            <li key={user.id}>
-              <p> {user.email}</p>
-                <div>
+            <div key={user.id}>
+              <h2> {user.email}</h2>
                 <label>User Is Admin</label>
+                <div  className="userDetail">
                 <form onSubmit={e=> this.onAdminChange(e, user.id)}>
                   <select name="isAdmin" defaultValue={user.isAdmin}>
                     <option key={`true${user.id}`} value="true"> True</option>
@@ -31,9 +31,8 @@ class AllUsers extends React.Component {
                 </form>
                 <button onClick={e=> this.onUserDelete(e, user.id)}>Delete This User</button>
                 <button onClick={e=> this.onPasswordResetTrigger(e, user.id)}>Prompt Password Reset</button>
-                <p></p>
                 </div>
-            </li>))}
+            </div>))}
         </ul>
       </div>
     )
