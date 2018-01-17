@@ -36,8 +36,7 @@ export const auth = (email, password, method) =>
         dispatch(getUser(res.data))
         if (res.data.passwordReset) history.push('/passwordreset')
         else {
-          if(res.data.isAdmin)history.push('/admin/charts')
-          else history.push('/')
+          history.push('/')
         }
       }, authError => { // rare example: a good use case for parallel (non-catch) error handler
         dispatch(getUser({error: authError}))

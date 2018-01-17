@@ -9,19 +9,19 @@ const AllStyles = (props) => {
     const isAdmin = user ? user.isAdmin : false
     if (!styles.length) return <div/>
     return (
-      <div>
+      <div className="fadeIn">
         {isAdmin && <NavLink to={'/admin/newstyle'}>Add New Style</NavLink>}
           {
             styles.map(style => (
               <div key={style.id}>
+                <hr className="dashed" />
                 <div>
-                  <NavLink to={`/styles/${style.id}`}><h2>{style.name}</h2></NavLink>
-                  <p>{style.description.slice(0, 160)}... <NavLink to={`/styles/${style.id}`} className="btn btn-default">Learn More</NavLink> 
+                  <NavLink to={`/styles/${style.id}`}><h1>{style.name}</h1></NavLink>
+                  <p>{style.description.slice(0, 160)}... <NavLink to={`/styles/${style.id}`} className="btn btn-default">Learn More</NavLink> </p>
                   {
                   isAdmin &&
                   <div>
                   <NavLink to={`/style/${style.id}/edit`}>Edit</NavLink>
-                  <br/>
                   </div>
                   }
                   </p>

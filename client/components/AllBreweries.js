@@ -10,7 +10,7 @@ const AllBreweries = (props) => {
 	const isAdmin = user ? user.isAdmin : false
 	console.log(breweries)
 	return (
-		<div>
+		<div className="fadeIn">
 			{isAdmin && <NavLink to={'/admin/newbrewery'}><button>Add a New Brewery</button></NavLink>}
 			{
 				breweries.map(brewery => (

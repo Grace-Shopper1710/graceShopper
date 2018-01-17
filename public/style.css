@@ -8,12 +8,74 @@
   src: url("./fonts/HKGrotesk-Regular.otf")
 }
 
+@font-face {
+  font-family: "HKGrotesk-SemiBold";
+  src: url("./fonts/HKGrotesk-SemiBold.otf")
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 body {
   font-family: sans-serif;
   height: 100%;
   padding: 0 !important;
   margin: 0 !important;
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 0.52.0.5 */
+  -moz-animation: fadein 0.5s; /* Firefox < 0.56 */
+   -ms-animation: fadein 0.5s; /* Internet Explorer */
+    -o-animation: fadein 0.5s; /* Opera < 0.50.5.0.5 */
+       animation: fadein 0.5s;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "HKGrotesk-SemiBold"
+}
+
+.fadeIn {
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 0.50.5.0.5 */
+  -moz-animation: fadein 0.5s; /* Firefox < 0.56 */
+   -ms-animation: fadein 0.5s; /* Internet Explorer */
+    -o-animation: fadein 0.5s; /* Opera < 0.50.5.0.5 */
+       animation: fadein 0.5s;
+}
+
+body > * {
+  margin: 1%;
+}
+
+.userDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1%
 }
 
 button {
@@ -35,17 +97,31 @@ button:hover {
 
 * {
   box-sizing: border-box;
-  font-family: "HKGrotesk" !important;
-  font-size: 100% !important;
+  font-family: "HKGrotesk";
+  font-size: 100%;
 }
 
 .header {
-  font-family: "Cheque" !important;
+  font-family: "Cheque";
   color: white;
-  font-size: 400% !important;
+  font-size: 400%;
   background-color:#002939;
 }
 
+.dashed {
+  opacity: 0.5;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+  flex-wrap: wrap;
+}
+
+.filterBar > * {
+  font-size: 100%;
+}
 
 .userView {
   display: flex;
@@ -109,23 +185,6 @@ label {
   display: block;
 }
 
-nav {
-  width: 100%;
-  background-color: #002939;
-  font-size: 120%;
-  display: flex;
-  align-items: baseline;
-}
- 
-nav > a:link {
-  color: white;
-}
-
-nav * {
-  display: inline-block;
-  margin: 0.5em;
-}
-
 button > a:link {
   color: #002939
 }
@@ -136,6 +195,32 @@ button > a:hover {
 
 button > a:active {
   color: white
+}
+
+nav {
+  width: 100%;
+  background-color: #002939;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+ 
+nav > a:link {
+  color: white;
+}
+
+nav > a:hover {
+  -moz-transition: color .3s ease-in;
+  -o-transition: color .3s ease-in;
+  -webkit-transition: color .3s ease-in;
+  transition: color .3s ease-in;
+  color: #4D7686;
+}
+
+nav * {
+  display: inline-block;
+  margin: 0.3em;
+  font-size: 105%;
 }
 
 form div {
@@ -194,7 +279,6 @@ form div {
 
 .singleBeer {
   display: flex;
-  background-color: #1F618D;
   align-content: center;
   justify-content: space-between;
 }
@@ -216,6 +300,8 @@ form div {
   width: 100%;
   object-fit: scale-down;
 }
+
+/* GRAPH THINGS  */
 
 h3{
     color: white;
