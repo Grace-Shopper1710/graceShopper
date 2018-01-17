@@ -12,6 +12,7 @@ const SingleStyle = props => {
   const styles = props.styles
   const selectedStyle = styles.find(style => { return style.id === +id}) || {}
   const matchingBeers = props.beers.filter(beer =>  beer.styleId === +id) || []
+  if (id>styles.length) return <div>Sorry that's not a style we have!</div>
 
   return (
     <div>

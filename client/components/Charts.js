@@ -89,7 +89,7 @@ export class Charts extends React.Component {
 								<NavLink to={'/breweries'}><button type="button" class="btn btn-warning" >ADD/EDIT BREWERY</button></NavLink>
 							</div>
 							<div className='AdminButton'>
-								<NavLink to={'/styles'}><button type="button" class="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>
+								<NavLink to={'/styles'}><button type="button" className="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>
 							</div>
 	                    </div>
 	                </div>

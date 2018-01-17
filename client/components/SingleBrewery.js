@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const SingleBrewery = props => {
     const id = props.match.params.id
     const breweries = props.breweries
+    if (id>breweries.length) return <div>Sorry that's not a brewery we have!</div>
     const selectedBrewery = breweries.find(brewery => { return brewery.id === +id }) || {}
     const matchingBeers = props.beers.filter(beer => beer.breweryId === +id) || []
 
