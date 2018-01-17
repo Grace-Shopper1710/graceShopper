@@ -23,7 +23,7 @@ export class AllOrders extends React.Component {
     render (){
       const allOrders = this.props.orders
       const orderStatus = ['CREATED', 'PROCESSING', 'CANCELLED', 'COMPLETED']
-      const filteredOrders = this.props.orderFilter ? allOrders.filter( order => order.status === this.props.orderFilter) : allOrders
+      const filteredOrders = (this.props.orderFilter !== 'Filter by status') ? allOrders.filter( order => order.status === this.props.orderFilter) : allOrders
 
 
 
@@ -31,14 +31,18 @@ export class AllOrders extends React.Component {
       <div>
 
           <div> Order Status:
-            <select name="orderStatus" onChange={this.handleOrderFilter}>
+            <select
+              name="orderStatus"
+              onChange={this.handleOrderFilter}
+              defaultValue={'Filter by status'}>
+              <option>{'Filter by status'}</option>
               {orderStatus.map((status, i) =>
                 <option key={i} value={status}>
                 {status}
                 </option>
               )}
             </select>
-            {this.props.orderFilter &&
+            {(this.props.orderFilter !== 'Filter by status') &&
             <span>
               <button onClick={this.handleClear}>clear filter</button>
             </span>
@@ -55,7 +59,7 @@ export class AllOrders extends React.Component {
                 <p>Orders Status: {order.status}</p>
 
                 <form
-                  onSubmit={e => this.onStatusChange(e)}>
+                  onSubmit={this.onStatusChange}>
                     <select
                       id={order.id}
                       name="updateStatus"
@@ -85,6 +89,7 @@ export class AllOrders extends React.Component {
 
   handleClear(){
     this.props.clearOrderFilter()
+
   }
 
   onStatusChange(evt){

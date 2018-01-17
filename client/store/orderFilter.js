@@ -12,12 +12,12 @@ export const clearOrderFilter = () => ({
   type: CLEAR_ORDER_STATUS
 })
 
-export default function reducer (orderFilter = '', action){
+export default function reducer (orderFilter = 'Filter by status', action){
   switch (action.type) {
     case SELECT_ORDER_STATUS:
       return action.selectedStatus
     case CLEAR_ORDER_STATUS:
-      return ''
+      return 'Filter by status'
     default:
       return orderFilter
   }
