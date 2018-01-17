@@ -24,7 +24,6 @@ const AllStyles = (props) => {
                   <NavLink to={`/style/${style.id}/edit`}>Edit</NavLink>
                   </div>
                   }
-                  </p>
                 </div>
               </div>
             ))
