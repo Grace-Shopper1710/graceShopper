@@ -438,64 +438,64 @@ var data = {
 
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "Among the best jester king beers i have ever had, this is absolutely sensational. up there with atrial and the tempranillo one, just so amazing. it doesnt have a lot of head, and the carbonation is a bit light for what i look for in the style, but the flavor is positively next level. the strawberries are about as forward and natural here as i have ever known them to be in any beer, ripe, sweet, juicy, and really the essence of summer, with a funky and mature labic type beer underneath. the berries sweeten it up just enough, and the sourness accentuates the pulpy, seedy, perfectly ripe berry goodness, its on point! pink to almost unnatural red in color, very little head. sweet oak, light vanilla, lemons, red currant piquancy, floral funk, also very summery for brett, and as complex and awesome as can be, equal parts fruit and awesome beer in the flavor, and not too sour to drink a couple glasses of, at least for me. these guys do some of the most complete and special fruited wild beers anywhere in the world, and this is one of their very best in this impressive series. maybe the best strawberry beer i have ever had. after a couple of good but not mind bending jester king beers, this one was outrageously good! tons of strawberry and so natural too, wow!",
             rating: 5,
             userId: 3,
-            productId: 6
+            productId: 16
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "Look: Dark red/purple with medium pink head that recedes quickly. Has medium carbonation. Smell: Jammy raspberries, lacto, Funk, and ice cream. Taste: Lightly tart, jammy raspberries, lacto, and funk. Mouthfeel: Medium. Overall: A great sour from Jester King.",
             rating: 4,
             userId: 1,
-            productId: 4
+            productId: 15
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "Lovely pour to this as the beer had a wonderfully juicy appearance and hue to it with a near-perfect head to top it off. Not much lacing left behind though there were some scattered bubbles left on the side of my teku glass. A good amount of grass, orange juice, lemon, lime, and chalkiness were in the nose with all of those coming through in a wonderfully smooth manner in the taste. The oat malt and wheat gave this body as the lactose was a bit harder to pick out. This was probably due to the range of flavors found here as this was a bit too dank and juicy to let the sweetness fully emerge. Regardless, the carbonation was light to moderate but spot-on as there was plenty of bit and a crisp, bubbly aftertaste that kept this light and bright from start to finish. As usual, the amount of alcohol here was higher than I would have been led to believe, as it could only be felt via a mild warming by the time I polished this off. Though canned on 3/17 with 'MR. DAYDREAM' written on top it if, it held up well over the intervening 5 months. This was yet another example of how Other Half's nailing it right now, to the point where even yours truly was daydreaming in green!",
             rating: 4,
             userId: 1,
+            productId: 14
+        },
+        {
+            content: "Pours a cloudy orange with a one finger white head that left spots of lacing. Smells of over ripe tropical fruits, citrus fruits and a hint of malt. Tastes of delicious over ripe mangoes and pineapple, sweet orange, a sweet malt presence and a bit of grass. Medium bodied and carbonation, minimal bitterness, creamy mouth feel.",
+            rating: 5,
+            userId: 2,
+            productId: 14
+        },
+        {
+            content: "Sooo good but very hard to come by. Your best bet is to locate a store where the beer is sold, find out when they receive their delivery, and wait in the parking lot. Seriously. That said, this beer is the center of much hype and you can just as easily swing by a local pizza joint and order one.",
+            rating: 3,
+            userId: 4,
             productId: 1
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            rating: 5,
-            userId: 2,
-            productId: 7
-        },
-        {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            rating: 3,
-            userId: 4,
-            productId: 6
-        },
-        {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "I just recently 'converted' to IPA style beers. I found this one to be very palatable and enjoyed it out of the can and in a glass. It did not leave me with a bitter after-taste and definitely was worthwhile throughout. The color was as expected from an IPA and the taste was smooth and piney. I will look for it again, perhaps some day enjoying it from the tap.",
             rating: 4,
             userId: 3,
-            productId: 10
+            productId: 1
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "It's great now that the Stowe brewery makes getting this alot easier than it used to be; only a six hour drive and I am restocked! The hunt was a lot of fun in the old days, I'll admit. I love IPAs and try different brewers efforts regularly, but find my self coming back to HT time and time again. It is truly the benchmark, both in the can and in an appropriate glass (also available at your local Heady retailer!).",
             rating: 5,
             userId: 5,
-            productId: 7
+            productId: 1
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "What can be said about this standard setter that has not already be said? I happen to love it and consider it the Gold Standard in American style IPAs. Fellow hop heads will say its over-rated, no so great, etc. I call bullshit. Its an awesome beer when you can get your hands on some, and never let it age, the quality suffers quickly.",
             rating: 4,
             userId: 2,
-            productId: 7
+            productId: 3
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "So. Wow. But not in a good way. Or a bad way. It's fine. It's good. Not great. Doesn't come close to Heady. Pours a clear light gold. No sticky lacing. Aroma is an even blend of pine and citrus. Taste is similar, nice and bitter, but no real juiciness to this. Feel is medium bodied with medium carbonation. My favorite part about this is the semi-dry finish. Overall, good, not great. Try it if you've been looking but definitely lower expectations.",
             rating: 5,
             userId: 3,
-            productId: 10
+            productId: 3
         },
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            content: "Looks great, smells decent, and hits with intense lemon. Can’t properly call it a New England IPA (or what’s become known as such) - too rough + bitter, with not enough creamy body. It’s no juice bomb, either, but damn, is there some (mostly Citra) hop oil. This can came through channels to get to Ireland via the UK; its dates are all good but maybe I’d get more if I could vouch for the handling. ",
             rating: 5,
             userId: 3,
-            productId: 7
+            productId: 2
         },
         {
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
@@ -552,7 +552,7 @@ var data = {
             total:  150.00,
             status: 'PROCESSING',
             userId: 9,
-            updatedAt: '2018-01-10 18:10:21.394-05'
+            updatedAt: new Date()
         },
         {
             name: 'Wayne Lame',
