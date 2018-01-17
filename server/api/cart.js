@@ -75,10 +75,17 @@ router.post('/checkout', (req, res, next) => {
 			<h3>Order Details</h3>
 			<ul>${itemList}</ul>
 			<p>Total: ${cart.total}</p>`
-	stripe.customers.create({
-		email: req.body.email,
-		source: req.body.id
-	})
+	Promise.all(cart.products.map(cartProduct => (
+		Product.findOne({ where: {
+			id: cartProduct.id
+		}})
+		.then(product => {
+			if (product.inventory - cartProduct.quantity < 0) res.json({ err: 'Out of stock!'})
+			else return product.update({ inventory: +product.inventory - cartProduct.qty})
+		})
+		.catch(err => console.log(err.message))
+	)))
+	.then(() =>  stripe.customers.create({ email: req.body.email, source: req.body.id }))
 	.then(customer =>  stripe.charges.create({ amount: Math.round(+cart.total * 100), currency: 'usd', customer: customer.id}))
     .then(order => {
 		return Order.create({
@@ -113,10 +120,9 @@ router.post('/checkout', (req, res, next) => {
 		//error handle this
 		transporter.sendMail(mailOptions, function (err, info) {
 		   if (err) console.log("email fail")
-		   else console.log(info);
+		   else res.send(LineItems)
 		})
 		req.session.destroy()
-		res.send(LineItems)
 	})
 	.catch(err => res.status(500).send({ error: err }))
 
@@ -169,10 +175,3 @@ function calculateTotals(req) {
 	}, 0).toFixed(2)
 }
 
-function postStripeCharge (res) { return (stripeErr, stripeRes) => {
-  if (stripeErr) {
-    res.status(500).send({ error: stripeErr });
-  } else {
-    res.status(200).send({ success: stripeRes });
-  }
-}}

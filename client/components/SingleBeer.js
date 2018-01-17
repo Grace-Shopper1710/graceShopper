@@ -22,7 +22,6 @@ export const SingleBeer = (props) => {
 	if (!props.beers.length) return <div />
 	const targetBeer = props.beers.find(beer => beer.id === +props.match.params.id)
 	if (!targetBeer.brewery) return <div />
-	console.log(targetBeer)
 	return (
 		<div>
 			<div className="row">
@@ -42,12 +41,13 @@ export const SingleBeer = (props) => {
 							<select name="qty">
 								{
 									Array.from(Array(targetBeer.inventory).keys()).map(num => (
-										<option key={num} value={num}>{num}</option>
+										<option key={num + 1} value={num + 1}>{num + 1}</option>
 									))
 								}
 							</select>
 						</label>
 						<button type="submit" value="Add to Cart"> Add to Cart </button>
+						
 					</form>
 				</div>
 			</div>

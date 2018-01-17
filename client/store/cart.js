@@ -1,6 +1,6 @@
 import axios from 'axios'
 import history from '../history'
-import { fetchAllOrders } from './order'
+import { fetchAllOrders, fetchAllProducts } from './index'
 
 //ACTION TYPES
 const GOT_CART_FROM_SERVER = 'GOT_CART_FROM_SERVER'
@@ -45,6 +45,7 @@ export const checkout = (orderDetails) =>
         .then(res => {
             dispatch(gotCartFromServer(res.data))
             dispatch(fetchAllOrders())
+            dispatch(fetchAllProducts())
             history.push('/orderconfirm')
         })
         .catch(err => console.log(err))
