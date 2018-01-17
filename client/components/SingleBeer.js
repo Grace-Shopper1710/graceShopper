@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { addItemToCart } from '../store'
 import { default as Review } from './Reviews'
 import { default as ReviewForm } from './ReviewForm'
+import Notifications, {notify} from 'react-notify-toast';
 
 const mapStateToProps = state => ({
 	beers: state.product,
@@ -15,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
 		e.preventDefault()
 		const newItem = { productId, qty: +e.target.qty.value, price }
 		dispatch(addItemToCart(newItem))
+		notify.show('Added to Cart. Cheers!!',"custom", 3000, { background: 'orange', text: "#FFFFFF" })
 	}
 })
 
@@ -25,6 +27,7 @@ export const SingleBeer = (props) => {
 	if (!targetBeer.brewery) return <div />
 	return (
 		<div>
+			<Notifications />
 			<div className="row">
 				<div className="col-md-5">
 					<img src={targetBeer.image} className="img-thumbnail" />
@@ -48,7 +51,6 @@ export const SingleBeer = (props) => {
 							</select>
 						</label>
 						<button className="shake-slow" type="submit" value="Add to Cart"> Add to Cart </button>
-						
 					</form>
 				</div>
 			</div>
