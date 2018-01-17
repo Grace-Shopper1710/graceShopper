@@ -20,8 +20,11 @@ const AllStyles = (props) => {
                   <p>{style.description.slice(0, 160)}... <NavLink to={`/styles/${style.id}`} className="btn btn-default">Learn More</NavLink> </p>
                   {
                   isAdmin &&
+                  <div>
                   <NavLink to={`/style/${style.id}/edit`}>Edit</NavLink>
+                  </div>
                   }
+                  </p>
                 </div>
               </div>
             ))
