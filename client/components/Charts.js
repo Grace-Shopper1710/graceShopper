@@ -10,31 +10,31 @@ let styleData = [
 		value: 400,
 		color:"#F7464A",
 		highlight: "#FF5A5E",
-		label: "IPA"
+		label: "American IPA"
 	},
 	{
 		value: 500,
 		color: "#46BFBD",
 		highlight: "#5AD3D1",
-		label: "Stout"
+		label: "English Stout"
 	},
 	{
 		value: 250,
 		color: "#FDB45C",
 		highlight: "#FFC870",
-		label: "Lager"
+		label: "Saison / Farmhouse Ale"
 	},
 	{
 		value: 350,
 		color: "#949FB1",
 		highlight: "#A8B3C5",
-		label: "Sour"
+		label: "American Pale Ale (APA)"
 	},
 	{
 		value: 250,
 		color: "#4D5360",
 		highlight: "#616774",
-		label: "Pale Ale"
+		label: "American Wild Ale"
 	}
 
 ];
@@ -90,6 +90,12 @@ export class Charts extends React.Component {
 							</div>
 							<div className='AdminButton'>
 								<NavLink to={'/styles'}><button type="button" className="btn btn-warning" >ADD/EDIT STYLE</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/users'}><button type="button" className="btn btn-warning" >ADD/EDIT USER</button></NavLink>
+							</div>
+							<div className='AdminButton'>
+								<NavLink to={'/orders'}><button type="button" className="btn btn-warning" >ADD/EDIT ORDER</button></NavLink>
 							</div>
 	                    </div>
 	                </div>
