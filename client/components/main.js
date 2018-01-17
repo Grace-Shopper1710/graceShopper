@@ -15,7 +15,7 @@ const Main = props => {
   const { children, handleClick, isLoggedIn, isAdmin, cart, ageverif } = props
   console.log(ageverif)
   return (
-    <div className="container-fluid">
+    <div className="container-fluid fadeIn">
       {
         ageverif && <AgeVerif />
       }

@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
 
 export const FilterBar = (props) => {
     return (
-        <div>
+        <div className="filterBar">
             <SearchBar />
             Brewery:
             <select name="breweryId" onChange={props.handleBreweryFilter}>
