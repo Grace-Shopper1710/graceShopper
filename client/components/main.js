@@ -14,7 +14,7 @@ import AgeVerif from './AgeVerif'
 const Main = props => {
   const { children, handleClick, isLoggedIn, isAdmin, cart, ageverif } = props
   return (
-    <div className="container-fluid">
+    <div className="container-fluid fadeIn">
       {
         ageverif && <AgeVerif />
       }

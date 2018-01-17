@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => ({
 
 export const SingleBeer = (props) => {
 	if (!props.beers.length) return <div />
+	if (props.match.params.id>props.beers.length) return <div>Sorry that's not a beer we have!</div>
 	const targetBeer = props.beers.find(beer => beer.id === +props.match.params.id)
 	if (!targetBeer.brewery) return <div />
 	return (
