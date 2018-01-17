@@ -96,132 +96,144 @@ var data = {
     ],
     style: [
         {
-            name: "IPA",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa."
+            name: "American Double / Imperial IPA",
+            description: "Take an India Pale Ale and feed it steroids, ergo the term Double IPA. Although open to the same interpretation as its sister styles, you should expect something robust, malty, alcoholic and with a hop profile that might rip your tongue out. The Imperial usage comes from Russian Imperial stout, a style of strong stout originally brewed in England for the Russian Imperial Court of the late 1700s; though Double IPA is often the preferred name."
         },
         {
-            name: "Stout",
-            description: "Donec porttitor ut ligula vel rutrum. Aenean eu elit non felis pharetra tincidunt. Nulla sodales sed mi quis semper. Ut lectus odio, dictum eu tempor sed, efficitur ut enim. Duis id tortor eu erat ultricies viverra ut quis risus. Cras facilisis sapien nulla, eget sagittis urna laoreet eleifend. Mauris pulvinar nibh ac nulla aliquet facilisis."
+            name: "American IPA",
+            description: "The American IPA is a different soul from the reincarnated IPA style. More flavorful than the withering English IPA, color can range from very pale golden to reddish amber. Hops are typically American with a big herbal and / or citric character, bitterness is high as well. Moderate to medium bodied with a balancing malt backbone."
         },
         {
-            name: "Ale",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat rutrum libero, sit amet ornare nisi lacinia non. Nulla quis dolor molestie, finibus velit lobortis, tempor nisl. Vestibulum in dolor metus."
+            name: "American Wild Ale",
+            description: "Sometimes Belgian influenced, American Wild Ales are beers that are introduced to 'wild' yeast or bacteria, such as: Brettanomyces (Brettanomyces Bruxellensis, Brettanomyces Lambicus or Brettanomyces Anomolus), Pediococcus or Lactobacillus. This introduction may occur from oak barrels that have been previously inoculated, pitched into the beer, or gained from various 'sour mash' techniques. Regardless of which and how, these little creatures often leave a funky calling card that can be quite strange, interesting, pleasing to many, but also often deemed as undesirable by many."
         },
         {
-            name: "Lager",
-            description: "Sed ut porta lacus. Nulla commodo lorem at purus rhoncus, in faucibus nunc tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque tempus velit sem, a tincidunt eros varius pellentesque. Praesent vulputate eget nibh id auctor. In cursus felis eu scelerisque condimentum. Sed feugiat sit amet enim at hendrerit. Nunc elementum imperdiet elit, vel feugiat nisi ultrices eget. Aliquam sed massa volutpat lacus pharetra volutpat vel quis sem."
+            name: "American Pale Ale (APA)",
+            description: "Of British origin, this style is now popular worldwide and the use of local ingredients, or imported, produces variances in character from region to region. Generally, expect a good balance of malt and hops. Fruity esters and diacetyl can vary from none to moderate, and bitterness can range from lightly floral to pungent."
+        },
+        {
+            name: "Saison / Farmhouse Ale",
+            description: "Saisons are sturdy farmhouse ale that was traditionally brewed in the winter, to be consumed throughout the summer months. Not so long ago it was close to being an endangered style, but over recent years there's been a massive revival; especially in the US. This is a very complex style; many are very fruity in the aroma and flavor. Look for earthy yeast tones, mild to moderate tartness. Lots of spice and with a medium bitterness. They tend to be semi-dry with many only having touch of sweetness."
+        },
+        {
+            name: "American Wild Ale",
+            description: "Sometimes Belgian influenced, American Wild Ales are beers that are introduced to 'wild' yeast or bacteria, such as: Brettanomyces (Brettanomyces Bruxellensis, Brettanomyces Lambicus or Brettanomyces Anomolus), Pediococcus or Lactobacillus. This introduction may occur from oak barrels that have been previously inoculated, pitched into the beer, or gained from various 'sour mash' techniques. Regardless of which and how, these little creatures often leave a funky calling card that can be quite strange, interesting, pleasing to many, but also often deemed as undesirable by many."
+        },
+        {
+            name: "English Stout",
+            description: "As mysterious as they look, stouts are typically dark brown to pitch black in color. A common profile amongst Stouts, but not in all cases, is the use of roasted barley (unmalted barley that is kilned to the point of being charred) which lends a dry character to the beer as well as a huge roasted flavor that can range from burnt to coffee to chocolate. A different balance of hops is up to the brewers preference, but the roasted character must be there."
         }
     ],
 
     //breweries have: name,  image, description, established, city, state, country
     brewery: [
         {
-            name: "Great Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1593830/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1902,
-            city: "Tallahassee",
-            state: "FL",
+            name: "The Alchemist Brewery",
+            image: "https://alchemistbeer.com/wp-content/uploads/2017/07/cropped_LUVLENS_ALCHEMISTSPRING17_drone-64.jpg",
+            description: "The Alchemist is a 7 barrel brew pub specializing in hand-crafted  beer and casual pub fare.  All of our ales flow directly from our  basement brewery, which was designed and installed by our brewer and  co-proprietor John Kimmich.   We use only the finest imported malts and  domestic hops available to bring you the tastiest and finest selection  of beers in Vermont!",
+            established: 2003,
+            city: "Waterbury",
+            state: "VT",
             country: "USA"
 
         },
         {
-            name: "Best Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1605324/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1990,
-            city: "Boson",
-            state: "MA",
+            name: "Russian River Brewing Company",
+            image: "https://cdn-png3.thedailymeal.com/sites/default/files/styles/tdm_slideshow_large/public/6-russianriver2_edit%20png.png?itok=DCFcII3o",
+            description: "Russian River Brewing Company (RRBC) was originally owned by Korbel Champagne Cellars in Guerneville, California and was founded on their historic and beautiful property amidst vineyards and redwoods near the Russian River. When Korbel decided to get out of the beer business in 2003, they generously offered the brewmaster, Vinnie Cilurzo and his wife Natalie the rights to the brand. Russian River Brewing might be something completely different now if it weren't for this incredible opportunity.\r\nOn April 3, 2004, Vinnie and Natalie reopened RRBC as a brewpub in downtown Santa Rosa to great success and began self-distributing to nearby clients. In 2008, they opened a production brewery about 1 mile from their brewpub allowing them to triple production, take on more accounts locally, and distribute some beer in 4 more states.",
+            established: 1997,
+            city: "Santa Rosa",
+            state: "CA",
             country: "USA"
 
         },
         {
-            name: "Le Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1593811/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1992,
+            name: "Maine Beer Company",
+            image: "http://www.theforecaster.net/wp-content/uploads/2016/08/Maine_Beer_Company.jpg",
+            description: "Maine Beer Company is a very small micro brewery located in Portland, Maine.  We don\u2019t concentrate on any particular style of beer.  We don\u2019t do just  big beers or small beers or light beers or dark beers. \r\n\r\nOur production is limited and our process is slow (our beers are 100% bottle conditioned) but our dedication to brewing really good beer and doing what\u2019s right always comes first.",
+            established: 2009,
             city: "Paris",
             state: "NA",
             country: "France"
 
         },
         {
-            name: "Super Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1593840/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 2002,
-            city: "San Fransisco",
-            state: "CA",
+            name: "Tree House Brewing Company",
+            image: "http://valleyadvocate.com/wp-content/uploads/2016/11/PV-treehouse-4141-1024x666.jpg",
+            description: "Tree House Brewing Co. is an artisanal brewery located in a small red barn overlooking the Pioneer Valley in Monson, Massachusetts. We hand craft small batches of beer using well water and the finest ingredients available. Our goal is to make the best beer in the world at an exceptional value and without compromises. We hope to inspire friends and family, brothers and sisters, to share and enjoy our beer in the company of those they love - and to seek out like minded, passionate companies who are working on sustainable, local models that aim provide the customer with an exceptional drinking and culinary experience.\r\n\r\nWe think quality of life is less about the things you have and more about the experiences you enjoy and the friends you slow down and laugh with. This project is a natural extension of the simple life we aim to lead. We very much look forward to making friends with you along the way.\r\n\r\nFounded by:\r\n\r\nDean Rohan, Jonathan Weisbach, Damien Goudreau, & Nathan Lanier",
+            established: 2011,
+            city: "Freeport",
+            state: "ME",
             country: "USA"
 
         },
         {
-            name: "Another Brewery",
+            name: "Three Floyds Brewing Company",
             image: "https://assets3.thrillist.com/v1/image/1750134/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1952,
-            city: "Athens",
-            state: "GA",
+            description: "Three Floyds Brewing Company LLC was founded in 1996 by brothers Nick and Simon with their father Mike Floyd. The original brewery was built by Nick and Simon in a run down warehouse located in Hammond, Indiana. The first beers brewed by the brothers were designed to be a departure from the fairly bleak craft brewing scene in the region. Nick and Simon brewed intense balanced beers that were and still remain \u201cnot normal\u201d by conventional standards.\r\n\r\nIn November of 2005, after receiving numerous visitors to the brewery over the years, Three Floyds opened its own brewpub at the production facility. What was once office space is now a refuge for the craft beer enthusiast. With all the Three Floyds mainstays, seasonal offerings, special small batch beers and many guest beers it is a mecca for craft beer. The pub also has a full service kitchen providing pub fare of the best quality supported by a 3000 square foot organic herb and vegetable garden.",
+            established: 1996,
+            city: "Munster",
+            state: "IN",
             country: "USA"
 
         },
         {
-            name: "What a Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1596577/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1972,
+            name: "Pipeworks Brewing Company",
+            image: "http://beerpulse.com/wp-content/uploads/2011/11/Pipeworks-Brewing-logo.jpg",
+            description: "Pipeworks began, as many breweries do, in the stove top kettles and plastic-bucket fermenters of the home brewer. Beejay Oslon and Gerrit Lewis met while working at Chicago's famous West Lakeview Liquors, a haven for beer geeks in search of new and exciting brews from around the world. While working there, the two got to thinking it was time to turn their passion in to a business.\r\n\r\n The first steps in that long journey  took them to a the small town of Lo in the Belgian countryside. It was there that the Pipeworks boys lived and worked with Urbain Coutteau owner and brewer at the De Struise Brewery. While working there the boys honed their craft, learned the ins and outs of running a brewery, and had the opportunity to create their first commercially available beers. The success of these brews fueled their passion and prepared them for the work ahead of them.\r\n\r\n Upon coming back to the States the two began experimenting with pilot batches, formulating a business plan, and developing an image for Pipeworks.\r\n\r\n Now we are ready to bring what we've learned to the craft beer world!",
+            established: 2009,
             city: "Chicago",
             state: "IL",
             country: "USA"
 
         },
         {
-            name: "Cerveza Brewery",
+            name: "Hill Farmstead Brewery",
             image: "https://assets3.thrillist.com/v1/image/1596588/size/tl-horizontal_main.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1942,
-            city: "Barcelona",
-            state: "NA",
-            country: "Spain"
-
-        },
-        {
-            name: "Wonderful Brewery",
-            image: "https://assets3.thrillist.com/v1/image/1489122/size/tmg-article_default_mobile.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1962,
-            city: "Providence",
-            state: "RI",
+            description: "Hill Farmstead Brewery is the culmination of travel and insight, of friendships and explorations, and of realizing a sense of one\u2019s place.  Upon the hand hewn land of our forebears, we honor eight generations of Greensboro ancestry by thoughtfully engaging with our heritage and with our distinctive beers. This offering is our effort to revive, diversify, and prolong the memory of the Hill Farmstead. Share. Consider. Enjoy.",
+            established: 2010,
+            city: "Greensboro Bend",
+            state: "VT",
             country: "USA"
 
         },
         {
-            name: "NYC Brewery",
-            image: "https://i1.wp.com/aladyofleisure.com/wp-content/uploads/2014/05/Reception-e1461172304195.jpg?zoom=2&resize=672%2C372",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            name: "de Garde Brewing",
+            image: "http://4.bp.blogspot.com/-rDCsYkXAnbk/UT0N8CInlpI/AAAAAAAASgU/bAVM8yU-8FI/s640/De+Garde+Brewing+logo.jpg",
+            description: "We are a small rural brewery specializing in many diverse styles of ales, but with a focus on spontaneous fermentations inspired by the European farmhouse traditions.",
+            established: 2013,
+            city: "Tillamook",
+            state: "OR",
+            country: "USA"
+
+        },
+        {
+            name: "Other Half Brewing Co.",
+            image: "http://idrinkgoodbeer.com/wp-content/uploads/2015/04/Other-Half-Brewing-Brooklyn.jpg",
+            description: "Craft Brewery specializing in IPA's and Sours",
             established: 2011,
-            city: "New York",
+            city: "Brookylyn",
             state: "NY",
             country: "USA"
 
         },
         {
-            name: "Getting Bored Brewery",
-            image: "https://stepoutbuffalo.com/wp-content/uploads/2015/11/new-york-beer-project-outside.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1969,
-            city: "Raleigh",
-            state: "NC",
+            name: "Jester King Brewery",
+            image: "http://jesterkingbrewery.com/images/1430.jpg",
+            description: "Located in the beautiful Texas Hill Country, Jester King Craft Brewery is an authentic farmhouse brewery committed to brewing artisan ales of great depth and character. At times drawing influences from the world beyond traditional brewers\u2019 yeast, Jester King\u2019s beer is not rushed to market but allowed to mature \u2013 often in oak barrels \u2013 to create the most enjoyable, interesting and exciting beer we can make. An additional layer of complexity is added to Jester King\u2019s bottled beers by allowing a second fermentation to take place in the bottle. As part of its commitment to sustainability, the slow food movement and Texas, Jester King beer uses as many organic and local ingredients as possible and will soon be brewed with harvested rainwater.",
+            established: 2010,
+            city: "Austin",
+            state: "TX",
             country: "USA"
 
         },
         {
-            name: "The LAST Brewery",
-            image: "https://i.pinimg.com/originals/ab/3e/73/ab3e7367d6bd16e581b4f3c74107e20e.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            established: 1890,
-            city: "Portland",
-            state: "OR",
+            name: "Tired Hands Brewing Company",
+            image: "http://idrinkgoodbeer.com/wp-content/uploads/2015/05/Tired-Hands-Brewing-Company-Fermentaria-2.jpg",
+            description: "We value local over imported, small batches over mass production, and striking a successful balance between giving back to our community and personal profit. Localization guides everything we do, from sourcing raw ingredients and materials, to employing area talent.\r\n\r\nTired Hands Brewing Company will operate at 16 Ardmore Avenue, Ardmore Pa, on a six barrel brewhouse. We will focus our brewing on two very broad styles of beers that hold a special place in my heart: Belgian\/French farmhouse ales and American hop-forward ales.\r\n\r\nAll cheeses, meats, and seasonal produce served at our cafe (simple and satisfying fare from honest local producers) will be sourced from within 100 miles of our brewery.",
+            established: 2011,
+            city: "Ardmore",
+            state: "PA",
             country: "USA"
 
         }
@@ -229,145 +241,200 @@ var data = {
     //products: name, image, inventory, price, packaging, description, abv, breweryId, styleId
     product: [
         {
-            name: "beer1",
-            image: "http://s3.amazonaws.com/simplemost/wp-content/uploads/2015/09/15222355/pumpkick_l.png",
-            inventory: 3,
-            price: 13.99,
-            packaging: "6 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 3.4,
+            name: "Heady Topper",
+            image: "https://static1.squarespace.com/static/52810817e4b0a82a769586ee/t/54d92c18e4b0f7abf28c9044/1423518746915/?format=300w",
+            inventory: 5,
+            price: 12.50,
+            packaging: "4 pack",
+            description: "We love hops – that’s why our flagship Double IPA, Heady Topper, is packed full of them. Heady Topper was designed to showcase the complex flavors and aromas these flowers produce. The Alchemist has been brewing Heady Topper since 2003. This Double IPA is not intended to be the strongest or most bitter DIPA. It is brewed to give you wave after wave of hop flavor without any astringent bitterness. We brew Heady Topper with a proprietary blend of six hops – each imparting its own unique flavor and aroma. Take a big sip of Heady and see what hop flavors you can pick out. Orange? Tropical Fruit? Pink Grapefruit? Pine? Spice? There is just enough malt to give this beer some backbone, but not enough to take the hops away from the center stage.",
+            abv: 8.00,
             breweryId: 1,
             styleId: 1
         },
         {
-            name: "beer2",
-            image: "http://dbertolineandsons.com/wp-content/uploads/2016/08/shock-top-belgian-white-6pack.png",
+            name: "Focal Banger",
+            image: "https://cdn.gearpatrol.com/wp-content/uploads/2016/04/Best-IPA-Gear-Patrol-_0015_CQ0A9534.jpg",
             inventory: 6,
-            price: 14.99,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 5.4,
-            breweryId: 2,
+            price: 15.00,
+            packaging: "4 pack",
+            description: "Focal Banger is an American India Pale Ale. We have a real love for IPAs here at Alchemist, and we strive to offer you the best hop experience that we possibly can. \r\n\r\nThis beer is brewed using Citra and Mosaic hops and our favorite British malts. Truly an abundance of hoppy goodness...\r\n\r\nFreshness and control have always been my main concern when it comes to our beer. We are committed to providing you with an unfiltered and unpasteurized hop experience.",
+            abv: 7.0,
+            breweryId: 1,
             styleId: 2
         },
         {
-            name: "beer3",
-            image: "https://i.pinimg.com/originals/bf/64/8b/bf648b0be06d761df4a2057660968589.png",
+            name: "Pliny The Elder",
+            image: "https://48tk9j3a74jb133e1k2fzz2s-wpengine.netdna-ssl.com/wp-content/uploads/2015/05/Pliny-The-Elder-bottle.jpg",
             inventory: 10,
             price: 19.99,
-            packaging: "12 pack",
+            packaging: "4 pack",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 9.4,
-            breweryId: 3,
-            styleId: 3
-        },
-        {
-            name: "beer4",
-            image: "http://images.mentalfloss.com/sites/default/files/styles/insert_main_wide_image/public/citradelic_l.png",
-            inventory: 100,
-            price: 12.99,
-            packaging: "6 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 2.4,
-            breweryId: 4,
-            styleId: 4
-        },
-        {
-            name: "beer5",
-            image: "https://lh3.googleusercontent.com/-B6PQsCgyDYU/WbvxKfpE5NI/AAAAAAAFCLY/kZij3oGkrnwZThyRZwOWjTtmLzSBVgmqQCHMYCw/lab1_thumb%255B3%255D?imgmax=800",
-            inventory: 299,
-            price: 18.99,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 7.4,
-            breweryId: 5,
+            abv: 8.00,
+            breweryId: 2,
             styleId: 1
         },
         {
-            name: "beer6",
-            image: "http://images.mentalfloss.com/sites/default/files/styles/insert_main_wide_image/public/PILS-Photo-6-pack-Profile.png",
-            inventory: 188,
-            price: 16.99,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 6.4,
-            breweryId: 6,
-            styleId: 2
-        },
-        {
-            name: "beer7",
-            image: "https://ei.marketwatch.com/Multimedia/2015/07/10/Photos/NS/MW-DP862_transa_20150710111402_NS.png?uuid=4c820ea4-2716-11e5-90bf-0015c588dfa6",
-            inventory: 28,
-            price: 10.99,
-            packaging: "6 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 5.6,
-            breweryId: 7,
+            name: "Supplication",
+            image: "http://draftmag.com/wp-content/uploads/2016/11/WEB_20161122_Supplication_small.jpg",
+            inventory: 48,
+            price: 12.99,
+            packaging: "375 ml BTL",
+            description: "Brown Ale aged in used Pinot Noir barrels from local Sonoma County wineries. It is aged for about 12 months with sour cherries, brettanomyces, lactobacillus, and pediococcus added to each barrel. Flavors from the cherries, Pinot Noir and oak balance each other nicely with a little funk from the brett.",
+            abv: 7.00,
+            breweryId: 2,
             styleId: 3
         },
         {
-            name: "beer8",
-            image: "http://www.americancraftbeer.com/wp-content/uploads/2016/09/Hardywood-VIPA.png",
+            name: "Consecration",
+            image: "https://www.porchdrinking.com/wp-content/uploads/2015/08/Consecration.jpg",
+            inventory: 64,
+            price: 14.99,
+            packaging: "375 ml BTL",
+            description: "Dark Ale aged in Cabernet Sauvignon barrels from local wineries. It is aged for 4 to 8 months with black currants, brettanomyces, lactobacillus, and pediococcus added to each barrel. Rich flavors of chocolate truffle, spice, tobacco, currants, and a bit of Cabernet. Very full-bodied, sip slowly!",
+            abv: 10,
+            breweryId: 2,
+            styleId: 3
+        },
+        {
+            name: "Julius",
+            image: "https://static1.squarespace.com/static/501bb93ec4aa651f100e3b0f/5648e70fe4b0c64ed27ad823/5648e86ee4b0e20612058137/1447618686616/IMG_5760.jpg?format=2500w",
+            inventory: 48,
+            price: 18.99,
+            packaging: "6 pack",
+            description: "Bursting with 1.6 oz per gallon of American hops, Julius is loaded with notes of passionfruit, mango, and citrus. At 6.8% alcohol, it is refreshing and freakishly drinkable.",
+            abv: 6.8,
+            breweryId: 4,
+            styleId: 2
+        },
+        {
+            name: "Dinner",
+            image: "http://cdn1.bostonmagazine.com/wp-content/uploads/2015/10/bottle-dinner.jpg",
+            inventory: 28,
+            price: 9.99,
+            packaging: "375 ml BTL",
+            description: "Our first Double IPA – dry, refreshing and hoppy. We really focused on hop flavor and aroma here. To maximize hop character, we dry hopped Dinner twice with over 6 lbs. of hops per barrel. For the best experience, please enjoy fresh as possible.",
+            abv: 8.2,
+            breweryId: 3,
+            styleId: 1
+        },
+        {
+            name: "MO",
+            image: "https://static1.squarespace.com/static/56f17f6f45bf211d1030c046/t/57ebaa74d482e9f4d47af121/1475062391763/DSC_3288+%282000x1841%29.jpg",
             inventory: 2,
             price: 13.99,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 9.0,
-            breweryId: 8,
+            packaging: "375 ml BTL",
+            description: "Our first run at an American Pale Ale. Flavors and aromas of zesty citrus, passionfruit, and pine present themselves throughout. A very subtle malt sweetness for balance, but this is intended to finish dry.Just after opening our brewery, working long nights, weekends, and still maintaining our day jobs, my brother Daniel (the brewer) had twins. Cheers to his courage and dedication to making better beer.",
+            abv: 6.0,
+            breweryId: 3,
             styleId: 4
         },
         {
-            name: "beer9",
-            image: "https://cdn.shopify.com/s/files/1/0227/0581/products/custom_resized_c512ed9b-6599-4bc8-813e-1c095ff5eade.png?v=1509655559",
+            name: "Zombie Dust",
+            image: "https://48tk9j3a74jb133e1k2fzz2s-wpengine.netdna-ssl.com/wp-content/uploads/2014/11/3-Floyds-Zombie-Dust-Six-pack.jpg",
             inventory: 10,
-            price: 6.99,
+            price: 22.00,
             packaging: "6 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 5.4,
+            description: "This intensely hopped and gushing undead Pale Ale will be one’s only respite after the zombie apocalypse. Created with our marvelous friends in the comic industry. 60 IBU. Formerly known as Cenotaph: A medium bodied single hop beer showcasing Citra hops from the Yakima Valley, USA.",
+            abv: 6.2,
+            breweryId: 5,
+            styleId: 4
+        },
+        {
+            name: "Lizard King",
+            image: "http://www.archerliquors.com/Pipeworks/all_files/Pipeworks%20Lizard%20King%401x.png",
+            inventory: 9,
+            price: 15.99,
+            packaging: "4 pack",
+            description: "Throughout the epic battle, the Ninjas and the Unicorns have been waiting for something, anything, to tip the scale in their favor. After all, The Unicorns and The Ninjas have been fighting this epic battle for nearly and epoch. In this age-old battle, will the Lizard King be the one to end the battle? Will there finally be peace among the two warring parties? Will this be the end of rhetorical questions?!",
+            abv: 6.00,
+            breweryId: 10,
+            styleId: 4
+        },
+        {
+            name: "Anna",
+            image: "http://cdn.pastemagazine.com/www/articles/hill%20farmstead%20anna%20%28Custom%29.jpg",
+            inventory: 9,
+            price: 15.99,
+            packaging: "750 ml BTL",
+            description: "Anna is Bière de Miel, brewed with 20% raw wildflower Vermont honey and our house saison yeast.",
+            abv: 6.4,
+            breweryId: 10,
+            styleId: 5
+        },
+        {
+            name: "Nectarine Premiere",
+            image: "https://scontent-sea1-1.cdninstagram.com/t51.2885-15/s480x480/e35/c148.0.783.783/17663627_1030054860472685_6283648887622205440_n.jpg?ig_cache_key=MTQ4NjU2MzY1MzY2Mjg3Mjk0Mg%3D%3D.2.c",
+            inventory: 12,
+            price: 13.99,
+            packaging: "750 ml BTL",
+            description: "A Wild Farmhouse Ale Aged in Oak Barrels with Nectarines",
+            abv: 7.1,
+            breweryId: 10,
+            styleId: 5
+        },
+        {
+            name: "Double Dry Hopped Double Mosaic Dream",
+            image: "https://res.cloudinary.com/ratebeer/image/upload/w_250,c_limit/beer_452212.jpg",
+            inventory: 11,
+            price: 22,
+            packaging: "6 pack",
+            description: "Double Dry Hopped Double Mosaic Dream is our standard Double Mosaic dry hopped a second time with a mosaic lupulin powder. Lupulin powder is a new hop product that is similar to our standard hops but with all the extra plant filler stripped away. It’s pure hops and it’s awesome.",
+            abv: 8.5,
             breweryId: 9,
             styleId: 1
         },
         {
-            name: "beer10",
-            image: "http://www.newyorkbeverage.com/wp-content/uploads/2016/07/domestic-beer.png",
-            inventory: 9,
-            price: 15.99,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 6.4,
-            breweryId: 10,
-            styleId: 2
+            name: "DDH DAYDREAM IN GREEN",
+            image: "https://www.mybeercollectibles.com/uploads/cache/26154391_309801732843681_5175791932231647232_n-500x500-crop.jpg",
+            inventory: 12,
+            price: 20.00,
+            packaging: "4 pack",
+            description: "Double dry hopped imperial oat IPA w / citra, motueka + wai-iti",
+            abv: 8.0,
+            breweryId: 9,
+            styleId: 1
         },
         {
-            name: "beer11",
-            image: "http://theaposition.com/tombedell/wp-content/uploads/sites/15/2014/09/FW-oaktoberfest.png",
+            name: "Atrial Rubicite",
+            image: "https://farm5.staticflickr.com/4294/35869150971_ec942d70fa_z.jpg",
+            inventory: 11,
+            price: 18,
+            packaging: "750 ml BTL",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
+            abv: 5.80,
+            breweryId: 10,
+            styleId: 6
+        },
+        {
+            name: "Omniscience & Proselytism",
+            image: "https://farm8.staticflickr.com/7129/27078857403_5343878d17_z.jpg",
             inventory: 11,
             price: 11.11,
-            packaging: "11 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 11.1,
-            breweryId: 11,
-            styleId: 3
+            packaging: "750 ml BTL",
+            description: "Ale Refermented in Oak Barrels With Strawberries: Strawberries from Fredericksburg, Texas were added to oak barrels containing mature sour beer. The beer was then allowed to referment to dryness. Unfiltered, unpasteurized and naturally conditioned. The name Omniscience & Proselytism does not refer to any claims of inducing omniscience.",
+            abv: 5.0,
+            breweryId: 10,
+            styleId: 6
         },
         {
-            name: "beer12",
-            image: "http://ipourit.ipourit.netdna-cdn.com/images/beer/eead27b8-d554-4da5-a454-734df4de1895_PipelinePorter_600.png",
-            inventory: 12,
-            price: 12.12,
-            packaging: "12 pack",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            abv: 6.6,
-            breweryId: 1,
-            styleId: 4
+            name: "Alien Church",
+            image: "https://3.bp.blogspot.com/-oAYAKQ4mocs/WRxGLTEtN2I/AAAAAAAAFRc/dY4OMkBblK0b4sa1hIvluSo3yVg3gXvuwCLcB/s1600/DSC_0687.JPG",
+            inventory: 24,
+            price: 7.0,
+            packaging: "4 pack",
+            description: "IPA Brewed with oats. Hopped with Mosaic, Citra, Chinook, Centennial and Columbus. An otherworldly IPA. Bow down before the ALien Church! Notes of blueberries, fresh orange slices, dank, deep pine, honeydew melons.",
+            abv: 5.0,
+            breweryId: 11,
+            styleId: 2
         }
 
      ]}
      var data2 = {reviews: [
         {
-            content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in diam nec orci dignissim iaculis sit amet sit amet diam. In quis mollis felis. In aliquam libero vitae leo vehicula, vulputate consectetur libero eleifend. Aenean feugiat dolor id orci euismod, quis vehicula eros luctus. Aenean eget mauris ac lorem condimentum venenatis id non massa.",
-            rating: 2,
+            content: " Another beer from Houser, thank you, sir. Poured into a pint glass at 38 degrees. A white foamy and airy two finger head with okay retention. The head slowly dissipates and tats lacing on the glass. The color of the beer is SRM 4 a pale gold color. The clarity of the beer is hazy. The initial aroma is pine, grass, tropical, grapefruit and floral. Additional flavors are lightly toasted malt, resin, crackers, and yeast. The hops citrus flavors dominate the other lesser flavors of floral, pine, resin, and grass. Additional flavors in the beer are crackers, toasted malt, herbal, and a touch of phenols. The mouthfeel of the beer is astringent and murky. The body of the beer is medium, the carbonation is medium, and a medium finish. The beer leans towards a New England IPA, citrus dominate hops with supporting actors. Love the can art. I am glad I got to try this IPA.",
+            rating: 4,
             userId: 3,
-            productId: 8
+            productId: 17
 
         },
         {
@@ -484,7 +551,8 @@ var data = {
             state: 'NY',
             total:  150.00,
             status: 'PROCESSING',
-            userId: 9
+            userId: 9,
+            updatedAt: '2018-01-10 18:10:21.394-05'
         },
         {
             name: 'Wayne Lame',
@@ -494,7 +562,8 @@ var data = {
             state: 'NY',
             total: 38.00,
             status: 'COMPLETED',
-            userId: 10
+            userId: 10,
+            updatedAt: '2018-01-11 18:10:21.394-05'
         },
         {
 
@@ -505,7 +574,8 @@ var data = {
             state: 'NY',
             total:  48.00,
             status: 'CANCELLED',
-            userId: 11
+            userId: 11,
+            updatedAt: '2018-01-12 18:10:21.394-05'
         },
         {
 
@@ -516,7 +586,8 @@ var data = {
             state: 'NY',
             total: 100.00,
             status: 'PROCESSING',
-            userId: 12
+            userId: 12,
+            updatedAt: '2018-01-12 18:10:21.394-05'
         },
         {
             name: 'Taylor Jones',
@@ -526,7 +597,8 @@ var data = {
             state: 'NY',
             total: 500.00,
             status: 'COMPLETED',
-            userId: 13
+            userId: 13,
+            updatedAt: '2018-01-13 18:10:21.394-05'
         },
         {
 
@@ -537,7 +609,8 @@ var data = {
             state: 'NY',
             total: 40.00,
             status: 'CREATED',
-            userId: 14
+            userId: 14,
+            updatedAt: '2018-01-14 18:10:21.394-05'
         },
         {
             name: 'This Is Name',
@@ -547,7 +620,8 @@ var data = {
             state: 'NY',
             total: '150',
             status: 'CANCELLED',
-            userId: 15
+            userId: 15,
+            updatedAt: '2018-01-14 18:10:21.394-05'
         },
         {
             name: 'Another Name',
@@ -557,7 +631,8 @@ var data = {
             state: 'NY',
             total: 68.00,
             status: 'PROCESSING',
-            userId: 16
+            userId: 16,
+            updatedAt: '2018-01-15 18:10:21.394-05'
         }
       ]}
 
