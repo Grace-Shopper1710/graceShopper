@@ -3,7 +3,11 @@
 *An e-commerce store for craft beers*
 
 NYC Craft is an e-commerce store that offers a variety of craft beers.
-Visit http://beer-beer-beer-beer-beer.herokuapp.com/ 
+
+Visit: http://beer-beer-beer-beer-beer.herokuapp.com/ 
+
+![alt text](https://raw.githubusercontent.com/Grace-Shopper1710/graceShopper/imgs/NYCCraft.png)
+
 
 ### Shoppers
 
